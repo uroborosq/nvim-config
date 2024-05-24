@@ -18,4 +18,3 @@ end
 require "lazy_setup"
 require "polish"
 
-vim.o.background = "dark" -- or "light" for light mode

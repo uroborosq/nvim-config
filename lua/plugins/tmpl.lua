@@ -1,4 +1,3 @@
 return {
     "jgoguen/tmpl.vim",
-    
 }
