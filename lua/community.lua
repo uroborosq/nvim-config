@@ -38,4 +38,6 @@ return {
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
   -- { import = "lua.astrocommunity.completion.cmp-git" },
   { import = "astrocommunity.lsp.nvim-lint" },
+  { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
+  { import = "astrocommunity.recipes.neovide" },
 }

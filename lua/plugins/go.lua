@@ -4,7 +4,6 @@ return {
     optional = true,
     ---@type AstroLSPOpts
     opts = {
-      ---@diagnostic disable-next-line: missing-fields
       config = {
         gopls = {
           settings = {
@@ -42,7 +41,7 @@ return {
               },
               buildFlags = { "-tags", "integration" },
               completeUnimported = true,
-              diagnosticsDelay = "500ms",
+              diagnosticsDelay = "50ms",
               matcher = "Fuzzy",
               semanticTokens = true,
               staticcheck = true,
