@@ -36,5 +36,6 @@ return {
   { import = "astrocommunity.completion.coq_nvim" },
   -- { import = "astrocommunity.completion.mini-completion"},
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
+  -- { import = "lua.astrocommunity.completion.cmp-git" },
   { import = "astrocommunity.lsp.nvim-lint" },
 }
