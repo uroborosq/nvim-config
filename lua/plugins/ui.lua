@@ -1,4 +1,12 @@
 return {
+  ---@type LazySpec
+  {
+    "AstroNvim/astroui",
+    ---@type AstroUIOpts
+    opts = {
+      colorscheme = "bamboo",
+    },
+  },
   "ellisonleao/gruvbox.nvim",
   opts = {
     italic = {
@@ -15,6 +23,7 @@ return {
   "xero/miasma.nvim",
   "briones-gabriel/darcula-solid.nvim",
   "rktjmp/lush.nvim",
+    "ribru17/bamboo.nvim",
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
@@ -42,14 +51,6 @@ return {
       }
       return opts
     end,
-  },
-  ---@type LazySpec
-  {
-    "AstroNvim/astroui",
-    ---@type AstroUIOpts
-    opts = {
-      colorscheme = "miasma~",
-    },
   },
   {
     "AstroNvim/astrocore",

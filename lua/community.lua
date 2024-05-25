@@ -11,7 +11,7 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.go" },
+  -- { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },

@@ -13,6 +13,9 @@ return {
                     tmux = { enabled = false },
                     buffers = {
                         enabled = false,
+                    },
+                    treesitter = {
+                        enabled = false,
                     }
                 },
             },
