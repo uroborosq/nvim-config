@@ -32,6 +32,9 @@ return {
   { import = "astrocommunity.completion.coq_nvim" },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
   { import = "astrocommunity.lsp.nvim-lint" },
-  { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
+  -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
+  -- { import = "astrocommunity.diagnostics.error-lens-nvim" },
+    -- { import = "astrocommunity.diagnostics.trouble-nvim" },
+
   { import = "astrocommunity.recipes.neovide" },
 }
