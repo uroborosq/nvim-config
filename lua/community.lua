@@ -1,6 +1,5 @@
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
--- This guarantees that the specs are processed before any user plugins.
 
 ---@type LazySpec
 return {
@@ -12,6 +11,7 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
@@ -21,6 +21,7 @@ return {
   { import = "astrocommunity.editing-support.wildfire-nvim" },
   -- подсвечивать одинаковые слова
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
+  { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   { import = "astrocommunity.indent.indent-rainbowline" },
   { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
   { import = "astrocommunity.lsp.lsp-lens-nvim" },
