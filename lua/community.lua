@@ -1,9 +1,8 @@
--- AstroCommunity: import any community modules here
--- We import this file in `lazy_setup.lua` before the `plugins/` folder.
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+
+  -- programming languages
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.proto" },
@@ -11,30 +10,40 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.bash" },
+  -- it's easier to copy init.lua and change it
   -- { import = "astrocommunity.pack.go" },
+
+  -- unit tests support
   { import = "astrocommunity.test.neotest" },
+  -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
+
+  -- colorful delimiters for tabulations
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  -- some may be useful refactoring actions
   { import = "astrocommunity.editing-support.refactoring-nvim" },
+  -- ability to move lines up and down by <a-j> and <a-k>
   { import = "astrocommunity.editing-support.vim-move" },
+  -- multicursors
   { import = "astrocommunity.editing-support.vim-visual-multi" },
+  -- incremental selection
   { import = "astrocommunity.editing-support.wildfire-nvim" },
-  -- подсвечивать одинаковые слова
+
+  -- 
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   { import = "astrocommunity.indent.indent-rainbowline" },
+
   { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
   { import = "astrocommunity.lsp.lsp-lens-nvim" },
-  -- import/override with your plugins folder
   { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.utility.mason-tool-installer-nvim" },
   { import = "astrocommunity.completion.coq_nvim" },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
   { import = "astrocommunity.lsp.nvim-lint" },
+  { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
-  -- { import = "astrocommunity.diagnostics.error-lens-nvim" },
-    -- { import = "astrocommunity.diagnostics.trouble-nvim" },
-
+  { import = "astrocommunity.diagnostics.error-lens-nvim" },
   { import = "astrocommunity.recipes.neovide" },
 }
