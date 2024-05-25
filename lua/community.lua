@@ -39,11 +39,12 @@ return {
     { import = "astrocommunity.editing-support.conform-nvim" },
     { import = "astrocommunity.lsp.lsp-signature-nvim" },
     { import = "astrocommunity.utility.mason-tool-installer-nvim" },
-    { import = "astrocommunity.completion.coq_nvim" },
+    -- { import = "astrocommunity.completion.coq_nvim" },
     { import = "astrocommunity.editing-support.nvim-regexplainer" },
     { import = "astrocommunity.lsp.nvim-lint" },
     { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
     { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
     -- { import = "astrocommunity.diagnostics.error-lens-nvim" },
     { import = "astrocommunity.recipes.neovide" },
+    { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline"}
 }
