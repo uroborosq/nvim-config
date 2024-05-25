@@ -4,7 +4,7 @@ return {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
     opts = {
-      colorscheme = "bamboo",
+      colorscheme = "melange",
     },
   },
   "ellisonleao/gruvbox.nvim",
@@ -23,7 +23,7 @@ return {
   "xero/miasma.nvim",
   "briones-gabriel/darcula-solid.nvim",
   "rktjmp/lush.nvim",
-    "ribru17/bamboo.nvim",
+  "ribru17/bamboo.nvim",
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)

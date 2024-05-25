@@ -1,7 +1,6 @@
 return {
   "AstroNvim/astrocore",
   opts = {
-    -- vim options can be configured here
     options = {
       opt = {                   -- vim.opt.<key>
         relativenumber = false, -- sets vim.opt.relativenumber
