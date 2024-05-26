@@ -29,7 +29,7 @@ return {
     -- incremental selection
     { import = "astrocommunity.editing-support.wildfire-nvim" },
 
-    --
+    
     { import = "astrocommunity.bars-and-lines.vim-illuminate" },
     { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
     { import = "astrocommunity.indent.indent-rainbowline" },
