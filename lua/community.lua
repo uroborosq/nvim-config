@@ -2,17 +2,6 @@
 return {
     "AstroNvim/astrocommunity",
 
-    -- programming languages
-    { import = "astrocommunity.pack.lua" },
-    { import = "astrocommunity.pack.docker" },
-    { import = "astrocommunity.pack.proto" },
-    { import = "astrocommunity.pack.yaml" },
-    { import = "astrocommunity.pack.json" },
-    { import = "astrocommunity.pack.markdown" },
-    { import = "astrocommunity.pack.bash" },
-    -- it's easier to copy init.lua and change it
-    -- { import = "astrocommunity.pack.go" },
-
     -- unit tests support
     { import = "astrocommunity.test.neotest" },
     -- show unit tests coverage
@@ -43,8 +32,8 @@ return {
     { import = "astrocommunity.editing-support.nvim-regexplainer" },
     { import = "astrocommunity.lsp.nvim-lint" },
     { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
-    { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
+    -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
     -- { import = "astrocommunity.diagnostics.error-lens-nvim" },
     { import = "astrocommunity.recipes.neovide" },
-    { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline"}
-}
+    -- { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline"},
+ }

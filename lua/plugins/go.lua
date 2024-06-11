@@ -112,11 +112,17 @@ return {
             },
           },
         },
-         capabilities = {
-    textDocument = {
-      foldingRange = { dynamicRegistration = false },
-    },
-  },
+        capabilities = {
+          textDocument = {
+            foldingRange = { dynamicRegistration = true },
+          },
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+            workspaceFolders = true
+          },
+        },
       },
     },
   },
@@ -196,12 +202,12 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-      "fredrikaverpil/neotest-golang",   -- Installation
+      "fredrikaverpil/neotest-golang", -- Installation
     },
     config = function()
       require("neotest").setup({
         adapters = {
-          require("neotest-golang"),   -- Registration
+          require("neotest-golang"), -- Registration
         },
       })
     end,
