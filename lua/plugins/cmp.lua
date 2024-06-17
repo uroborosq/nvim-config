@@ -10,13 +10,13 @@ return { -- override nvim-cmp plugin
             { name = "nvim_lsp", priority = 1000 },
             -- { name = "luasnip",  priority = 750 },
         })
-        opts.sorting = {
-            comparators = {
-            cmp.config.compare.scopes,
-            cmp.config.compare.kind,
-            cmp.config.compare.exact,
-            }
-        }
+        -- opts.sorting = {
+        --     comparators = {
+        --     cmp.config.compare.scopes,
+        --     cmp.config.compare.kind,
+        --     cmp.config.compare.exact,
+        --     }
+        -- }
     end,
 }
 -- return {}
