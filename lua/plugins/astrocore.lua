@@ -12,8 +12,6 @@ return {
                 shiftwidth = 4,
                 softtabstop = 4,
                 expandtab = true,
-                colorcolumn = "120",
-                exrc = true,
             },
         },
     },

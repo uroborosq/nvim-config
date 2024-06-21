@@ -6,6 +6,7 @@ return {
     { import = "astrocommunity.test.neotest" },
     -- show unit tests coverage
     --
+    { import = "astrocommunity.pack.lua" },
     { import = "astrocommunity.pack.bash" },
     { import = "astrocommunity.pack.docker" },
     { import = "astrocommunity.pack.json" },
