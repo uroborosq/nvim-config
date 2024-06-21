@@ -1,16 +1,16 @@
 return {
-    "ray-x/go.nvim",
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    build = function()
+        if not require("lazy.core.config").spec.plugins["mason.nvim"] then
+            vim.print "Installing go dependencies..."
+            vim.cmd.GoInstallDeps()
+        end
+    end,
     dependencies = {
-        "ray-x/guihua.lua",
-        "neovim/nvim-lspconfig",
+        "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
+        { "williamboman/mason.nvim", optional = true }, -- by default use Mason for go dependencies
     },
-    opts = {
-        disable_defaults = true,
-    },
-    event = { "CmdlineEnter" },
-    ft = { "go", "gomod" },
-    -- Prevents Neovim from freezing on plugin installation/update.
-    -- See: <https://github.com/ray-x/go.nvim/issues/433>
-    build = function() require("go.install").update_all() end,
+    opts = {},
 }

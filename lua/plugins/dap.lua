@@ -4,7 +4,7 @@ return {
         ft = "go",
         dependencies = {
             "mfussenegger/nvim-dap",
-                    },
+        },
         config = function()
             require("dap-go").setup {
                 dap_configurations = {

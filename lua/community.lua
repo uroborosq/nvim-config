@@ -5,6 +5,12 @@ return {
     -- unit tests support
     { import = "astrocommunity.test.neotest" },
     -- show unit tests coverage
+    --
+    { import = "astrocommunity.pack.bash" },
+    { import = "astrocommunity.pack.docker" },
+    { import = "astrocommunity.pack.json" },
+    { import = "astrocommunity.pack.yaml" },
+    { import = "astrocommunity.pack.proto" },
     { import = "astrocommunity.test.nvim-coverage" },
 
     -- colorful delimiters for tabulations
@@ -18,22 +24,18 @@ return {
     -- incremental selection
     { import = "astrocommunity.editing-support.wildfire-nvim" },
 
-    
     { import = "astrocommunity.bars-and-lines.vim-illuminate" },
     { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
     { import = "astrocommunity.indent.indent-rainbowline" },
+    { import = "astrocommunity.utility.neodim" },
 
     { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
     { import = "astrocommunity.lsp.lsp-lens-nvim" },
     { import = "astrocommunity.editing-support.conform-nvim" },
     { import = "astrocommunity.lsp.lsp-signature-nvim" },
     { import = "astrocommunity.utility.mason-tool-installer-nvim" },
-    -- { import = "astrocommunity.completion.coq_nvim" },
     { import = "astrocommunity.editing-support.nvim-regexplainer" },
     { import = "astrocommunity.lsp.nvim-lint" },
     { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
-    -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
-    -- { import = "astrocommunity.diagnostics.error-lens-nvim" },
     { import = "astrocommunity.recipes.neovide" },
-    -- { import = "astrocommunity.pack.rainbow-delimiter-indent-blankline"},
- }
+}

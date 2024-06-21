@@ -55,6 +55,10 @@ return {
                     textDocument = {
                         foldingRange = { dynamicRegistration = true },
                     },
+                    go = {
+                        foldingRange = { dynamicRegistration = true },
+                    },
+
                     workspace = {
                         didChangeWatchedFiles = {
                             dynamicRegistration = true,
