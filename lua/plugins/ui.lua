@@ -17,7 +17,7 @@ return {
         },
     },
     { "olivercederborg/poimandres.nvim", opts = {} },
-    { "AlexvZyl/nordic.nvim",            opts = {} },
+    { "AlexvZyl/nordic.nvim", opts = {} },
     "sainnhe/everforest",
     "savq/melange-nvim",
     "ramojus/mellifluous.nvim",
