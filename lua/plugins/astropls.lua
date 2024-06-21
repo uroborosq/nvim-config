@@ -51,21 +51,21 @@ return {
                         },
                     },
                 },
-                capabilities = {
-                    textDocument = {
-                        foldingRange = { dynamicRegistration = true },
-                    },
-                    go = {
-                        foldingRange = { dynamicRegistration = true },
-                    },
-
-                    workspace = {
-                        didChangeWatchedFiles = {
-                            dynamicRegistration = true,
-                        },
-                        workspaceFolders = true,
-                    },
-                },
+                -- capabilities = {
+                --     textDocument = {
+                --         foldingRange = { dynamicRegistration = true },
+                --     },
+                --     go = {
+                --         foldingRange = { dynamicRegistration = true },
+                --     },
+                --
+                --     workspace = {
+                --         didChangeWatchedFiles = {
+                --             dynamicRegistration = true,
+                --         },
+                --         workspaceFolders = true,
+                --     },
+                -- },
             },
         },
     },
