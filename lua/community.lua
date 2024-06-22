@@ -29,7 +29,7 @@ return {
     { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
     { import = "astrocommunity.indent.indent-rainbowline" },
     { import = "astrocommunity.utility.neodim" },
-
+    { import = "astrocommunity.remote-development.distant-nvim" },
     { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
     { import = "astrocommunity.lsp.lsp-lens-nvim" },
     { import = "astrocommunity.editing-support.conform-nvim" },
