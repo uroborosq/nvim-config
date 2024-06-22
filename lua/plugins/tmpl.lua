@@ -1,4 +1,0 @@
-return {
-    "jgoguen/tmpl.vim",
-}
-
