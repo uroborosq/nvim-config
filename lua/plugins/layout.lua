@@ -15,8 +15,19 @@ return {
             },
         },
         opts = {
-            exit_when_last = true,
+            exit_when_last = false,
+            animate = {
+                enabled = false,
+            },
             bottom = {
+                {
+                    title = "Terminal",
+                    ft = "toggleterm",
+                    size = { height = 0.3 },
+                    filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
+                    open = "ToggleTerm direction=horizontal",
+                    pinned = true,
+                },
                 { ft = "qf", title = "QuickFix" },
                 {
                     ft = "help",
@@ -24,31 +35,19 @@ return {
                     -- don't open help files in edgy that we're editing
                     filter = function(buf) return vim.bo[buf].buftype == "help" end,
                 },
+                {
+                    title = "Test output",
+                    ft = "neotest-output-panel",
+                    open = function() require("neotest").output_panel() end,
+                }
             },
             left = {
                 {
-                    title = "Files",
+                    title = "tree",
                     ft = "neo-tree",
-                    filter = function(buf) return vim.b[buf].neo_tree_source == "filesystem" end,
                     pinned = true,
-                    open = "Neotree position=left filesystem",
-                    size = { height = 0.5 },
+                    open = "Neotree position=left",
                 },
-                {
-                    title = "Git Status",
-                    ft = "neo-tree",
-                    filter = function(buf) return vim.b[buf].neo_tree_source == "git_status" end,
-                    pinned = true,
-                    open = "Neotree position=right git_status",
-                },
-                {
-                    title = "Buffers",
-                    ft = "neo-tree",
-                    filter = function(buf) return vim.b[buf].neo_tree_source == "buffers" end,
-                    pinned = true,
-                    open = "Neotree position=top buffers",
-                },
-                "neo-tree",
             },
             right = {
                 {
@@ -56,6 +55,11 @@ return {
                     title = "Symbol Outline",
                     pinned = true,
                     open = function() require("aerial").open() end,
+                },
+                {
+                    ft = "neotest-summary",
+                    open = function() require("neotest").summary.toggle() end,
+                    pinned = true,
                 },
             },
             keys = {
@@ -67,16 +71,6 @@ return {
                 ["<C-Up>"] = function(win) win:resize("height", 2) end,
                 -- decrease height
                 ["<C-Down>"] = function(win) win:resize("height", -2) end,
-            },
-        },
-    },
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        optional = true,
-        opts = {
-            source_selector = {
-                winbar = false,
-                statusline = false,
             },
         },
     },
