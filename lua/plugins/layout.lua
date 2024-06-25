@@ -39,7 +39,7 @@ return {
                     title = "Test output",
                     ft = "neotest-output-panel",
                     open = function() require("neotest").output_panel() end,
-                }
+                },
             },
             left = {
                 {
