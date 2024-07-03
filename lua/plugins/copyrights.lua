@@ -1,6 +1,6 @@
 return {
     {
-        dir = "/home/uroborosq/desktop/neovim/neovim-header",
+        "uroborosq/neovim-header",
         ---@type neovim-header.Config
         opts = {},
     },
