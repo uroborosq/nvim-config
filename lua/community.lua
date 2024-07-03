@@ -57,6 +57,4 @@ return {
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     -- pure lua fzf
     { import = "astrocommunity.fuzzy-finder.fzf-lua" },
-    -- neovim development
-    { import = "astrocommunity.neovim-lua-development.lazydev-nvim" },
-}
+   }
