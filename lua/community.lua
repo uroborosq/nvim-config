@@ -52,8 +52,6 @@ return {
     -- settings for neovide client
     { import = "astrocommunity.recipes.neovide" },
     -- auto restore session in opened dir
-    { import = "astrocommunity.recipes.auto-session-restore" },
-    -- manage toggleterm tabs with telescope
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     -- pure lua fzf
     { import = "astrocommunity.fuzzy-finder.fzf-lua" },
