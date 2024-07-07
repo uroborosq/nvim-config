@@ -1,5 +1,8 @@
 return {
     {
+        "fredrikaverpil/neotest-golang",
+    },
+    {
         "nvim-neotest/neotest",
         dependencies = {
             "nvim-neotest/nvim-nio",
@@ -11,7 +14,7 @@ return {
         config = function()
             require("neotest").setup {
                 adapters = {
-                    require "neotest-golang", -- Registration
+                    require "neotest-golang", -- Apply configuration
                 },
             }
         end,
