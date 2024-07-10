@@ -6,7 +6,8 @@ return {
             "nvim-lua/plenary.nvim",
             "antoinemadec/FixCursorHold.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "uroborosq/neotest-golang", -- Installation
+            "fredrikaverpil/neotest-golang",
+            branch = "feat/test-suite-support",
         },
         config = function()
             require("neotest").setup {
