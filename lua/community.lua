@@ -8,6 +8,7 @@ return {
     { import = "astrocommunity.pack.json" },
     { import = "astrocommunity.pack.yaml" },
     { import = "astrocommunity.pack.proto" },
+    { import = "astrocommunity.pack.python" },
 
     -- show unit tests coverage
     { import = "astrocommunity.test.nvim-coverage" },
