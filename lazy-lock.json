@@ -25,6 +25,7 @@
   "dressing.nvim": { "branch": "master", "commit": "71349f24c6e07b39f33600985843c289ca735308" },
   "dropbar.nvim": { "branch": "master", "commit": "cab5e0226bc4f90a28cadcb0dc7341d550f1bdf0" },
   "everforest": { "branch": "master", "commit": "0bfb22009fcb948d7aa23c4b5451cbc6b441e76d" },
+  "flutter-tools.nvim": { "branch": "main", "commit": "5aa227fa083fd740184b55b5220dfabc24a25cc7" },
   "friendly-snippets": { "branch": "main", "commit": "682157939e57bd6a2c86277dfd4d6fbfce63dbac" },
   "fzf-lua": { "branch": "main", "commit": "975534f4861e2575396716225c1202572645583d" },
   "gitsigns.nvim": { "branch": "main", "commit": "0b04035bb7b3c83e999b9676e2fb46fd0aa9f910" },

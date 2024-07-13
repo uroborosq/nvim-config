@@ -9,6 +9,7 @@ return {
     { import = "astrocommunity.pack.yaml" },
     { import = "astrocommunity.pack.proto" },
     { import = "astrocommunity.pack.python" },
+    { import = "astrocommunity.pack.dart" },
 
     -- show unit tests coverage
     { import = "astrocommunity.test.nvim-coverage" },
