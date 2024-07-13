@@ -13,6 +13,9 @@ return {
                 softtabstop = 4,
                 expandtab = true,
             },
+            o = {
+                autoread = true,
+            },
         },
     },
     features = {
