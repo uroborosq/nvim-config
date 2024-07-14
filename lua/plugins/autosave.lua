@@ -3,10 +3,10 @@ return {
     cmd = "ASToggle", -- optional for lazy loading on command
     event = { "User AstroFile", "InsertEnter" },
     opts = {
-        trigger_events = {                                -- See :h events
+        trigger_events = { -- See :h events
             immediate_save = { "BufLeave", "FocusLost" }, -- vim events that trigger an immediate save
-            defer_save = {},                              -- vim events that trigger a deferred save (saves after `debounce_delay`)
-            cancel_defered_save = {},                     -- vim events that cancel a pending deferred save
+            defer_save = {}, -- vim events that trigger a deferred save (saves after `debounce_delay`)
+            cancel_defered_save = {}, -- vim events that cancel a pending deferred save
         },
         write_all_buffers = true,
         callbacks = {
