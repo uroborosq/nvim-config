@@ -1,4 +1,4 @@
-return {
+return { -- selected colorscheme
     ---@type LazySpec
     {
         "AstroNvim/astroui",
@@ -7,6 +7,7 @@ return {
             colorscheme = "everforest",
         },
     },
+    -- installed colorschemes
     "ellisonleao/gruvbox.nvim",
     opts = {
         italic = {
@@ -21,10 +22,8 @@ return {
     "sainnhe/everforest",
     "savq/melange-nvim",
     "Mofiqul/vscode.nvim",
-    "wadackel/vim-dogrun",
     "folke/tokyonight.nvim",
     "tiagovla/tokyodark.nvim",
-    "slugbyte/lackluster.nvim",
     "ramojus/mellifluous.nvim",
     "xero/miasma.nvim",
     "briones-gabriel/darcula-solid.nvim",
@@ -81,5 +80,84 @@ return {
                 },
             },
         },
+    },
+    {
+        "rcarrida/nvim-dap-ui",
+        config = function()
+            local cfg = {
+                controls = {
+                    element = "repl",
+                    enabled = true,
+                    icons = {
+                        disconnect = "",
+                        pause = "",
+                        play = "",
+                        run_last = "",
+                        step_back = "",
+                        step_into = "",
+                        step_out = "",
+                        step_over = "",
+                        terminate = "",
+                    },
+                },
+                element_mappings = {},
+                expand_lines = true,
+                floating = {
+                    border = "single",
+                    mappings = {
+                        close = { "q", "<Esc>" },
+                    },
+                },
+                force_buffers = true,
+                icons = {
+                    collapsed = "",
+                    current_frame = "",
+                    expanded = "",
+                },
+                layouts = {
+                    {
+                        elements = {
+                            {
+                                id = "repl",
+                                size = 0.2,
+                            },
+                            {
+                                id = "stacks",
+                                size = 0.6,
+                            },
+                            {
+                                id = "watches",
+                                size = 0.2,
+                            },
+                        },
+                        position = "right",
+                        size = 40,
+                    },
+                    {
+                        elements = {
+                            {
+                                id = "scopes",
+                                size = 1,
+                            },
+                        },
+                        position = "bottom",
+                        size = 10,
+                    },
+                },
+                mappings = {
+                    edit = "e",
+                    expand = { "<CR>", "<2-LeftMouse>" },
+                    open = "o",
+                    remove = "d",
+                    repl = "r",
+                    toggle = "t",
+                },
+                render = {
+                    indent = 1,
+                    max_value_lines = 100,
+                },
+            }
+            require("dapui").setup(cfg)
+        end,
     },
 }
