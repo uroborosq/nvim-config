@@ -82,7 +82,7 @@ return { -- selected colorscheme
         },
     },
     {
-        "rcarrida/nvim-dap-ui",
+        "rcarriga/nvim-dap-ui",
         config = function()
             local cfg = {
                 controls = {
