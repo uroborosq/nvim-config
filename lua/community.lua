@@ -57,4 +57,6 @@ return {
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     { import = "astrocommunity.terminal-integration.nvim-unception" },
     { import = "astrocommunity.terminal-integration.flatten-nvim" },
+    { import = "astrocommunity.scrolling.nvim-scrollbar" },
+    { import = "astrocommunity.scrolling.neoscroll-nvim" },
 }
