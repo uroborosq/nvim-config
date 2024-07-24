@@ -59,4 +59,6 @@ return {
     { import = "astrocommunity.terminal-integration.flatten-nvim" },
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
     { import = "astrocommunity.scrolling.neoscroll-nvim" },
+    { import = "astrocommunity.completion.codeium-nvim" },
+    -- { import = "astrocommunity.completion.tabby-nvim" },
 }
