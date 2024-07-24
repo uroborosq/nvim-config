@@ -17,8 +17,6 @@ return {
     { import = "astrocommunity.test.neotest" },
     -- colorful delimiters for tabulations
     { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-    -- some may be useful refactoring actions
-    { import = "astrocommunity.editing-support.refactoring-nvim" },
     -- ability to move lines up and down by <a-j> and <a-k>
     { import = "astrocommunity.editing-support.vim-move" },
     -- multicursors
@@ -31,8 +29,6 @@ return {
     { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
     -- color indents
     { import = "astrocommunity.indent.indent-rainbowline" },
-    -- dim unused symbols
-    { import = "astrocommunity.utility.neodim" },
     -- some plugin to connect via ssh to remote machine
     { import = "astrocommunity.remote-development.distant-nvim" },
     -- store breakpoints in some place (seems doesn't work)
@@ -49,16 +45,13 @@ return {
     { import = "astrocommunity.editing-support.nvim-regexplainer" },
     -- linter
     { import = "astrocommunity.lsp.nvim-lint" },
-    --
-    { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
     -- settings for neovide client
     { import = "astrocommunity.recipes.neovide" },
-    -- auto restore session in opened dir
+    { import = "astrocommunity.colorscheme"},
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
-    { import = "astrocommunity.terminal-integration.nvim-unception" },
-    { import = "astrocommunity.terminal-integration.flatten-nvim" },
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
-    { import = "astrocommunity.scrolling.neoscroll-nvim" },
     { import = "astrocommunity.completion.codeium-nvim" },
     -- { import = "astrocommunity.completion.tabby-nvim" },
+    { import = "astrocommunity.editing-support.stickybuf-nvim"},
+
 }
