@@ -50,18 +50,18 @@ return {
                         },
                     },
                 },
-                capabilities = {
-                    textDocument = {
-                        foldingRange = { dynamicRegistration = true, lineFoldingOnly = true },
-                    },
-
-                    workspace = {
-                        didChangeWatchedFiles = {
-                            dynamicRegistration = true,
-                        },
-                        workspaceFolders = true,
-                    },
-                },
+                --     capabilities = {
+                --         textDocument = {
+                --             foldingRange = { dynamicRegistration = true, lineFoldingOnly = true },
+                --         },
+                --
+                --         workspace = {
+                --             didChangeWatchedFiles = {
+                --                 dynamicRegistration = true,
+                --             },
+                --             workspaceFolders = true,
+                --         },
+                --     },
             },
         },
     },
