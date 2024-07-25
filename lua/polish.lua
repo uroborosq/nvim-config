@@ -15,3 +15,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
     command = "if mode() != 'c' | checktime | endif",
     pattern = { "*" },
 })
+
+vim.fn.setenv("GIT_EDITOR", "nvr -cc split --remote-wait +'set bufhidden=wipe'")

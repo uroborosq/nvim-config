@@ -46,7 +46,7 @@ return {
                             semanticTokens = true,
                             staticcheck = true,
                             symbolMatcher = "fuzzy",
-                            usePlaceholders = true,
+                            usePlaceholders = false,
                         },
                     },
                 },

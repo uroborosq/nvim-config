@@ -50,7 +50,6 @@ return {
     { import = "astrocommunity.colorscheme" },
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
-    { import = "astrocommunity.completion.codeium-nvim" },
     -- { import = "astrocommunity.completion.tabby-nvim" },
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
     { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
