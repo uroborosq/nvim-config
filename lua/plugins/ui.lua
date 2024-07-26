@@ -4,7 +4,7 @@ return { -- selected colorscheme
         "AstroNvim/astroui",
         ---@type AstroUIOpts
         opts = {
-            colorscheme = "gruvbox",
+            colorscheme = "catppuccin",
         },
     },
     -- installed colorschemes
