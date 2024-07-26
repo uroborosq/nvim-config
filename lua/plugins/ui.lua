@@ -154,10 +154,22 @@ return { -- selected colorscheme
                 },
                 render = {
                     indent = 1,
-                    max_value_lines = 100,
+                    max_value_lines = 1,
+                    max_type_length = 0,
                 },
             }
             require("dapui").setup(cfg)
         end,
+    },
+    keys = {
+        {
+            "<leader>dt",
+            function()
+                local render = require("dapui.config").render
+                render.max_type_length = (render.max_type_length == nil) and 0 or nil
+                require("dapui").update_render(render)
+            end,
+            desc = "Toggle types",
+        },
     },
 }
