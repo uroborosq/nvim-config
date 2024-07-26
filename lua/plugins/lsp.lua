@@ -145,4 +145,8 @@ return {
             }
         end,
     },
+    {
+        "stevearc/aerial.nvim",
+        enabled = false,
+    },
 }
