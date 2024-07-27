@@ -161,15 +161,4 @@ return { -- selected colorscheme
             require("dapui").setup(cfg)
         end,
     },
-    keys = {
-        {
-            "<leader>dt",
-            function()
-                local render = require("dapui.config").render
-                render.max_type_length = (render.max_type_length == nil) and 0 or nil
-                require("dapui").update_render(render)
-            end,
-            desc = "Toggle types",
-        },
-    },
 }

@@ -10,7 +10,7 @@ return {
             branch = "feat/test-suite-support",
         },
         config = function()
-            local config = { dap_go_enabled = true, testify_enabled = true } -- Specify configuration
+            local config = { dap_go_enabled = true, testify_enabled = true, go_test_args = { "-v", "-count=1" } } -- Specify configuration
             require("neotest").setup {
                 adapters = {
                     require "neotest-golang"(config), -- Apply configuration
