@@ -32,10 +32,6 @@ return {
     { import = "astrocommunity.indent.indent-rainbowline" },
     -- some plugin to connect via ssh to remote machine
     { import = "astrocommunity.remote-development.distant-nvim" },
-    -- store breakpoints in some place (seems doesn't work)
-    { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
-    -- show number of definitions, references as code lens
-    { import = "astrocommunity.lsp.lsp-lens-nvim" },
     -- formatter
     { import = "astrocommunity.editing-support.conform-nvim" },
     -- show signature of method when editing call arguments
