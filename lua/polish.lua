@@ -12,4 +12,15 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
     pattern = { "*" },
 })
 
+vim.cmd [[
+" system clipboard
+nmap <c-c> "+y
+vmap <c-c> "+y
+nmap <c-v> "+p
+inoremap <c-v> <c-r>+
+cnoremap <c-v> <c-r>+
+" use <c-r> to insert original character without triggering things like auto-pairs
+inoremap <c-r> <c-v>
+]]
+
 vim.fn.setenv("GIT_EDITOR", "nvr -cc split --remote-wait +'set bufhidden=wipe'")
