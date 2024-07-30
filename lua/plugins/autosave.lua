@@ -8,7 +8,6 @@ return {
             defer_save = {}, -- vim events that trigger a deferred save (saves after `debounce_delay`)
             cancel_defered_save = {}, -- vim events that cancel a pending deferred save
         },
-        write_all_buffers = true,
         callbacks = {
             before_saving = function()
                 -- save global autoformat status
