@@ -49,5 +49,5 @@ return {
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
     -- { import = "astrocommunity.completion.tabby-nvim" },
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
-    { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
+    { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 }
