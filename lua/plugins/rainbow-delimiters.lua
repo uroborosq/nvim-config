@@ -8,7 +8,6 @@ return {
                 "RainbowDelimiterOrange",
                 "RainbowDelimiterGreen",
                 "RainbowDelimiterViolet",
-                "RainbowDelimiterRed",
                 "RainbowDelimiterCyan",
             },
         }
