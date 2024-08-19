@@ -20,7 +20,7 @@ return {
         features = {
             autopairs = true, -- enable or disable autopairs on start
             cmp = true,
-            diagnostics_mode = 1, -- diagstic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = off)
+            diagnostics_mode = 3, -- diagstic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = off)
             highlighturl = true, -- enable or disable highlighting of urls on start
             -- table for defining the size of the max file for all features, above these limits we disable features like treesitter.
             large_buf = { size = 1024 * 100, lines = 10000 },
