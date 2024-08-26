@@ -4,7 +4,17 @@ return { -- selected colorscheme
         "AstroNvim/astroui",
         ---@type AstroUIOpts
         opts = {
-            colorscheme = "nordfox",
+            colorscheme = "bamboo",
+        },
+    },
+    {
+        "AstroNvim/astrocore",
+        opts = {
+            options = {
+                o = {
+                    background = "dark",
+                },
+            },
         },
     },
     -- installed colorschemes

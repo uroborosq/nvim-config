@@ -22,7 +22,6 @@ return {
             require("neotest").setup {
                 discovery = {
                     enabled = true,
-                    concurrent = 0,
                 },
                 running = {
                     concurrent = true,
@@ -32,5 +31,15 @@ return {
                 },
             }
         end,
+    },
+    {
+        "AstroNvim/astrocore",
+        opts = {
+            mappings = {
+                n = {
+                    ["<Leader>Tc"] = { ":CoverageSummary", desc = "Show test coverage summary" },
+                },
+            },
+        },
     },
 }
