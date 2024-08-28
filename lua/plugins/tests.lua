@@ -24,7 +24,7 @@ return {
                     enabled = true,
                 },
                 running = {
-                    concurrent = true,
+                    concurrent = false,
                 },
                 adapters = {
                     require "neotest-golang"(config), -- Apply configuration
@@ -33,11 +33,20 @@ return {
         end,
     },
     {
+        "andythigpen/nvim-coverage",
+        config = function()
+            require("coverage").setup {
+                auto_reload = true,
+            }
+        end,
+    },
+    {
         "AstroNvim/astrocore",
         opts = {
             mappings = {
                 n = {
-                    ["<Leader>Tc"] = { ":CoverageSummary", desc = "Show test coverage summary" },
+                    ["<Leader>Tc"] = { ":CoverageSummary<CR>", desc = "Show test coverage summary" },
+                    ["<Leader>Ts"] = { ":CoverageToggle<CR>", desc = "Toggle coverage highlights" },
                 },
             },
         },
