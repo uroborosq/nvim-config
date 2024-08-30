@@ -4,7 +4,7 @@ return { -- selected colorscheme
         "AstroNvim/astroui",
         ---@type AstroUIOpts
         opts = {
-            colorscheme = "bamboo",
+            colorscheme = "everforest",
         },
     },
     {
