@@ -47,7 +47,7 @@ return {
     { import = "astrocommunity.colorscheme" },
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
-    -- { import = "astrocommunity.completion.tabby-nvim" },
+    { import = "astrocommunity.completion.tabby-nvim" },
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
     { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 }
