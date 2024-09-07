@@ -11,6 +11,7 @@ return {
     { import = "astrocommunity.pack.python" },
     { import = "astrocommunity.pack.dart" },
     { import = "astrocommunity.pack.rust" },
+    { import = "astrocommunity.pack.html-css" },
 
     -- show unit tests coverage
     { import = "astrocommunity.test.nvim-coverage" },
@@ -30,8 +31,6 @@ return {
     { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
     -- color indents
     { import = "astrocommunity.indent.indent-rainbowline" },
-    -- some plugin to connect via ssh to remote machine
-    { import = "astrocommunity.remote-development.distant-nvim" },
     -- formatter
     { import = "astrocommunity.editing-support.conform-nvim" },
     -- show signature of method when editing call arguments
@@ -47,7 +46,8 @@ return {
     { import = "astrocommunity.colorscheme" },
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
-    { import = "astrocommunity.completion.tabby-nvim" },
+    -- { import = "astrocommunity.completion.tabby-nvim" },
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
     { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+    { import = "astrocommunity.remote-development.distant" },
 }

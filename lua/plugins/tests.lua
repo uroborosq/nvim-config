@@ -20,12 +20,6 @@ return {
                 },
             } -- Specify configuration
             require("neotest").setup {
-                discovery = {
-                    enabled = true,
-                },
-                running = {
-                    concurrent = false,
-                },
                 adapters = {
                     require "neotest-golang"(config), -- Apply configuration
                 },
@@ -39,16 +33,5 @@ return {
                 auto_reload = true,
             }
         end,
-    },
-    {
-        "AstroNvim/astrocore",
-        opts = {
-            mappings = {
-                n = {
-                    ["<Leader>Tc"] = { ":CoverageSummary<CR>", desc = "Show test coverage summary" },
-                    ["<Leader>Ts"] = { ":CoverageToggle<CR>", desc = "Toggle coverage highlights" },
-                },
-            },
-        },
     },
 }
