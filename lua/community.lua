@@ -49,5 +49,5 @@ return {
     -- { import = "astrocommunity.completion.tabby-nvim" },
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
     { import = "astrocommunity.recipes.telescope-lsp-mappings" },
-    { import = "astrocommunity.remote-development.distant" },
+    { import = "astrocommunity.remote-development.distant-nvim" },
 }
