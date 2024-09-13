@@ -50,5 +50,5 @@ return {
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
     { import = "astrocommunity.recipes.telescope-lsp-mappings" },
     { import = "astrocommunity.programming-language-support.rest-nvim" },
-    { import = "astrocommunity.remote-development.remote-sshfs-nvim" },
+    -- { import = "astrocommunity.remote-development.remote-sshfs-nvim" },
 }
