@@ -21,8 +21,6 @@ return {
     { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
     -- ability to move lines up and down by <a-j> and <a-k>
     { import = "astrocommunity.editing-support.vim-move" },
-    -- multicursors
-    { import = "astrocommunity.editing-support.vim-visual-multi" },
     -- incremental selection
     { import = "astrocommunity.editing-support.wildfire-nvim" },
     -- highlight same words/symbols
@@ -59,4 +57,6 @@ return {
     { import = "astrocommunity.remote-development.remote-sshfs-nvim" },
     -- show pretty git branches graph
     { import = "astrocommunity.git.gitgraph-nvim" },
+    -- converting between test cases
+    { import = "astrocommunity.editing-support.text-case-nvim" },
 }
