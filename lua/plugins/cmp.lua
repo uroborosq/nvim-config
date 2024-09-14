@@ -11,6 +11,8 @@ return {
             opts.sorting = {
                 comparators = {},
             }
+            opts.mapping["<C-j>"] = cmp.mapping.select_next_item()
+            opts.mapping["<C-k>"] = cmp.mapping.select_prev_item()
         end,
     },
     -- Tabby settings
@@ -19,7 +21,7 @@ return {
         opts = {
             options = {
                 g = {
-                    tabby_keybinding_accept = "<C-A>",
+                    tabby_keybinding_accept = "<Tab>",
                 },
             },
         },

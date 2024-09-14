@@ -22,12 +22,15 @@ return {
                         require("telescope.builtin").filetypes,
                         desc = "Set filetype for buffer",
                     },
-                    ["gb"] = {
+                    ["gdb"] = {
                         function() require("dropbar.api").pick() end,
                         desc = "Go to dropbar",
                     },
                 },
             },
         },
+    },
+    {
+        "https://git.sr.ht/~jcc/vim-sway-nav",
     },
 }
