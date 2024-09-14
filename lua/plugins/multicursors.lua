@@ -9,9 +9,10 @@ return {
             if not opts.options.g then opts.options.g = {} end
             opts.options.g.VM_silent_exit = 1
             opts.options.g.VM_show_warnings = 0
-            opts.options.g.VM_default_mappings = 0
             opts.options.g.VM_mouse_mappings = 1
-
+            opts.options.g.VM_maps = require("astrocore").empty_map_table()
+            opts.options.g.VM_maps["Add Cursor Down"] = "<C-S-J>"
+            opts.options.g.VM_maps["Add Curson Up"] = "<C-S-K>"
             if not opts.autocmds then opts.autocmds = {} end
             opts.autocmds.visual_multi_exit = {
                 {
@@ -27,9 +28,8 @@ return {
 
             if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
             local maps = assert(opts.mappings)
-            maps.n["<C-S-Up>"] = { "<C-u>call vm#commands#add_cursor_up(0, v:count1)<cr>", desc = "Add cursor above" }
-            maps.n["<C-S-Down>"] =
-                { "<C-u>call vm#commands#add_cursor_down(0, v:count1)<cr>", desc = "Add cursor below" }
+            maps.n["<C-S-K>"] = { "<C-u>call vm#commands#add_cursor_up(0, v:count1)<cr>", desc = "Add cursor above" }
+            maps.n["<C-S-J>"] = { "<C-u>call vm#commands#add_cursor_down(0, v:count1)<cr>", desc = "Add cursor below" }
         end,
     },
 }
