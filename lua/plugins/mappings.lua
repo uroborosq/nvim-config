@@ -30,6 +30,7 @@ return {
             },
         },
     },
+    -- use <Super>+{h,j,k,l} to switch between windows as in sway
     {
         "https://git.sr.ht/~jcc/vim-sway-nav",
     },

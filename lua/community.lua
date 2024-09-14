@@ -43,11 +43,20 @@ return {
     { import = "astrocommunity.lsp.nvim-lint" },
     -- settings for neovide client
     { import = "astrocommunity.recipes.neovide" },
+    -- just all colorshemes
     { import = "astrocommunity.colorscheme" },
+    -- commands to switch between different toggleterm windows
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
+    -- scrollbar with diagnostic marks
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
+    -- self hosted ai assistant
     { import = "astrocommunity.completion.tabby-nvim" },
+    -- open files from terminal into normal tabs
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
+    -- call telescope to see definitions, implementations and etc.
     { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+    -- can mount remote machine fs via sshfs
     { import = "astrocommunity.remote-development.remote-sshfs-nvim" },
+    -- show pretty git branches graph
+    { import = "astrocommunity.git.gitgraph-nvim" },
 }
