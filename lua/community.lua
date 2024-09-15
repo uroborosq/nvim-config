@@ -59,4 +59,6 @@ return {
     { import = "astrocommunity.git.gitgraph-nvim" },
     -- converting between test cases
     { import = "astrocommunity.editing-support.text-case-nvim" },
+    -- show tree of undo operations
+    { import = "astrocommunity.editing-support.telescope-undo-nvim" },
 }
