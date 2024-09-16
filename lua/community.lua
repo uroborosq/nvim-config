@@ -61,4 +61,15 @@ return {
     { import = "astrocommunity.editing-support.text-case-nvim" },
     -- show tree of undo operations
     { import = "astrocommunity.editing-support.telescope-undo-nvim" },
+    -- simple plugin to open one global note and some additional also
+    { import = "astrocommunity.note-taking.global-note-nvim" },
+    { import = "astrocommunity.note-taking.obsidian-nvim" },
+    { import = "astrocommunity.note-taking.neorg" },
+    { import = "astrocommunity.note-taking.zk-nvim" },
+    -- markdown preview in normal mode
+    { import = "astrocommunity.markdown-and-latex.markview-nvim" },
+    -- find and replace tui
+    { import = "astrocommunity.search.grug-far-nvim" },
+    -- do not open nested nvim sessions inside terminals and etc
+    { import = "astrocommunity.terminal-integration.nvim-unception" },
 }
