@@ -13,8 +13,8 @@ return {
             }
             opts.mapping["<C-j>"] = cmp.mapping.select_next_item()
             opts.mapping["<C-k>"] = cmp.mapping.select_prev_item()
-
-            vim.notify(vim.inspect(opts.mapping))
+            opts.mapping["<C-j>"] = opts.mapping["<Tab>"]
+            opts.mapping["<Tab>"] = nil
         end,
     },
     -- Tabby settings
