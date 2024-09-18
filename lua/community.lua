@@ -41,8 +41,6 @@ return {
     { import = "astrocommunity.lsp.nvim-lint" },
     -- settings for neovide client
     { import = "astrocommunity.recipes.neovide" },
-    -- just all colorshemes
-    { import = "astrocommunity.colorscheme" },
     -- commands to switch between different toggleterm windows
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     -- scrollbar with diagnostic marks
@@ -61,11 +59,6 @@ return {
     { import = "astrocommunity.editing-support.text-case-nvim" },
     -- show tree of undo operations
     { import = "astrocommunity.editing-support.telescope-undo-nvim" },
-    -- simple plugin to open one global note and some additional also
-    { import = "astrocommunity.note-taking.global-note-nvim" },
-    { import = "astrocommunity.note-taking.obsidian-nvim" },
-    { import = "astrocommunity.note-taking.neorg" },
-    { import = "astrocommunity.note-taking.zk-nvim" },
     -- markdown preview in normal mode
     { import = "astrocommunity.markdown-and-latex.markview-nvim" },
     -- find and replace tui

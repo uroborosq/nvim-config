@@ -21,6 +21,3 @@ cnoremap <c-v> <c-r>+
 " use <c-r> to insert original character without triggering things like auto-pairs
 inoremap <c-r> <c-v>
 ]]
-
-vim.fn.setenv("GIT_EDITOR", "nvr -cc split --remote-wait +'set bufhidden=wipe'")
-vim.fn.setenv("EDITOR", "nvr -cc split --remote-wait +'set bufhidden=wipe'")

@@ -12,7 +12,7 @@ return {
             opts.options.g.VM_mouse_mappings = 1
             opts.options.g.VM_maps = require("astrocore").empty_map_table()
             opts.options.g.VM_maps["Add Cursor Down"] = "<C-S-J>"
-            opts.options.g.VM_maps["Add Curson Up"] = "<C-S-K>"
+            opts.options.g.VM_maps["Add Cursor Up"] = "<C-S-K>"
             if not opts.autocmds then opts.autocmds = {} end
             opts.autocmds.visual_multi_exit = {
                 {
