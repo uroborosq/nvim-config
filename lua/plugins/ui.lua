@@ -4,7 +4,7 @@ return { -- selected colorscheme
         "AstroNvim/astroui",
         ---@type AstroUIOpts
         opts = {
-            colorscheme = "bluloco",
+            colorscheme = "kanagawa",
         },
     },
     {
@@ -17,7 +17,6 @@ return { -- selected colorscheme
     {
         "AstroNvim/astrocommunity",
         { import = "astrocommunity.colorscheme.bamboo-nvim" },
-        { import = "astrocommunity.colorscheme.bluloco-nvim" },
         { import = "astrocommunity.colorscheme.catppuccin" },
         { import = "astrocommunity.colorscheme.everforest" },
         { import = "astrocommunity.colorscheme.dracula-nvim" },
