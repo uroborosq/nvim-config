@@ -6,7 +6,11 @@ return {
         opts = {
             load = {
                 ["core.defaults"] = {},
-                ["core.concealer"] = {}, -- We added this line!
+                ["core.concealer"] = {},
+                ["core.completion"] = {
+                    engine = "nvim-cmp",
+                },
+                ["core.summary"] = {},
             },
         },
     },

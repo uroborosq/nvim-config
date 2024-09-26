@@ -1,16 +1,8 @@
 return { -- selected colorscheme
-    ---@type LazySpec
-    {
-        "AstroNvim/astroui",
-        ---@type AstroUIOpts
-        opts = {
-            colorscheme = "kanagawa",
-        },
-    },
-    {
-        "AstroNvim/astrocore",
-        opts = { options = { o = { background = "dark" } } },
-    },
+    -- {
+    --     "AstroNvim/astrocore",
+    --     opts = { options = { o = { background = "dark" } } },
+    -- },
     -- installed colorschemes
     "briones-gabriel/darcula-solid.nvim",
     "rktjmp/lush.nvim",

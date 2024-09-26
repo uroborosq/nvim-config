@@ -65,4 +65,5 @@ return {
     { import = "astrocommunity.search.grug-far-nvim" },
     -- do not open nested nvim sessions inside terminals and etc
     { import = "astrocommunity.terminal-integration.nvim-unception" },
+    { import = "astrocommunity.recipes.cache-colorscheme" },
 }

@@ -5,6 +5,7 @@ return {
             local cmp = require "cmp"
             opts.sources = cmp.config.sources {
                 { name = "nvim_lsp", priority = 1000000 },
+                { name = "neorg", priority = 10 },
                 { name = "buffer", priority = 0 },
             }
 
