@@ -5,7 +5,7 @@ return {
         opts = {
             mappings = {
                 n = {
-                    ["gdb"] = {
+                    ["gD"] = {
                         function() require("dropbar.api").pick() end,
                         desc = "Go to dropbar",
                     },
@@ -13,6 +13,9 @@ return {
                         require("telescope.builtin").filetypes,
                         desc = "Set filetype for buffer",
                     },
+                    ["<Leader>gm"] = { ":DiffviewOpen main<CR>", desc = "Show diff with main" },
+                    ["<Leader>gD"] = { ":DiffviewOpen HEAD<CR>", desc = "Show diff with HEAD" },
+                    ["<C-W>t"] = { ":tabclose<CR>", desc = "Close current tab" },
                 },
             },
         },

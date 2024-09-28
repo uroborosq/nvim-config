@@ -26,6 +26,7 @@ return { -- selected colorscheme
         { import = "astrocommunity.colorscheme.tokyonight-nvim" },
         { import = "astrocommunity.colorscheme.vim-dogrun" },
         { import = "astrocommunity.colorscheme.vscode-nvim" },
+        { import = "astrocommunity.colorscheme.everblush-nvim" },
     },
     {
         "goolord/alpha-nvim",
@@ -75,6 +76,8 @@ return { -- selected colorscheme
                     neovide_padding_right = 0,
                     neovide_padding_left = 0,
                     neovide_cursor_animation_length = 0.03,
+                    neovide_transpareny = 0,
+                    transparency = 0,
                 },
             },
         },
