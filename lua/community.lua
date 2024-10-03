@@ -7,7 +7,6 @@ return {
     { import = "astrocommunity.pack.docker" },
     { import = "astrocommunity.pack.json" },
     { import = "astrocommunity.pack.yaml" },
-    { import = "astrocommunity.pack.proto" },
     { import = "astrocommunity.pack.python" },
     { import = "astrocommunity.pack.dart" },
     { import = "astrocommunity.pack.rust" },

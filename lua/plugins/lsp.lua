@@ -1,3 +1,4 @@
+require("lspconfig").protols.setup {}
 return {
     {
         "AstroNvim/astrolsp",
@@ -6,6 +7,7 @@ return {
         opts = {
             ---@diagnostic disable-next-line: missing-fields
             config = {
+                protols = {},
                 gopls = {
                     settings = {
                         gopls = {
@@ -55,6 +57,7 @@ return {
                 signature_help = true,
                 inlay_hints = true,
             },
+            servers = { "protols" },
         },
         {
             "AstroNvim/astrocore",
