@@ -11,6 +11,7 @@ return {
     { import = "astrocommunity.pack.dart" },
     { import = "astrocommunity.pack.rust" },
     { import = "astrocommunity.pack.html-css" },
+    { import = "astrocommunity.pack.proto" },
 
     -- show unit tests coverage
     { import = "astrocommunity.test.nvim-coverage" },
