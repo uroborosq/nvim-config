@@ -6,9 +6,6 @@ return {
         opts = {
             ---@diagnostic disable-next-line: missing-fields
             config = {
-                -- protols = {
-                --     capabilities = {},
-                -- },
                 gopls = {
                     settings = {
                         gopls = {
@@ -58,27 +55,34 @@ return {
                 signature_help = true,
                 inlay_hints = true,
             },
-            -- servers = { "protols" },
         },
-        {
-            "AstroNvim/astrocore",
-            ---@type AstroCoreOpts
-            opts = {
-                mappings = {
-                    n = {
-                        ["<Leader>lu"] = { ":LspRestart<CR>", desc = "Restart LSP" },
-                        ["<Leader>lc"] = {
-                            require("telescope.builtin").lsp_incoming_calls,
-                            desc = "Incomming calls",
-                        },
-                        ["<Leader>lC"] = {
-                            require("telescope.builtin").lsp_outgoing_calls,
-                            desc = "Outgoing calls",
-                        },
-                        ["<Leader>lg"] = {
-                            require("telescope.builtin").lsp_dynamic_workspace_symbols,
-                            desc = "Dynamic search for symbols",
-                        },
+    },
+    {
+        "AstroNvim/astrolsp",
+        ---@param opts AstroLSPOpts
+        opts = function(_, opts)
+            opts.servers = opts.servers or {}
+            vim.list_extend(opts.servers, { "protols" })
+        end,
+    },
+    {
+        "AstroNvim/astrocore",
+        ---@type AstroCoreOpts
+        opts = {
+            mappings = {
+                n = {
+                    ["<Leader>lu"] = { ":LspRestart<CR>", desc = "Restart LSP" },
+                    ["<Leader>lc"] = {
+                        require("telescope.builtin").lsp_incoming_calls,
+                        desc = "Incomming calls",
+                    },
+                    ["<Leader>lC"] = {
+                        require("telescope.builtin").lsp_outgoing_calls,
+                        desc = "Outgoing calls",
+                    },
+                    ["<Leader>lg"] = {
+                        require("telescope.builtin").lsp_dynamic_workspace_symbols,
+                        desc = "Dynamic search for symbols",
                     },
                 },
             },
