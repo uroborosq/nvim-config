@@ -5,6 +5,7 @@ return { -- selected colorscheme
     -- },
     -- installed colorschemes
     "briones-gabriel/darcula-solid.nvim",
+    "xiantang/darcula-dark.nvim",
     "rktjmp/lush.nvim",
     {
         "AstroNvim/astrocommunity",

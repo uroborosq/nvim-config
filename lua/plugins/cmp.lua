@@ -11,10 +11,10 @@ return {
             opts.sorting = {
                 comparators = {},
             }
-            opts.mapping["<C-j>"] = cmp.mapping.select_next_item()
-            opts.mapping["<C-k>"] = cmp.mapping.select_prev_item()
-            opts.mapping["<C-j>"] = opts.mapping["<Tab>"]
-            opts.mapping["<Tab>"] = nil
+            -- opts.mapping["<C-j>"] = cmp.mapping.select_next_item()
+            -- opts.mapping["<C-k>"] = cmp.mapping.select_prev_item()
+            -- opts.mapping["<C-j>"] = opts.mapping["<Tab>"]
+            -- opts.mapping["<Tab>"] = nil
         end,
     },
     -- Tabby settings
