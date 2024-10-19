@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
     "AstroNvim/astrocommunity",
-    -- programming languages support (go added manually, without packs)
+    -- programming languages support (go and proto added manually, without packs)
     { import = "astrocommunity.pack.lua" },
     { import = "astrocommunity.pack.bash" },
     { import = "astrocommunity.pack.docker" },
@@ -52,8 +52,6 @@ return {
     { import = "astrocommunity.recipes.telescope-lsp-mappings" },
     -- can mount remote machine fs via sshfs
     { import = "astrocommunity.remote-development.remote-sshfs-nvim" },
-    -- show pretty git branches graph
-    { import = "astrocommunity.git.gitgraph-nvim" },
     -- converting between test cases
     { import = "astrocommunity.editing-support.text-case-nvim" },
     -- show tree of undo operations
@@ -64,6 +62,10 @@ return {
     { import = "astrocommunity.search.grug-far-nvim" },
     -- do not open nested nvim sessions inside terminals and etc
     { import = "astrocommunity.terminal-integration.nvim-unception" },
+    -- save last choosen colorscheme, overriding config
     { import = "astrocommunity.recipes.cache-colorscheme" },
+    -- show detailed git diff
     { import = "astrocommunity.git.diffview-nvim" },
+    -- dim inactive windows
+    { import = "astrocommunity.color.tint-nvim" },
 }
