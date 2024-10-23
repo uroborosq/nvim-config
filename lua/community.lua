@@ -68,4 +68,6 @@ return {
     { import = "astrocommunity.git.diffview-nvim" },
     -- dim inactive windows
     { import = "astrocommunity.color.tint-nvim" },
+    { import = "astrocommunity.workflow.hardtime-nvim" },
+    { import = "astrocommunity.workflow.precognition-nvim" },
 }
