@@ -72,4 +72,6 @@ return {
     { import = "astrocommunity.workflow.hardtime-nvim" },
     -- auto save plugin
     { import = "astrocommunity.editing-support.auto-save-nvim" },
+    -- save files with sudo
+    { import = "astrocommunity.editing-support.suda-vim" },
 }
