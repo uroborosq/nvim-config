@@ -74,4 +74,6 @@ return {
     { import = "astrocommunity.editing-support.auto-save-nvim" },
     -- save files with sudo
     { import = "astrocommunity.editing-support.suda-vim" },
+    { import = "astrocommunity.motion.leap-nvim" },
+    { import = "astrocommunity.media.image-nvim" },
 }
