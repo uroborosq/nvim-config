@@ -32,7 +32,7 @@ return {
         opts = {
             options = {
                 g = {
-                    tabby_keybinding_accept = "<Tab>",
+                    tabby_keybinding_accept = "<C-I>",
                 },
             },
         },
