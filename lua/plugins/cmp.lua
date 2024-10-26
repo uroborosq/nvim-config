@@ -11,19 +11,6 @@ return {
             opts.sorting = {
                 comparators = {},
             }
-            -- opts.mapping["<C-j>"] = cmp.mapping.select_next_item()
-            -- opts.mapping["<C-k>"] = cmp.mapping.select_prev_item()
-            -- opts.mapping["<C-j>"] = opts.mapping["<Tab>"]
-            -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
-            -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-            -- if cmp.visible() then
-            -- local entry = cmp.get_selected_entry()
-            -- if not entry then cmp.select_next_item { behavior = cmp.SelectBehavior.Select } end
-            -- cmp.confirm()
-            -- else
-            -- fallback()
-            -- end
-            -- end, { "i", "s", "c" })
         end,
     },
     -- Tabby settings
@@ -32,7 +19,7 @@ return {
         opts = {
             options = {
                 g = {
-                    tabby_keybinding_accept = "<C-I>",
+                    tabby_inline_completion_keybinding_accept = "<C-L>",
                 },
             },
         },
