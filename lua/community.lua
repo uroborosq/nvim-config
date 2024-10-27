@@ -74,8 +74,12 @@ return {
     { import = "astrocommunity.editing-support.auto-save-nvim" },
     -- save files with sudo
     { import = "astrocommunity.editing-support.suda-vim" },
-    -- { import = "astrocommunity.motion.leap-nvim" },
+    -- updgraded jump mechanism
     { import = "astrocommunity.motion.flash-nvim" },
+    -- show images in neovim (kitty only)
     { import = "astrocommunity.media.image-nvim" },
+    -- run snippets of code
     { import = "astrocommunity.code-runner.sniprun" },
+    -- create shortcuts as tasks for running commands
+    { import = "astrocommunity.code-runner.toggletasks-nvim" },
 }
