@@ -26,8 +26,8 @@ return {
     { import = "astrocommunity.bars-and-lines.vim-illuminate" },
     -- show interactive path to file at the top of buffer
     { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-    -- color indents
-    { import = "astrocommunity.indent.indent-rainbowline" },
+    -- indents
+    { import = "astrocommunity.indent.indent-blankline-nvim" },
     -- formatter
     { import = "astrocommunity.editing-support.conform-nvim" },
     -- show signature of method when editing call arguments

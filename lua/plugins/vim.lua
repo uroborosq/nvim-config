@@ -14,6 +14,7 @@ return {
                 shiftwidth = 4,
                 softtabstop = 4,
                 expandtab = true,
+                langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯХЪБЮЖфисвуапршолдьтщзйкыегмцчняхъюэ;ABCDEFGHIJKLMNOPQRSTUVWXYZ{}<>:abcdefghijklmnopqrstuvwxyz[]."',
             },
             o = {
                 autoread = true,
