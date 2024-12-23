@@ -11,6 +11,8 @@ return {
     { import = "astrocommunity.pack.dart" },
     { import = "astrocommunity.pack.rust" },
     { import = "astrocommunity.pack.html-css" },
+    { import = "astrocommunity.pack.sql" },
+    { import = "astrocommunity.pack.hyprlang" },
 
     -- show unit tests coverage
     { import = "astrocommunity.test.nvim-coverage" },
@@ -78,8 +80,6 @@ return {
     { import = "astrocommunity.motion.flash-nvim" },
     -- show images in neovim (kitty only)
     { import = "astrocommunity.media.image-nvim" },
-    -- run snippets of code
-    { import = "astrocommunity.code-runner.sniprun" },
     -- create shortcuts as tasks for running commands
     { import = "astrocommunity.code-runner.toggletasks-nvim" },
 }

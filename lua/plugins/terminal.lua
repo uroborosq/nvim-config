@@ -18,12 +18,15 @@ return {
         opts = {
             mappings = {
                 t = {
-                    ["<C-esc>"] = { [[<C-\><C-n>]] },
+                    ["<esc>"] = { [[<C-\><C-n>]] },
                     ["<C-h>"] = { [[<Cmd>wincmd h<CR>]] },
                     ["<C-j>"] = { [[<Cmd>wincmd j<CR>]] },
                     ["<C-k>"] = { [[<Cmd>wincmd k<CR>]] },
                     ["<C-l>"] = { [[<Cmd>wincmd l<CR>]] },
                     ["<C-w>"] = { [[<C-\><C-n><C-w>]] },
+                },
+                n = {
+                    ["<C-\\>"] = { "<cmd>Telescope toggleterm_manager<cr>", desc = "Search Toggleterms" },
                 },
             },
         },
