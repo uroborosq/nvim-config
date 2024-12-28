@@ -52,6 +52,7 @@ return { -- selected colorscheme
         { import = "astrocommunity.colorscheme.vim-dogrun" },
         { import = "astrocommunity.colorscheme.vscode-nvim" },
         { import = "astrocommunity.colorscheme.everblush-nvim" },
+        { import = "astrocommunity.colorscheme.palenight-nvim" },
     },
     {
         "goolord/alpha-nvim",
