@@ -15,12 +15,13 @@ return {
                                 fillreturns = true,
                                 nilness = true,
                                 nonewvars = true,
-                                shadow = true,
+                                shadow = false,
                                 undeclaredname = true,
                                 unreachable = true,
                                 unusedparams = true,
                                 unusedwrite = true,
                                 useany = true,
+                                simplifyrange = true,
                             },
                             codelenses = {
                                 generate = true, -- show the `go generate` lens.
