@@ -5,11 +5,13 @@ return {
             local cmp = require "cmp"
             opts.sources = cmp.config.sources {
                 { name = "nvim_lsp", priority = 1000000 },
-                { name = "neorg", priority = 10 },
+                { name = "neorg", priority = -100000 },
             }
 
             opts.sorting = {
-                comparators = {},
+                comparators = {
+                    require("cmp.config.compare").sort_text,
+                },
             }
         end,
     },

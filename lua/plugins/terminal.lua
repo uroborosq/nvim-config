@@ -18,7 +18,7 @@ return {
         opts = {
             mappings = {
                 t = {
-                    ["<esc>"] = { [[<C-\><C-n>]] },
+                    ["<C-esc>"] = { [[<C-\><C-n>]] },
                     ["<C-h>"] = { [[<Cmd>wincmd h<CR>]] },
                     ["<C-j>"] = { [[<Cmd>wincmd j<CR>]] },
                     ["<C-k>"] = { [[<Cmd>wincmd k<CR>]] },
