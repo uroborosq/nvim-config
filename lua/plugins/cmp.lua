@@ -2,10 +2,9 @@ return {
     {
         "hrsh7th/nvim-cmp",
         opts = function(_, opts)
-            local cmp = require "cmp"
-            opts.sources = cmp.config.sources {
-                { name = "nvim_lsp", priority = 1000000 },
-                { name = "neorg", priority = -100000 },
+            opts.sources = {
+                { name = "nvim_lsp", group_index = 1 },
+                { name = "buffer", group_index = 2 },
             }
 
             opts.sorting = {
