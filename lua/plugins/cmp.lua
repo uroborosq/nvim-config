@@ -4,7 +4,8 @@ return {
         opts = function(_, opts)
             opts.sources = {
                 { name = "nvim_lsp", group_index = 1 },
-                { name = "buffer", group_index = 2 },
+                { name = "luasnip", group_index = 1 },
+                -- { name = "buffer", group_index = 2 },
             }
 
             opts.sorting = {

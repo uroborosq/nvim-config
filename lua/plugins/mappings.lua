@@ -20,6 +20,9 @@ return {
                 v = {
                     ["<Leader>r"] = { ":SnipRun<CR>", desc = "Run selected with SnipRun" },
                 },
+                i = {
+                    ["<C-K>"] = {},
+                }
             },
         },
     },

@@ -7,10 +7,10 @@ return {
             "antoinemadec/FixCursorHold.nvim",
             "nvim-treesitter/nvim-treesitter",
             "fredrikaverpil/neotest-golang",
-            branch = "feat/test-suite-support",
         },
         config = function()
             local config = {
+                runner = "gotestsum",
                 dap_go_enabled = true,
                 testify_enabled = true,
                 go_test_args = {
