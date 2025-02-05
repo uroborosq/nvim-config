@@ -47,8 +47,6 @@ return {
     { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
     -- scrollbar with diagnostic marks
     { import = "astrocommunity.scrolling.nvim-scrollbar" },
-    -- self hosted ai assistant
-    { import = "astrocommunity.completion.tabby-nvim" },
     -- open files from terminal into normal tabs
     { import = "astrocommunity.editing-support.stickybuf-nvim" },
     -- call telescope to see definitions, implementations and etc.

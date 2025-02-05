@@ -37,6 +37,7 @@ return {
                 "stylua",
                 "golangci-lint",
                 "goimports-reviser",
+                "buf",
             })
         end,
     },
