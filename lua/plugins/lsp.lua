@@ -1,3 +1,28 @@
+local ignoring_code_actions = {
+    ["source.doc"] = true,
+    ["source.assembly"] = true,
+    ["source.test"] = true,
+    ["gopls.doc.features"] = true,
+    ["source.addTest"] = true,
+}
+
+--- @argument action lsp.CodeAction|lsp.Command
+--- @return boolean
+local function is_gopls(action)
+    if not (action.command == nil) then
+        if not (action.command.command == nil) then
+            if not (action.command.command:find "gopls" == nil) then return true end
+        end
+    end
+
+    if not (action.data == nil) then
+        if not (action.data.command == nil) then
+            if not (action.data.command:find "gopls" == nil) then return true end
+        end
+    end
+    return false
+end
+
 return {
     {
         "AstroNvim/astrolsp",
@@ -9,13 +34,6 @@ return {
                 gopls = {
                     settings = {
                         gopls = {
-                            -- codeaction = {
-                            --     gopls = {
-                            --         doc = {
-                            --             features = false,
-                            --         },
-                            --     },
-                            -- },
                             analyses = {
                                 ST1003 = true,
                                 fieldalignment = false,
@@ -91,6 +109,20 @@ return {
                     ["<Leader>lg"] = {
                         require("telescope.builtin").lsp_dynamic_workspace_symbols,
                         desc = "Dynamic search for symbols",
+                    },
+                    ["<Leader>lb"] = {
+                        function()
+                            vim.lsp.buf.code_action {
+                                filter = function(action)
+                                    local gopls_detected = is_gopls(action)
+                                    if gopls_detected and ignoring_code_actions[action.kind] then return false end
+
+                                    return true
+                                end,
+                            }
+                        end,
+                        desc = "show code actions",
+                        noremap = true,
                     },
                 },
             },
