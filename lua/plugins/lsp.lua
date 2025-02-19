@@ -9,6 +9,13 @@ return {
                 gopls = {
                     settings = {
                         gopls = {
+                            -- codeaction = {
+                            --     gopls = {
+                            --         doc = {
+                            --             features = false,
+                            --         },
+                            --     },
+                            -- },
                             analyses = {
                                 ST1003 = true,
                                 fieldalignment = false,
@@ -29,7 +36,7 @@ return {
                                 test = true,
                                 tidy = true,
                                 upgrade_dependency = true,
-                                vendor = true,
+                                vendor = false,
                             },
                             hints = {
                                 assignVariableTypes = true,
