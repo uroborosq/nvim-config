@@ -92,7 +92,7 @@ return {
         end,
     },
     {
-        "AstroNvim/astrocore",
+        "AstroNvim/astrolsp",
         ---@type AstroCoreOpts
         opts = {
             mappings = {
@@ -110,7 +110,11 @@ return {
                         require("telescope.builtin").lsp_dynamic_workspace_symbols,
                         desc = "Dynamic search for symbols",
                     },
-                    ["<Leader>lb"] = {
+                    ["<Leader>lA"] = {
+                        vim.lsp.buf.code_action,
+                        desc = "show all code actions",
+                    },
+                    ["<Leader>la"] = {
                         function()
                             vim.lsp.buf.code_action {
                                 filter = function(action)
@@ -122,7 +126,6 @@ return {
                             }
                         end,
                         desc = "show code actions",
-                        noremap = true,
                     },
                 },
             },
