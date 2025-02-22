@@ -11,6 +11,17 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
     pattern = { "*" },
 })
 
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    -- require("nvim-treesitter.install").compilers = { "clang" }
+    require("nvim-treesitter.install").prefer_git = false
+    --
+    -- vim.opt.shell = "pwsh.exe"
+    -- vim.opt.shellcmdflag =
+    --     "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+    -- vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+    -- vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+end
+
 vim.cmd [[
 " system clipboard
 nmap <c-c> "+y

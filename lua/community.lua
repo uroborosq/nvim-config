@@ -78,7 +78,7 @@ return {
     -- updgraded jump mechanism
     { import = "astrocommunity.motion.flash-nvim" },
     -- show images in neovim (kitty only)
-    { import = "astrocommunity.media.image-nvim" },
+    -- { import = "astrocommunity.media.image-nvim" },
     -- create shortcuts as tasks for running commands
     { import = "astrocommunity.code-runner.toggletasks-nvim" },
     { import = "astrocommunity.editing-support.refactoring-nvim" },
