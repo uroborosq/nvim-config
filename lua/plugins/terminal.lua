@@ -1,7 +1,15 @@
+local get_shell = function()
+    if vim.loop.os_uname().sysname == "Windows_NT" then
+        return "pwsh.exe"
+    else
+        return nil
+    end
+end
 return {
     {
         "akinsho/toggleterm.nvim",
         opts = {
+            shell = get_shell(),
             direction = "float",
             float_opts = {
                 width = function() return math.floor(vim.o.columns * 0.9) end,
