@@ -54,17 +54,17 @@ local function get_kind_icon(CTX)
                             if color_item.abbr then ctx.kind_icon = color_item.abbr end
                             ctx.kind_hl = color_item.abbr_hl_group
                         end
-
+                    end
                 end
             end
+            if not hl_provider then hl_provider = function() end end
         end
-        if not hl_provider then hl_provider = function() end end
+        -- Call resolved providers
+        icon_provider(CTX)
+        hl_provider(CTX)
+        -- Return text and highlight information
+        return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_hl }
     end
-    -- Call resolved providers
-    icon_provider(CTX)
-    hl_provider(CTX)
-    -- Return text and highlight information
-    return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_hl }
 end
 
 return {
@@ -75,7 +75,7 @@ return {
     opts = {
         -- remember to enable your providers here
         sources = {
-            default = { "lsp",  "snippets", "buffer" },
+            default = { "lsp", "snippets", "buffer" },
         },
         keymap = {
             ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -121,9 +121,9 @@ return {
                         },
                     },
                 },
-                    ghost_text = {
-                        enabled = true,
-                    }
+                ghost_text = {
+                    enabled = true,
+                },
             },
             accept = {
                 auto_brackets = { enabled = true },
