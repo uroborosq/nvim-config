@@ -57,14 +57,14 @@ local function get_kind_icon(CTX)
                     end
                 end
             end
-            if not hl_provider then hl_provider = function() end end
         end
-        -- Call resolved providers
-        icon_provider(CTX)
-        hl_provider(CTX)
-        -- Return text and highlight information
-        return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_hl }
+        if not hl_provider then hl_provider = function() end end
     end
+    -- Call resolved providers
+    icon_provider(CTX)
+    hl_provider(CTX)
+    -- Return text and highlight information
+    return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_hl }
 end
 
 return {
