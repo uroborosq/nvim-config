@@ -80,7 +80,7 @@ return { -- selected colorscheme
                     -- configure font
                     guifont = "Source Code Pro:h12:#e-subpixelantialias",
                     -- line spacing
-                    linespace = 3,
+                    linespace = 5,
                 },
                 g = { -- configure vim.g variables
                     -- configure scaling
