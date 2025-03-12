@@ -1,21 +1,21 @@
 return {
-    -- {
-    --     "hrsh7th/nvim-cmp",
-    --     opts = function(_, opts)
-    --         opts.sources = {
-    --             { name = "nvim_lsp", group_index = 1 },
-    --             -- { name = "luasnip", group_index = 1 },
-    --             -- { name = "buffer", group_index = 2 },
-    --         }
-    --         opts.mapping["<C-Space>"] = {}
-    --
-    --         opts.sorting = {
-    --             comparators = {
-    --                 require("cmp.config.compare").sort_text,
-    --             },
-    --         }
-    --     end,
-    -- },
+    {
+        "hrsh7th/nvim-cmp",
+        opts = function(_, opts)
+            opts.sources = {
+                { name = "nvim_lsp", group_index = 1 },
+                -- { name = "luasnip", group_index = 1 },
+                -- { name = "buffer", group_index = 2 },
+            }
+            opts.mapping["<C-Space>"] = {}
+
+            opts.sorting = {
+                comparators = {
+                    require("cmp.config.compare").sort_text,
+                },
+            }
+        end,
+    },
     -- {
     --     "codota/tabnine-nvim",
     --     main = "tabnine",
