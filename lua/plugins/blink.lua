@@ -74,19 +74,8 @@ return {
     opts_extend = { "sources.default", "cmdline.sources", "term.sources" },
     opts = {
         fuzzy = {
-            sorts = {
-                -- (optionally) always prioritize exact matches
-                -- 'exact',
-
-                -- pass a function for custom behavior
-                -- function(item_a, item_b)
-                --   return item_a.score > item_b.score
-                -- end,
-
-                "sort_text",
-            },
+            sorts = { "sort_text" },
         },
-        -- remember to enable your providers here
         sources = {
             default = { "lsp" },
         },
