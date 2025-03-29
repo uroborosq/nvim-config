@@ -104,7 +104,6 @@ return {
         opts = {
             mappings = {
                 n = {
-                    ["<Leader>lu"] = { ":LspRestart<CR>", desc = "Restart LSP" },
                     ["<Leader>lc"] = {
                         require("telescope.builtin").lsp_incoming_calls,
                         desc = "Incomming calls",

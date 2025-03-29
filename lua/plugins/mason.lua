@@ -15,10 +15,15 @@ return {
         "jay-babu/mason-null-ls.nvim",
         optional = true,
         opts = function(_, opts)
-            opts.ensure_installed = require("astrocore").list_insert_unique(
-                opts.ensure_installed,
-                { "gomodifytags", "gofumpt", "iferr", "impl", "goimports", "golangci-lint", "goimports-reviser" }
-            )
+            opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+                "gomodifytags",
+                "gofumpt",
+                "iferr",
+                "impl",
+                "goimports",
+                { "golangci-lint", version = "v1.64.8" },
+                "goimports-reviser",
+            })
         end,
     },
     {
