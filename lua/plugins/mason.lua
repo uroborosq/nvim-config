@@ -35,7 +35,7 @@ return {
                 "impl",
                 "goimports",
                 "stylua",
-                "golangci-lint",
+                { "golangci-lint", version = "v1.64.8" },
                 "goimports-reviser",
                 "buf",
             })

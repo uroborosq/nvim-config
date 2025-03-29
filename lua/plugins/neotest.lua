@@ -8,7 +8,7 @@ return {
             "nvim-treesitter/nvim-treesitter",
             {
                 "fredrikaverpil/neotest-golang",
-                commit = "09b29c40d7c87a39cde73606d54cc1ed4ffc7e08",
+                -- commit = "09b29c40d7c87a39cde73606d54cc1ed4ffc7e08",
             },
         },
         config = function()
@@ -16,10 +16,10 @@ return {
                 runner = "gotestsum",
                 dap_go_enabled = true,
                 testify_enabled = true,
+                testify_operand = "^(s|suite|x)$",
                 go_list_args = function()
                     local args = {}
                     if not os.getenv "GO_TAG" == "" then
-                        vim.notify "aboba"
                         args = table.insert(args, "-tags")
                         args = table.insert(args, os.getenv "GO_TAG")
                     end
@@ -32,9 +32,9 @@ return {
                         "-count=1",
                         "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
                     }
-                    if not os.getenv "GO_TAG" == "" then
-                        args = table.insert(args, "-tags")
-                        args = table.insert(args, os.getenv "GO_TAG")
+                    if not (os.getenv "GO_TAG" == "") then
+                        table.insert(args, "-tags")
+                        table.insert(args, os.getenv "GO_TAG")
                     end
 
                     return args

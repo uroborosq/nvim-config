@@ -28,8 +28,15 @@ return {
         "AstroNvim/astrolsp",
         optional = true,
         ---@type AstroLSPOpts
+        ---@diagnostic disable-next-line: missing-fields
         opts = {
-            ---@diagnostic disable-next-line: missing-fields
+            capabilities = {
+                workspace = {
+                    didChangeWatchedFiles = {
+                        dynamicRegistration = true,
+                    },
+                },
+            },
             config = {
                 gopls = {
                     settings = {

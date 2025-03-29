@@ -75,7 +75,7 @@ return {
     { import = "astrocommunity.editing-support.auto-save-nvim" },
     -- save files with sudo
     { import = "astrocommunity.editing-support.suda-vim" },
-    -- updgraded jump mechanism
+    -- updgraded jump mechanism - this is OP
     { import = "astrocommunity.motion.flash-nvim" },
     -- show images in neovim (kitty only)
     { import = "astrocommunity.media.image-nvim", cond = vim.env.TERM == "xterm-kitty" },
@@ -84,4 +84,5 @@ return {
     { import = "astrocommunity.editing-support.refactoring-nvim" },
 
     -- { import = "astrocommunity.completion.blink-cmp" },
+    -- { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
 }
