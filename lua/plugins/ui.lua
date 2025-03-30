@@ -67,8 +67,8 @@ return { -- selected colorscheme
             -- command = "ls",
             -- }
             dashboard.section.footer.val = {
-                "Talk is cheap. Show me the code.",
-                "Linus Torvalds",
+                "     Talk is cheap. Show me the code",
+                "                   -  Linus Torvalds",
             }
             -- dashboard.section.footer.opts = {
             --
@@ -84,10 +84,13 @@ return { -- selected colorscheme
             -- Layout
 
             dashboard.opts.layout = {
+                {
+                    type = "terminal",
+                    command = "ls",
+                },
                 { type = "padding", val = 6 },
                 dashboard.section.header,
                 { type = "padding", val = 2 },
-                dashboard.section.buttons,
                 {
                     type = "text",
                     val = {
@@ -96,9 +99,12 @@ return { -- selected colorscheme
                     },
                     opts = {
                         position = "center",
+                        hl = "italic",
                     },
                 },
-                { type = "padding", val = 10 },
+                { type = "padding", val = 4 },
+                dashboard.section.buttons,
+                { type = "padding", val = 2 },
                 dashboard.section.footer,
             }
             return opts
