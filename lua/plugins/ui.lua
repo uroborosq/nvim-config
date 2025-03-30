@@ -48,25 +48,58 @@ return { -- selected colorscheme
         opts = function(_, opts)
             -- customize the dashboard header
             opts.section.header.val = {
-                "                   ▄                    ",
-                "                  ▟█▙                  ",
-                "                 ▟███▙                 ",
-                "                ▟█████▙                ",
-                "               ▟███████▙               ",
-                "              ▂▔▀▜██████▙              ",
-                "             ▟██▅▂▝▜█████▙             ",
-                "            ▟█████████████▙            ",
-                "           ▟███████████████▙           ",
-                "          ▟█████████████████▙          ",
-                "         ▟███████████████████▙         ",
-                "        ▟█████████▛▀▀▜████████▙        ",
-                "       ▟████████▛      ▜███████▙       ",
-                "      ▟█████████        ████████▙      ",
-                "     ▟██████████        █████▆▅▄▃▂     ",
-                "    ▟██████████▛        ▜█████████▙    ",
-                "   ▟██████▀▀▀              ▀▀██████▙   ",
-                "  ▟███▀▘                       ▝▀███▙  ",
-                " ▟▛▀                               ▀▜▙ ",
+                "                                                     ",
+                "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+                "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+                "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+                "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+                "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+                "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+                "                                                     ",
+            }
+
+            local dashboard = require "alpha.themes.dashboard"
+            local term = require "alpha.term"
+
+            -- opts.text = {}
+            -- dashboard.section.terminal = {
+
+            -- command = "ls",
+            -- }
+            dashboard.section.footer.val = {
+                "Talk is cheap. Show me the code.",
+                "Linus Torvalds",
+            }
+            -- dashboard.section.footer.opts = {
+            --
+            -- }
+
+            dashboard.section.buttons.val = {
+                dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
+                dashboard.button("f", "  > Find file", ":cd $HOME/Workspace | Telescope find_files<CR>"),
+                dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
+                dashboard.button("s", "  > Menu", "<Space>"),
+                dashboard.button("q", "  > Quit NVIM", "<Space>Q<CR>"),
+            }
+            -- Layout
+
+            dashboard.opts.layout = {
+                { type = "padding", val = 6 },
+                dashboard.section.header,
+                { type = "padding", val = 2 },
+                dashboard.section.buttons,
+                {
+                    type = "text",
+                    val = {
+                        "Talk is cheap. Show me the code",
+                        "               - Linus Torvalds",
+                    },
+                    opts = {
+                        position = "center",
+                    },
+                },
+                { type = "padding", val = 10 },
+                dashboard.section.footer,
             }
             return opts
         end,
