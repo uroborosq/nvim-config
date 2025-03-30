@@ -8,7 +8,7 @@ return {
             "nvim-treesitter/nvim-treesitter",
             {
                 "fredrikaverpil/neotest-golang",
-                -- commit = "09b29c40d7c87a39cde73606d54cc1ed4ffc7e08",
+                commit = "09b29c40d7c87a39cde73606d54cc1ed4ffc7e08",
             },
         },
         config = function()
