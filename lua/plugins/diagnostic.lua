@@ -5,9 +5,9 @@ return {
         opts = {
             diagnostics = {
                 virtual_text = false,
-                -- virtual_lines = true,
+                virtual_lines = false,
                 float = {
-                    enabled = false,
+                    enabled = true,
                 },
                 jump = {
                     float = false,

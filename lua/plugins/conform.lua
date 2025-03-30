@@ -6,11 +6,11 @@ return {
                 go = { "gofumpt", "goimports-reviser", stop_after_first = false },
                 sql = { "sleek" },
             },
-            formatters = {
-                ["goimports-reviser"] = {
-                    prepend_args = { "-rm-unused" },
-                },
-            },
+            -- formatters = {
+            --     ["goimports-reviser"] = {
+            --         prepend_args = { "-rm-unused" },
+            --     },
+            -- },
         },
     },
 }

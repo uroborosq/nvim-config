@@ -26,7 +26,7 @@ end
 return {
     {
         "AstroNvim/astrolsp",
-        optional = true,
+        optiona = true,
         ---@type AstroLSPOpts
         ---@diagnostic disable-next-line: missing-fields
         opts = {
@@ -88,6 +88,9 @@ return {
                 signature_help = true,
                 inlay_hints = true,
             },
+            -- formatting = {
+            --     format_on_save = true,
+            -- },
         },
     },
     {
