@@ -26,7 +26,7 @@ end
 return {
     {
         "AstroNvim/astrolsp",
-        optional = true,
+        optiona = true,
         ---@type AstroLSPOpts
         ---@diagnostic disable-next-line: missing-fields
         opts = {
@@ -88,6 +88,9 @@ return {
                 signature_help = true,
                 inlay_hints = true,
             },
+            -- formatting = {
+            --     format_on_save = true,
+            -- },
         },
     },
     {
@@ -120,7 +123,6 @@ return {
                         vim.lsp.buf.code_action,
                         desc = "show all code actions",
                     },
-                    ["<Leader>lu"] = { ":LspRestart<CR>", desc = "Restart LSP" },
                     ["<Leader>la"] = {
                         function()
                             vim.lsp.buf.code_action {
