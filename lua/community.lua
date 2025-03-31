@@ -82,7 +82,7 @@ return {
     -- create shortcuts as tasks for running commands
     { import = "astrocommunity.code-runner.toggletasks-nvim" },
     { import = "astrocommunity.editing-support.refactoring-nvim" },
-
+    { import = "astrocommunity.editing-support.yanky-nvim" },
     -- { import = "astrocommunity.completion.blink-cmp" },
     -- { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
 }
