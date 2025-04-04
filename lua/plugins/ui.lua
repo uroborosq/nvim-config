@@ -65,6 +65,24 @@ return { -- selected colorscheme
     },
   },
   {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = {
+      mappings = {
+        n = {
+          ["<Leader>c"] = {
+            function()
+              local bufs = vim.fn.getbufinfo { buflisted = true }
+              require("astrocore.buffer").close(0)
+              if not bufs[2] then require("snacks").dashboard() end
+            end,
+            desc = "Close buffer",
+          },
+        },
+      },
+    },
+  },
+  {
     {
       "AstroNvim/astrocore",
       ---@type AstroCoreOpts
@@ -74,7 +92,7 @@ return { -- selected colorscheme
             -- configure font
             guifont = "Adwaita Mono:h12:#e-subpixelantialias",
             -- line spacing
-            linespace = 5,
+            -- linespace = 5,
           },
           g = { -- configure vim.g variables
             -- configure scaling
