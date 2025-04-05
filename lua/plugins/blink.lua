@@ -1,6 +1,5 @@
 return {
   "Saghen/blink.cmp",
-  build = "cargo build --release",
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -10,9 +9,17 @@ return {
     },
     sources = {
       default = { "lsp" },
-      providers = { snippets = {
-        enabled = false,
-      } },
+      providers = {
+        snippets = {
+          enabled = false,
+        },
+        path = {
+          enabled = false,
+        },
+        buffer = {
+          enabled = false,
+        },
+      },
     },
   },
 }
