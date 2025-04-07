@@ -7,6 +7,9 @@ return {
       sorts = { "sort_text" },
       implementation = "rust",
     },
+    keymap = {
+      -- ["<Tab>"] = {},
+    },
     sources = {
       default = { "lsp" },
       providers = {
