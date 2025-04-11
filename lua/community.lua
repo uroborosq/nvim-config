@@ -83,4 +83,5 @@ return {
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.recipes.heirline-clock-statusline" },
   { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 }

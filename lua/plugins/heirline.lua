@@ -15,6 +15,7 @@ return {
     }
 
     table.insert(opts.statusline, 5, component)
+    table.insert(opts.statusline, 12, status.component.nav())
     table.remove(opts.statusline, 3)
 
     return opts
