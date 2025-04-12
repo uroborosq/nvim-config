@@ -14,9 +14,15 @@ return {
       condition = function() return vim.fn.mode():find "[Vv]" end,
     }
 
+    local divider = {
+      provider = function() return " " end,
+    }
+
     table.insert(opts.statusline, 5, component)
     table.insert(opts.statusline, 12, status.component.nav())
+    table.insert(opts.statusline, 13, divider)
     table.remove(opts.statusline, 3)
+    table.remove(opts.statusline, 7)
 
     return opts
   end,

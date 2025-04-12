@@ -13,7 +13,6 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.hyprlang" },
-  -- { import = "astrocommunity.pack.proto" },
 
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
