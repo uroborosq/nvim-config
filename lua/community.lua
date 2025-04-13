@@ -12,7 +12,8 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.sql" },
-  { import = "astrocommunity.pack.hyprlang" },
+  { import = "astrocommunity.pack.elixir-phoenix" },
+  { import = "astrocommunity.pack.haskell" },
 
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
