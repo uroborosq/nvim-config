@@ -33,6 +33,7 @@ return {
       -- ["<S-Tab>"] = { "snippet_backward", "fallback" },
       -- ["<Tab>"] = {},
       ["<C-N>"] = {},
+      ["<C-P>"] = {},
       ["<C-Space>"] = { function(cmp) cmp.show { providers = { "snippets" } } end },
     },
     sources = {
