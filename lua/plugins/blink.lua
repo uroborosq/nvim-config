@@ -4,9 +4,6 @@ return {
   ---@type blink.cmp.Config
   opts = {
     completion = {
-      ghost_text = {
-        enabled = true,
-      },
       list = {
         selection = {
           preselect = true,
