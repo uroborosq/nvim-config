@@ -72,7 +72,7 @@ return { -- selected colorscheme
         options = {
           opt = { -- configure vim.opt options
             -- configure font
-            guifont = "Adwaita Mono:h12:#e-subpixelantialias",
+            guifont = "SauceCodePro Nerd Font:h12:#e-subpixelantialias",
             -- line spacing
             -- linespace = 5,
           },
