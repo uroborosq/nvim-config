@@ -86,4 +86,5 @@ return {
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
+  { import = "astrocommunity.editing-support.other-nvim" },
 }
