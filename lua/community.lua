@@ -87,4 +87,8 @@ return {
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
   { import = "astrocommunity.editing-support.other-nvim" },
+  -- { import = "astrocommunity.scrolling.vim-smoothie" },
+  -- { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
 }

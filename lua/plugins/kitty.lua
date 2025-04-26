@@ -2,10 +2,11 @@ return {
   {
     "knubie/vim-kitty-navigator",
     build = "ln -f ./*.py ~/.config/kitty/",
+    cond = vim.env.TERM == "xterm-kitty",
   },
   {
     "mikesmithgh/kitty-scrollback.nvim",
-    enabled = true,
+    cond = vim.env.TERM == "xterm-kitty",
     lazy = true,
     cmd = {
       "KittyScrollbackGenerateKittens",
