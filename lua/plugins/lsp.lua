@@ -119,6 +119,10 @@ return {
             vim.lsp.buf.code_action,
             desc = "show all code actions",
           },
+          ["<Leader>lu"] = {
+            ":LspRestart<CR>",
+            desc = "Restart LSP",
+          },
           ["<Leader>la"] = {
             function()
               vim.lsp.buf.code_action {
