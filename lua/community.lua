@@ -14,6 +14,7 @@ return {
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.haskell" },
   -- { import = "astrocommunity.pack.hyprlang" },
+  { import = "astrocommunity.pack.zig" },
 
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
