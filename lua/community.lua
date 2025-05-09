@@ -13,8 +13,6 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.haskell" },
-  -- { import = "astrocommunity.pack.hyprlang" },
-  { import = "astrocommunity.pack.zig" },
 
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
@@ -87,5 +85,5 @@ return {
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
-  { import = "astrocommunity.editing-support.other-nvim" },
+  -- { import = "astrocommunity.editing-support.other-nvim" },
 }
