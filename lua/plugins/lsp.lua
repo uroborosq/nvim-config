@@ -86,7 +86,7 @@ return {
       },
       features = {
         signature_help = true,
-        inlay_hints = true,
+        inlay_hints = false,
       },
       -- formatting = {
       --     format_on_save = true,
