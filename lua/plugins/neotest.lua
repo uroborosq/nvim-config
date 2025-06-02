@@ -19,9 +19,11 @@ return {
         testify_operand = "^(s|suite|x)$",
         go_opts = function()
           if not os.getenv "GO_TAG" == "" then
+            arg = "--build-flags=" .. '"-tags=' .. os.getenv "GO_TAG" .. '"'
+
             return {
               delve = {
-                args = { "-tags=" .. os.getenv "GO_TAG" },
+                args = { arg },
               },
             }
           end
@@ -31,8 +33,9 @@ return {
         go_list_args = function()
           local args = {}
           if not os.getenv "GO_TAG" == "" then
-            args = table.insert(args, "-tags")
-            args = table.insert(args, os.getenv "GO_TAG")
+            arg = "--build-flags=" .. '"-tags=' .. os.getenv "GO_TAG" .. '"'
+
+            table.insert(args, arg)
           end
 
           return args
