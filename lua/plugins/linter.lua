@@ -6,7 +6,7 @@ return {
         go = { "golangcilint" },
       },
     },
-    init = function(_)
+    init = function(_, _)
       local lint = require "lint"
       local result = vim.deepcopy(lint.linters.golangcilint)
 
