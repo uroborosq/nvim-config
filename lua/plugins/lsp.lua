@@ -80,6 +80,7 @@ return {
               staticcheck = true,
               usePlaceholders = true,
               vulncheck = "Imports",
+              semanticTokens = true,
             },
           },
         },
