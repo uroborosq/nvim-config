@@ -12,7 +12,6 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.sql" },
-  -- { import = "astrocommunity.pack.haskell" },
 
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
@@ -47,7 +46,6 @@ return {
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
 
   -- can mount remote machine fs via sshfs
-  { import = "astrocommunity.remote-development.remote-sshfs-nvim" },
   -- converting between test cases
   { import = "astrocommunity.editing-support.text-case-nvim" },
   -- show tree of undo operations
@@ -58,10 +56,9 @@ return {
   { import = "astrocommunity.search.grug-far-nvim" },
   -- do not open nested nvim sessions inside terminals and etc
   { import = "astrocommunity.terminal-integration.nvim-unception" },
+  { import = "astrocommunity.editing-support.rustowl" },
   -- save last choosen colorscheme, overriding config
   { import = "astrocommunity.recipes.cache-colorscheme" },
-  -- show detailed git diff
-  { import = "astrocommunity.git.diffview-nvim" },
   -- dim inactive windows
   { import = "astrocommunity.color.tint-nvim" },
   -- good neovim practices
@@ -77,8 +74,6 @@ return {
   -- create shortcuts as tasks for running commands
   { import = "astrocommunity.code-runner.toggletasks-nvim" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
-  -- { import = "astrocommunity.editing-support.yanky-nvim" },
-  -- { import = "astrocommunity.recipes.heirline-mode-text-statusline" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.recipes.heirline-clock-statusline" },
   { import = "astrocommunity.fuzzy-finder.telescope-nvim" },

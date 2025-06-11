@@ -14,7 +14,7 @@ return { -- selected colorscheme
           comments = "italic",
           keywords = "bold",
           types = "bold",
-          functions = "bold,italic",
+          functions = "bold",
           conditionals = "bold",
           constants = "bold,underline",
           numbers = "italic",
