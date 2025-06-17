@@ -56,7 +56,6 @@ return {
   { import = "astrocommunity.search.grug-far-nvim" },
   -- do not open nested nvim sessions inside terminals and etc
   { import = "astrocommunity.terminal-integration.nvim-unception" },
-  { import = "astrocommunity.editing-support.rustowl" },
   -- save last choosen colorscheme, overriding config
   { import = "astrocommunity.recipes.cache-colorscheme" },
   -- dim inactive windows
