@@ -36,7 +36,7 @@ return {
   -- settings for neovide client
   { import = "astrocommunity.recipes.neovide" },
   -- commands to switch between different toggleterm windows
-  -- { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
+  { import = "astrocommunity.terminal-integration.toggleterm-manager-nvim" },
   -- scrollbar with diagnostic marks
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   -- open files from terminal into normal tabs
@@ -44,6 +44,7 @@ return {
   -- call telescope to see definitions, implementations and etc.
   -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
+  { import = "astrocommunity.completion.avante-nvim" },
 
   -- can mount remote machine fs via sshfs
   -- converting between test cases

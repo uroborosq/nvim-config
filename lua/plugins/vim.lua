@@ -5,6 +5,7 @@ return {
       opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
+        spell = true,
         spelllang = { "en_us", "ru" },
         spelloptions = "camel",
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
@@ -12,6 +13,7 @@ return {
         tabstop = 4,
         shiftwidth = 4,
         softtabstop = 4,
+        laststatus = 3,
         expandtab = true,
         langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯХЪБЮЖфисвуапршолдьтщзйкыегмцчняхъюэ;ABCDEFGHIJKLMNOPQRSTUVWXYZ{}<>:abcdefghijklmnopqrstuvwxyz[]."',
       },

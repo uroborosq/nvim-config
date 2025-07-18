@@ -30,8 +30,8 @@ return {
           -- no CR - keep possibility to enter your arguments
           [prefix .. "i"] = { ":GoImpl ", desc = "implement current interface" },
           [prefix .. "a"] = {
-            -- ":GoTagAdd json<CR>:GoTagAdd bson -transform camelcase<CR>",
-            ":GoTagAdd json<CR>",
+            ":GoTagAdd bson -transform camelcase<CR>",
+            -- ":GoTagAdd json<CR>",
             desc = "add tags to struct",
           },
           -- no CR to input module name

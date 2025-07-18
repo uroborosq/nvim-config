@@ -4,6 +4,14 @@ return {
   ---@type blink.cmp.Config
   opts = {
     completion = {
+      menu = {
+        draw = {
+          columns = {
+            { "kind_icon", "label", "label_description", gap = 1 },
+            { "kind", gap = 1, "source_name" },
+          },
+        },
+      },
       list = {
         selection = {
           preselect = true,

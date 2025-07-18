@@ -4,6 +4,7 @@ local ignoring_code_actions = {
   ["source.test"] = true,
   ["gopls.doc.features"] = true,
   ["source.addTest"] = true,
+  ["source.toggleCompilerOptDetails"] = true,
 }
 
 --- @argument action lsp.CodeAction|lsp.Command
@@ -42,6 +43,8 @@ return {
           settings = {
             gopls = {
               analyses = {
+                ST1000 = false,
+                ST1021 = false,
                 ST1003 = true,
                 fieldalignment = false,
                 fillreturns = true,
@@ -130,7 +133,6 @@ return {
                 filter = function(action)
                   local gopls_detected = is_gopls(action)
                   if gopls_detected and ignoring_code_actions[action.kind] then return false end
-
                   return true
                 end,
               }
