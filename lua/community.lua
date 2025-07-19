@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.sql" },
+  { import = "astrocommunity.pack.cpp" },
 
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
