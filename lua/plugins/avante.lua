@@ -4,11 +4,11 @@ local openai_base_endpoint = "https://litellm-proxy.ai.yadro.com"
 return {
   {
     "ravitemer/mcphub.nvim",
-    cond = not (openai_api_key == ""),
+    cond = not (openai_api_key == nil),
   },
   {
     "yetone/avante.nvim",
-    cond = not (openai_api_key == ""),
+    cond = not (openai_api_key == nil),
     opts = {
       system_prompt = function()
         local hub = require("mcphub").get_hub_instance()
@@ -63,7 +63,7 @@ return {
   },
   {
     "milanglacier/minuet-ai.nvim",
-    cond = not (openai_api_key == ""),
+    cond = not (openai_api_key == nil),
     config = function()
       require("minuet").setup {
         n_completions = 3,
