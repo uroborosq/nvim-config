@@ -5,6 +5,7 @@ local ignoring_code_actions = {
   ["gopls.doc.features"] = true,
   ["source.addTest"] = true,
   ["source.toggleCompilerOptDetails"] = true,
+  ["source.splitPackage"] = true,
 }
 
 --- @argument action lsp.CodeAction|lsp.Command
@@ -67,6 +68,7 @@ return {
                 vendor = false,
               },
               hints = {
+                ignoredError = true,
                 assignVariableTypes = true,
                 compositeLiteralFields = true,
                 compositeLiteralTypes = true,

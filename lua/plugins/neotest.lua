@@ -17,40 +17,14 @@ return {
         dap_go_enabled = true,
         testify_enabled = true,
         testify_operand = "^(s|suite|x)$",
-        go_opts = function()
-          if not os.getenv "GO_TAG" == "" then
-            arg = "--build-flags=" .. '"-tags=' .. os.getenv "GO_TAG" .. '"'
-
-            return {
-              delve = {
-                args = { arg },
-              },
-            }
-          end
-
-          return {}
-        end,
-        go_list_args = function()
-          local args = {}
-          if not os.getenv "GO_TAG" == "" then
-            arg = "--build-flags=" .. '"-tags=' .. os.getenv "GO_TAG" .. '"'
-
-            table.insert(args, arg)
-          end
-
-          return args
-        end,
         go_test_args = function()
           local args = {
             "-v",
             "-count=1",
+            "-race",
+            "-timeout=15s",
             "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
           }
-          if not (os.getenv "GO_TAG" == "") then
-            table.insert(args, "-tags")
-            table.insert(args, os.getenv "GO_TAG")
-          end
-
           return args
         end,
       } -- Specify configuration

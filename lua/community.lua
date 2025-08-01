@@ -62,8 +62,6 @@ return {
   { import = "astrocommunity.recipes.cache-colorscheme" },
   -- dim inactive windows
   { import = "astrocommunity.color.tint-nvim" },
-  -- good neovim practices
-  { import = "astrocommunity.workflow.hardtime-nvim" },
   -- auto save plugin
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   -- save files with sudo

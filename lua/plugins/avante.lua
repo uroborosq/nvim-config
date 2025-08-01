@@ -32,7 +32,7 @@ return {
           endpoint = "https://litellm-proxy.ai.yadro.com",
           api_key_name = "YADRO_API_KEY",
           disable_tools = true,
-          context_window = 32768,
+          context_window = 131072,
         },
         ["deepseek-r1"] = {
           __inherited_from = "openai",
