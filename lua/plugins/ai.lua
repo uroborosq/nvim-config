@@ -68,7 +68,7 @@ return {
       require("minuet").setup {
         n_completions = 3,
         context_window = 32768,
-        request_timeout = 2,
+        request_timeout = 0.5,
         provider = "openai_fim_compatible",
         provider_options = {
           openai_compatible = {
@@ -77,7 +77,7 @@ return {
             model = "autocomplete/qwen2.5-coder:7b",
             stream = true,
             optional = {
-              max_tokens = 150,
+              max_tokens = 30,
               top_p = 0.9,
             },
           },
@@ -97,7 +97,7 @@ return {
               suffix = false,
             },
             optional = {
-              max_tokens = 150,
+              max_tokens = 30,
               top_p = 0.9,
             },
           },

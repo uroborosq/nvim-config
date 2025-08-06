@@ -46,7 +46,7 @@ return {
   -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
   { import = "astrocommunity.completion.avante-nvim" },
-
+  { import = "astrocommunity.recipes.vscode" },
   -- can mount remote machine fs via sshfs
   -- converting between test cases
   { import = "astrocommunity.editing-support.text-case-nvim" },
