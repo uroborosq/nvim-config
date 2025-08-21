@@ -1,3 +1,0 @@
-return {
-  "ribelo/taskwarrior.nvim",
-}

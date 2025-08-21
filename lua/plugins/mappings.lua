@@ -18,9 +18,6 @@ return {
           ["<Leader>gD"] = { ":DiffviewOpen HEAD<CR>", desc = "Show diff with HEAD" },
           ["<C-W>t"] = { ":tabclose<CR>", desc = "Close current tab" },
         },
-        v = {
-          ["<Leader>r"] = { ":SnipRun<CR>", desc = "Run selected with SnipRun" },
-        },
         i = {
           ["<C-L>"] = { function() ls.expand() end },
           ["<C-N>"] = { function() ls.jump(1) end },

@@ -94,18 +94,7 @@ return {
         signature_help = true,
         inlay_hints = false,
       },
-      -- formatting = {
-      --     format_on_save = true,
-      -- },
     },
-  },
-  {
-    "AstroNvim/astrolsp",
-    ---@param opts AstroLSPOpts
-    opts = function(_, opts)
-      opts.servers = opts.servers or {}
-      vim.list_extend(opts.servers, { "protols" })
-    end,
   },
   {
     "AstroNvim/astrolsp",
