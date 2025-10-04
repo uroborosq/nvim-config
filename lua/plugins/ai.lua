@@ -20,30 +20,29 @@ return {
           require("mcphub.extensions.avante").mcp_tool(),
         }
       end,
-      provider = "qwen2.5-coder:32b",
+      provider = "qwen3-coder",
       behaviour = {
         auto_suggestions = false,
-        auto_approve_tool_permissions = true,
       },
       providers = {
-        ["qwen2.5-coder:32b"] = {
-          model = "chat/qwen2.5-coder:32b",
+        ["qwen3-coder"] = {
+          model = "Qwen3-Coder-30B-A3B-Instruct-FP8",
           __inherited_from = "openai",
           endpoint = "https://litellm-proxy.ai.yadro.com",
           api_key_name = "YADRO_API_KEY",
-          disable_tools = true,
-          context_window = 131072,
+          context_window = 262144,
+          extra_request_body = {
+            max_tokens = 65336,
+          },
         },
         ["deepseek-r1"] = {
           __inherited_from = "openai",
           endpoint = "https://litellm-proxy.ai.yadro.com",
           api_key_name = "YADRO_API_KEY",
-          disable_tools = true,
           context_window = 32768,
           model = "beta/chat/deepseek-r1:70b-llama-distill-fp16",
         },
         ["qwen2.5-coder:7b"] = {
-          disable_tools = true, -- disable tools!
           model = "autocomplete/qwen2.5-coder:7b",
           endpoint = "https://litellm-proxy.ai.yadro.com",
           api_key_name = "YADRO_API_KEY",
