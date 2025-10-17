@@ -13,7 +13,7 @@ return {
     },
     config = function()
       local config = {
-        runner = "gotestsum",
+        -- runner = "gotestsum",
         dap_go_enabled = true,
         testify_enabled = true,
         testify_operand = "^(s|suite|x)$",
