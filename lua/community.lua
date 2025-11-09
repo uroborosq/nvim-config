@@ -10,6 +10,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.rust" },
+  -- { import = "astrocommunity.pack.proto" },
 
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
@@ -66,4 +67,5 @@ return {
   { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
+  -- { import = "astrocommunity.file-explorer.fyler-nvim" },
 }

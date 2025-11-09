@@ -28,18 +28,39 @@ end
 return {
   {
     "AstroNvim/astrolsp",
-    optiona = true,
     ---@type AstroLSPOpts
     ---@diagnostic disable-next-line: missing-fields
     opts = {
       capabilities = {
         workspace = {
+          didChangeWorkspaceFolders = {
+            dynamicRegistration = true,
+          },
           didChangeWatchedFiles = {
             dynamicRegistration = true,
           },
         },
+        textDocument = {
+          diagnostic = {
+            dynamicRegistration = true,
+            relatedDocumentSupport = true,
+          },
+        },
+      },
+      handlers = {
+        buf_ls = false,
+        protols = function(_, opts) require("lspconfig").protols.setup(opts) end,
       },
       config = {
+        protols = {
+          settings = {
+            init_options = {
+              include_paths = {
+                "/usr/include",
+              },
+            },
+          },
+        },
         gopls = {
           settings = {
             gopls = {
@@ -93,6 +114,14 @@ return {
       features = {
         signature_help = true,
         inlay_hints = false,
+      },
+      mason_lspconfig = {
+        servers = {
+          protols = {
+            package = "protols",
+            filetypes = { "proto" },
+          },
+        },
       },
     },
   },

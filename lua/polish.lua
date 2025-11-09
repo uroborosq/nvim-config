@@ -16,6 +16,8 @@ end
 
 vim.o.autoread = true
 
+-- require("lspconfig").protols.setup {}
+
 vim.cmd [[
 " system clipboard
 nmap <c-c> "+y

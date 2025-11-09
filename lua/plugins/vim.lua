@@ -14,14 +14,19 @@ return {
         shiftwidth = 4,
         softtabstop = 4,
         laststatus = 3,
+        autoread = true,
         expandtab = true,
         langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯХЪБЮЖфисвуапршолдьтщзйкыегмцчняхъюэ;ABCDEFGHIJKLMNOPQRSTUVWXYZ{}<>:abcdefghijklmnopqrstuvwxyz[]."',
       },
       o = {
         autoread = true,
       },
+      g = {
+        autoread = true,
+      },
     },
     features = {
+      autoread = true,
       autopairs = true, -- enable or disable autopairs on start
       cmp = true,
       -- diagnostics_mode = 0, -- diagstic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = off)
