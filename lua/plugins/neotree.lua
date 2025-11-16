@@ -5,9 +5,9 @@ return {
     opts = {
       mappings = {
         n = {
-          ["<Leader>e"] = { ":Neotree float reveal<CR>" },
+          ["<Leader>e"] = { ":Neotree float reveal toggle<CR>" },
           ["<Leader>o"] = { ":Neotree float reveal toggle<CR>" },
-          ["<Leader>E"] = { ":Neotree left reveal<CR>" },
+          ["<Leader>E"] = { ":Neotree left reveal toggle<CR>" },
         },
       },
     },

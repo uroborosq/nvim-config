@@ -67,5 +67,5 @@ return {
   { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
-  -- { import = "astrocommunity.file-explorer.fyler-nvim" },
+  { import = "astrocommunity.git.diffview-nvim"}
 }
