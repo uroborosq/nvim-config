@@ -19,7 +19,7 @@ return {
         "iferr",
         "impl",
         "goimports",
-        { "golangci-lint" },
+        "golangci-lint",
         "goimports-reviser",
       })
     end,
@@ -38,7 +38,7 @@ return {
         "impl",
         "goimports",
         "stylua",
-        { "golangci-lint" },
+        "golangci-lint",
         "goimports-reviser",
         "buf",
       })
