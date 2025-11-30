@@ -19,7 +19,7 @@ return {
         "iferr",
         "impl",
         "goimports",
-        { "golangci-lint", version = "v1.64.8" },
+        { "golangci-lint" },
         "goimports-reviser",
       })
     end,
@@ -38,7 +38,7 @@ return {
         "impl",
         "goimports",
         "stylua",
-        { "golangci-lint", version = "v1.64.8" },
+        { "golangci-lint" },
         "goimports-reviser",
         "buf",
       })
