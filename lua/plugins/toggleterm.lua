@@ -32,6 +32,7 @@ return {
           ["<C-k>"] = { [[<Cmd>wincmd k<CR>]] },
           ["<C-l>"] = { [[<Cmd>wincmd l<CR>]] },
           ["<C-w>"] = { [[<C-\><C-n><C-w>]] },
+          ["<C-\\>"] = { "<cmd>Telescope toggleterm_manager<cr>", desc = "Search Toggleterms" },
         },
         n = {
           ["<C-\\>"] = { "<cmd>Telescope toggleterm_manager<cr>", desc = "Search Toggleterms" },

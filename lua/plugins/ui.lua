@@ -69,7 +69,11 @@ return {
         options = {
           opt = { -- configure vim.opt options
             -- configure font
-            guifont = "Adwaita Mono:h12",
+            guifont = (function()
+              if vim.loop.os_uname().sysname == "Windows_NT" then return "AdwaitaMono Nerd Font:h11" end
+
+              return "Adwaita Mono:h12"
+            end)(),
             -- line spacing
             linespace = 3,
           },
