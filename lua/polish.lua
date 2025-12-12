@@ -16,8 +16,6 @@ end
 
 vim.o.autoread = true
 
--- require("lspconfig").protols.setup {}
-
 local lspconfig = require "lspconfig"
 
 -- Set global defaults for all servers
