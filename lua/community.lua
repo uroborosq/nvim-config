@@ -11,7 +11,7 @@ return {
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.pack.proto" },
-
+  { import = "astrocommunity.pack.elixir-phoenix" },
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
   -- unit tests support
@@ -67,5 +67,7 @@ return {
   { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
-  { import = "astrocommunity.git.diffview-nvim"}
+  { import = "astrocommunity.git.diffview-nvim" },
+  { import = "astrocommunity.git.vscode-diff-nvim" },
+  { import = "astrocommunity.completion.codex-nvim" },
 }
