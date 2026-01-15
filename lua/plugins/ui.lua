@@ -1,5 +1,8 @@
 return {
   -- installed colorschemes
+  { "ATTron/bebop.nvim", opts = {
+    preset = "faye",
+  } },
   "xiantang/darcula-dark.nvim",
   {
     "EdenEast/nightfox.nvim",

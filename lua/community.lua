@@ -68,6 +68,5 @@ return {
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
-  { import = "astrocommunity.git.vscode-diff-nvim" },
-  { import = "astrocommunity.completion.codex-nvim" },
+  -- { import = "astrocommunity.git.vscode-diff-nvim" },
 }
