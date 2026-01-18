@@ -62,31 +62,24 @@ return {
   -- },
   {
     "milanglacier/minuet-ai.nvim",
-    cond = not (openai_api_key == nil),
     config = function()
       require("minuet").setup {
-        n_completions = 3,
-        context_window = 32768,
-        request_timeout = 0.5,
         provider = "openai_fim_compatible",
+        n_completions = 3,
+        context_window = 512,
+        debounce = 300,
+        add_single_line_entry = true, -- true for one-line autocomplete
         provider_options = {
-          openai_compatible = {
-            api_key = function() return openai_api_key end,
-            end_point = openai_base_endpoint .. "/v1/chat/completions",
-            model = "autocomplete/qwen2.5-coder:7b",
-            stream = true,
+          openai_fim_compatible = {
+            api_key = "YADRO_API_KEY",
+            end_point = "https://litellm-proxy.ai.yadro.com/completions",
+            model = "Qwen2.5-Coder-7B-Instruct-fp8",
+            name = "yadro_autocomplete",
             optional = {
               max_tokens = 30,
-              top_p = 0.9,
             },
-          },
-          openai_fim_compatible = {
-            api_key = function() return openai_api_key end,
-            end_point = openai_base_endpoint .. "/completions",
-            model = "autocomplete/qwen2.5-coder:7b",
-            stream = true,
             template = {
-              prompt = function(context_before_cursor, context_after_cursor, _)
+              prompt = function(context_before_cursor, context_after_cursor, opts)
                 return "<|fim_prefix|>"
                   .. context_before_cursor
                   .. "<|fim_suffix|>"
@@ -94,10 +87,6 @@ return {
                   .. "<|fim_middle|>"
               end,
               suffix = false,
-            },
-            optional = {
-              max_tokens = 30,
-              top_p = 0.9,
             },
           },
         },
@@ -115,4 +104,76 @@ return {
       }
     end,
   },
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "Kaiser-Yang/blink-cmp-avante",
+      "milanglacier/minuet-ai.nvim",
+    },
+    version = "1.*",
+
+    -- ---@module 'blink.cmp'
+    -- ---@type blink.cmp.Config
+    -- opts = {
+    --   sources = {
+    --     default = { "avante", "lsp", "path", "snippets", "buffer", "minuet" },
+    --     providers = {
+    --       minuet = {
+    --         name = "minuet",
+    --         module = "minuet.blink",
+    --         async = true,
+    --         timeout_ms = 3000, -- Should match minuet.config.request_timeout * 1000,
+    --         score_offset = 50, -- Gives minuet higher priority among suggestions
+    --       },
+    --     },
+    --   },
+    --
+    --   fuzzy = { implementation = "prefer_rust_with_warning" },
+    -- },
+    -- opts_extend = { "sources.default" },
+  },
+  -- {
+  --   "milanglacier/minuet-ai.nvim",
+  --   cond = not (openai_api_key == nil),
+  --   config = function()
+  --     require("minuet").setup {
+  --       n_completions = 3,
+  --       context_window = 32768,
+  --       request_timeout = 0.5,
+  --       provider = "openai_fim_compatible",
+  --       provider_options = {
+  --         openai_compatible = {
+  --           api_key = function() return openai_api_key end,
+  --           end_point = openai_base_endpoint .. "/v1/chat/completions",
+  --           model = "autocomplete/qwen2.5-coder:7b",
+  --           stream = true,
+  --           optional = {
+  --             max_tokens = 30,
+  --             top_p = 0.9,
+  --           },
+  --         },
+  --         openai_fim_compatible = {
+  --           api_key = function() return openai_api_key end,
+  --           end_point = openai_base_endpoint .. "/completions",
+  --           model = "autocomplete/qwen2.5-coder:7b",
+  --           stream = true,
+  --           template = {
+  --             prompt = function(context_before_cursor, context_after_cursor, _)
+  --               return "<|fim_prefix|>"
+  --                 .. context_before_cursor
+  --                 .. "<|fim_suffix|>"
+  --                 .. context_after_cursor
+  --                 .. "<|fim_middle|>"
+  --             end,
+  --             suffix = false,
+  --           },
+  --           optional = {
+  --             max_tokens = 30,
+  --             top_p = 0.9,
+  --           },
+  --         },
+  --       },
+  --   end,
+  -- },
 }
