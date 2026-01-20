@@ -18,6 +18,8 @@ vim.o.autoread = true
 
 local lspconfig = require "lspconfig"
 
+vim.lsp.log.set_level(vim.log.levels.OFF)
+
 -- Set global defaults for all servers
 lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
   capabilities = vim.tbl_deep_extend(
