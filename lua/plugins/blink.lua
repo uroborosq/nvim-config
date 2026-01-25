@@ -52,13 +52,18 @@ return {
       ["<C-Space>"] = { function(cmp) cmp.show { providers = { "snippets" } } end },
     },
     sources = {
-      default = { "go_deep", "go_pkgs", "lsp", "path" },
+      default = {--[[  "go_deep", "go_pkgs", ]]
+        "lsp",
+        "path",
+      },
       providers = {
         go_pkgs = {
+          enabled = false,
           module = "blink-go-import",
           name = "Import",
         },
         go_deep = {
+          enabled = false,
           name = "go_deep",
           module = "blink.compat.source",
           min_keyword_length = 3,

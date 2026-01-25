@@ -39,7 +39,7 @@ return {
   -- call telescope to see definitions, implementations and etc.
   -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
-  { import = "astrocommunity.completion.avante-nvim" },
+  -- { import = "astrocommunity.completion.avante-nvim" },
   -- converting between test cases
   { import = "astrocommunity.editing-support.text-case-nvim" },
   -- show tree of undo operations
@@ -51,7 +51,7 @@ return {
   -- save last choosen colorscheme, overriding config
   { import = "astrocommunity.recipes.cache-colorscheme" },
   -- dim inactive windows
-  { import = "astrocommunity.color.tint-nvim" },
+  -- { import = "astrocommunity.color.tint-nvim" },
   -- auto save plugin
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   -- save files with sudo

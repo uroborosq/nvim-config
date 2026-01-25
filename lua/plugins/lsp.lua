@@ -102,7 +102,7 @@ return {
               buildFlags = { "-tags", "integration" },
               symbolMatcher = "Fuzzy",
               completeUnimported = true,
-              diagnosticsDelay = "50ms",
+              diagnosticsDelay = "500ms",
               staticcheck = true,
               usePlaceholders = true,
               vulncheck = "Imports",
