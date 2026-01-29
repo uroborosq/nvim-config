@@ -10,8 +10,6 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.rust" },
-  -- { import = "astrocommunity.pack.proto" },
-  { import = "astrocommunity.pack.elixir-phoenix" },
   -- show unit tests coverage
   { import = "astrocommunity.test.nvim-coverage" },
   -- unit tests support
@@ -28,8 +26,6 @@ return {
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   -- formatter
   { import = "astrocommunity.editing-support.conform-nvim" },
-  -- should show some hints for writing regexps
-  { import = "astrocommunity.editing-support.nvim-regexplainer" },
   -- linter
   { import = "astrocommunity.lsp.nvim-lint" },
   -- commands to switch between different toggleterm windows
@@ -50,8 +46,6 @@ return {
   { import = "astrocommunity.search.grug-far-nvim" },
   -- save last choosen colorscheme, overriding config
   { import = "astrocommunity.recipes.cache-colorscheme" },
-  -- dim inactive windows
-  -- { import = "astrocommunity.color.tint-nvim" },
   -- auto save plugin
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   -- save files with sudo
@@ -66,7 +60,5 @@ return {
   { import = "astrocommunity.recipes.heirline-clock-statusline" },
   { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
   { import = "astrocommunity.recipes.telescope-lsp-mappings" },
-  { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
-  -- { import = "astrocommunity.git.vscode-diff-nvim" },
 }
