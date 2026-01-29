@@ -44,12 +44,31 @@ return {
   {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts
-    opts = function(plugin, opts)
-      -- safely extend the servers list
-      opts.servers = opts.servers or {}
-      vim.list_extend(opts.servers, {
-        "protols",
-      })
-    end,
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+      handlers = {
+        buf_ls = false,
+        protols = function(_, opts) require("lspconfig").protols.setup(opts) end,
+      },
+      config = {
+        protols = {
+          settings = {
+            init_options = {
+              include_paths = {
+                "/usr/include",
+              },
+            },
+          },
+        },
+      },
+      mason_lspconfig = {
+        servers = {
+          protols = {
+            package = "protols",
+            filetypes = { "proto" },
+          },
+        },
+      },
+    },
   },
 }

@@ -24,15 +24,4 @@ return {
       },
     },
   },
-  -- {
-  --   "AstroNvim/astrolsp",
-  --   ---@type AstroLSPOpts
-  --   opts = function(plugin, opts)
-  --     -- safely extend the servers list
-  --     opts.servers = opts.servers or {}
-  --     vim.list_extend(opts.servers, {
-  --       "tclsp",
-  --     })
-  --   end,
-  -- },
 }
