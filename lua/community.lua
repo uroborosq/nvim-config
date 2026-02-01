@@ -10,7 +10,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.rust" },
-  -- { import = "astrocommunity.pack.nim" },
+  { import = "astrocommunity.pack.nim" },
   { import = "astrocommunity.pack.crystal" },
 
   -- show unit tests coverage
