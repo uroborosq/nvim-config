@@ -41,7 +41,7 @@ return {
   -- show tree of undo operations
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
   -- markdown preview in normal mode
-  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
+  -- { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   -- find and replace tui
   { import = "astrocommunity.search.grug-far-nvim" },
   -- save last choosen colorscheme, overriding config
@@ -53,7 +53,7 @@ return {
   -- updgraded jump mechanism - this is OP
   { import = "astrocommunity.motion.flash-nvim" },
   -- show images in neovim (kitty only)
-  { import = "astrocommunity.media.image-nvim", cond = vim.env.TERM == "xterm-kitty" },
+  -- { import = "astrocommunity.media.image-nvim" },
   -- create shortcuts as tasks for running commands
   { import = "astrocommunity.code-runner.toggletasks-nvim" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
