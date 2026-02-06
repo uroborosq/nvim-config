@@ -39,6 +39,7 @@ return {
   -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
   -- { import = "astrocommunity.completion.avante-nvim" },
+  -- { import = "astrocommunity.completion.nvim-cmp" },
   -- converting between test cases
   { import = "astrocommunity.editing-support.text-case-nvim" },
   -- show tree of undo operations
