@@ -14,42 +14,42 @@ return {
     "OXY2DEV/markview.nvim",
     lazy = false,
     opts = {
-      preview = {
-        enabled = true,
-        splitview_winopts = {
-          split = "right",
-        },
-      },
+      -- preview = {
+      --   enabled = true,
+      --   splitview_winopts = {
+      --     split = "right",
+      --   },
+      -- },
     },
   },
-  {
-    "3rd/diagram.nvim",
-    dependencies = {
-      {
-        "3rd/image.nvim",
-        opts = {},
-      },
-      {
-        "OXY2DEV/markview.nvim",
-      },
-    },
-    opts = {
-      events = {
-        -- render_buffer = { "InsertLeave", "BufWinEnter", "TextChanged" },
-        -- clear_buffer = { "BufWinLeave" },
-      },
-      renderer_options = {
-        mermaid = {
-          background = "transparent", -- nil | "transparent" | "white" | "#hex"
-          theme = "dark", -- nil | "default" | "dark" | "forest" | "neutral"
-          scale = nil, -- nil | 1 (default) | 2  | 3 | ...
-          width = 1920, -- nil | 800 | 400 | ...
-          height = 1080, -- nil | 600 | 300 | ...
-          cli_args = nil, -- nil | { "--no-sandbox" } | { "-p", "/path/to/puppeteer" } | ...
-        },
-      },
-    },
-  },
+  -- {
+  --   "3rd/diagram.nvim",
+  --   dependencies = {
+  --     {
+  --       "3rd/image.nvim",
+  --       opts = {},
+  --     },
+  --     {
+  --       "OXY2DEV/markview.nvim",
+  --     },
+  --   },
+  --   opts = {
+  --     events = {
+  --       -- render_buffer = { "InsertLeave", "BufWinEnter", "TextChanged" },
+  --       -- clear_buffer = { "BufWinLeave" },
+  --     },
+  --     renderer_options = {
+  --       mermaid = {
+  --         background = "transparent", -- nil | "transparent" | "white" | "#hex"
+  --         theme = "dark", -- nil | "default" | "dark" | "forest" | "neutral"
+  --         scale = nil, -- nil | 1 (default) | 2  | 3 | ...
+  --         width = 1920, -- nil | 800 | 400 | ...
+  --         height = 1080, -- nil | 600 | 300 | ...
+  --         cli_args = nil, -- nil | { "--no-sandbox" } | { "-p", "/path/to/puppeteer" } | ...
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
