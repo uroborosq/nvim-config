@@ -62,7 +62,7 @@ return {
   { import = "astrocommunity.code-runner.toggletasks-nvim" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.recipes.heirline-clock-statusline" },
-  { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
-  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  -- { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
+  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.git.diffview-nvim" },
 }
