@@ -36,7 +36,7 @@ return {
   -- scrollbar with diagnostic marks
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   -- call telescope to see definitions, implementations and etc.
-  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
   -- { import = "astrocommunity.completion.avante-nvim" },
   -- { import = "astrocommunity.completion.nvim-cmp" },
@@ -62,7 +62,7 @@ return {
   { import = "astrocommunity.code-runner.toggletasks-nvim" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.recipes.heirline-clock-statusline" },
-  -- { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
-  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
   { import = "astrocommunity.git.diffview-nvim" },
 }
