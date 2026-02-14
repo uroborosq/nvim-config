@@ -27,7 +27,6 @@ return {
 				{ search_prefix .. "n", ":Telescope notify<cr>", desc = "Benachrichtigungen" },
 				{ lang_prefix .. "s", ":Telescope aerial<cr>", desc = "LSP Symbolen suchen" },
 			})
-			require("telescope").load_extension("aerial")
 
 			require("telescope").setup({
 				{
@@ -51,6 +50,7 @@ return {
 					},
 				},
 			})
+            require("telescope").load_extension("aerial")
 		end,
 	},
 }

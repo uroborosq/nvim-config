@@ -6,6 +6,18 @@ vim.opt.shortmess:append("I")
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+vim.diagnostic.config({
+	virtual_text = false,
+	virtual_lines = false,
+	float = {
+		enabled = true,
+	},
+	jump = {
+		float = false,
+	},
+	underline = true,
+}) -- Disable Neovim's default virtual text diagnostics
+
 vim.cmd([[
 " system clipboard
 nmap <c-c> "+y

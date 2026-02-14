@@ -36,7 +36,7 @@ return {
 		spec = {
 			{
 				mode = { "n" },
-				{ "<leader>l", group = "Golang" },
+				{ "<leader>G", group = "Golang" },
 				{
 					"<leader>lF",
 					function()
@@ -59,20 +59,20 @@ return {
 					desc = "golangci-lint --fix current file",
 				},
 
-				{ "<leader>lc", "<cmd>GoCmt<CR>", desc = "Generate comment" },
-				{ "<leader>le", "<cmd>GoIfErr<CR>", desc = "Generate if err" },
-				{ "<leader>ld", "<cmd>GoMod tidy<CR>", desc = "go mod tidy" },
-				{ "<leader>lg", "<cmd>GoGenerate %<CR>", desc = "go generate current file" },
-				{ "<leader>lG", "<cmd>GoGenerate<CR>", desc = "go generate all" },
+				{ "<leader>Gc", "<cmd>GoCmt<CR>", desc = "Generate comment" },
+				{ "<leader>Ge", "<cmd>GoIfErr<CR>", desc = "Generate if err" },
+				{ "<leader>Gd", "<cmd>GoMod tidy<CR>", desc = "go mod tidy" },
+				{ "<leader>Gg", "<cmd>GoGenerate %<CR>", desc = "go generate current file" },
+				{ "<leader>GG", "<cmd>GoGenerate<CR>", desc = "go generate all" },
 
 				-- без <CR>, чтобы вводить аргументы
-				{ "<leader>li", "<cmd>GoImpl ", desc = "implement current interface" },
-				{ "<leader>lI", "<cmd>GoMod init ", desc = "go mod init" },
+				{ "<leader>Gi", "<cmd>GoImpl ", desc = "implement current interface" },
+				{ "<leader>GI", "<cmd>GoMod init ", desc = "go mod init" },
 
-				{ "<leader>la", "<cmd>GoTagAdd json<CR>", desc = "add tags to struct" },
+				{ "<leader>Ga", "<cmd>GoTagAdd json<CR>", desc = "add tags to struct" },
 
-				{ "<leader>lt", "<cmd>GoTestAdd<CR>", desc = "gen tests for cur method" },
-				{ "<leader>lT", "<cmd>GoTestsExp<CR>", desc = "gen tests for exported methods" },
+				{ "<leader>Gt", "<cmd>GoTestAdd<CR>", desc = "gen tests for cur method" },
+				{ "<leader>GT", "<cmd>GoTestsExp<CR>", desc = "gen tests for exported methods" },
 			},
 			{
 				mode = { "i" },
@@ -80,7 +80,6 @@ return {
 			},
 			{
 				{ "<leader>l", group = "LSP", mode = "n" },
-
 				{
 					"<leader>lc",
 					function()
@@ -89,7 +88,6 @@ return {
 					desc = "Incoming calls",
 					mode = "n",
 				},
-
 				{
 					"<leader>lC",
 					function()
@@ -98,7 +96,6 @@ return {
 					desc = "Outgoing calls",
 					mode = "n",
 				},
-
 				{
 					"<leader>lA",
 					function()
@@ -107,14 +104,12 @@ return {
 					desc = "show all code actions",
 					mode = "n",
 				},
-
 				{
 					"<leader>lu",
 					"<cmd>LspRestart<CR>",
 					desc = "Restart LSP",
 					mode = "n",
 				},
-
 				{
 					"<leader>la",
 					function()

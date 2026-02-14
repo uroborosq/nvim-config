@@ -125,25 +125,37 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		-- lazy = false,
-		-- opts = function(_, opts)
-		-- 	local lint = require("lint")
-		-- 	local result = vim.deepcopy(lint.linters.golangcilint)
-		--
-		-- 	lint.linters.golangcilint.parser = function(output, bufnr, cwd)
-		-- 		local diagnostics = result.parser(output, bufnr, cwd)
-		-- 		local filtered = {}
-		-- 		for _, d in ipairs(diagnostics) do
-		-- 			if not (d.source == "typecheck") then
-		-- 				table.insert(filtered, d)
-		-- 			end
-		-- 		end
-		--
-		-- 		return filtered
-		-- 	end
-		--
-		-- 	opts.linters_by_ft = opts.linters_by_ft or {}
-		-- 	opts.linters_by_ft.go = { "golangcilint" }
-		-- end,
+		lazy = false,
+		opts = function(_, opts)
+			opts = opts or {}
+
+			local lint = require("lint")
+			local result = vim.deepcopy(lint.linters.golangcilint)
+
+			lint.linters.golangcilint.parser = function(output, bufnr, cwd)
+				local diagnostics = result.parser(output, bufnr, cwd)
+				local filtered = {}
+				for _, d in ipairs(diagnostics) do
+					if not (d.source == "typecheck") then
+						table.insert(filtered, d)
+					end
+				end
+
+				return filtered
+			end
+
+			opts.linters_by_ft = opts.linters_by_ft or {}
+			opts.linters_by_ft.go = { "golangcilint" }
+
+			return opts
+		end,
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			formatters_by_ft = {
+				go = { "goimports-reviser", stop_after_first = false },
+			},
+		},
 	},
 }
