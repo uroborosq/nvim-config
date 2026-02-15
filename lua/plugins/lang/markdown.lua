@@ -3,6 +3,10 @@ return {
 		"toppair/peek.nvim",
 		event = { "VeryLazy" },
 		build = "deno task --quiet build:fast",
+		keys = {
+			{ "<Leader>mo", ":PeekOpen<CR>", desc = "Open markdown webview" },
+			{ "<Leader>mc", ":PeekClose<CR>", desc = "Close markdown webview" },
+		},
 		config = function()
 			require("peek").setup({})
 			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
@@ -12,15 +16,14 @@ return {
 	{
 		-- For `plugins/markview.lua` users.
 		"OXY2DEV/markview.nvim",
-		lazy = false,
-		opts = {
-			-- preview = {
-			--   enabled = true,
-			--   splitview_winopts = {
-			--     split = "right",
-			--   },
-			-- },
+		dependencies = {
+			"Saghen/blink.cmp",
 		},
+		keys = {
+			{ "<Leader>ms", ":Markview splitToggle<CR>", desc = "Toggle makrview split" },
+		},
+		lazy = false,
+		opts = {},
 	},
 	{
 		"stevearc/conform.nvim",
@@ -35,25 +38,6 @@ return {
 		opts = {
 			linters_by_ft = {
 				markdown = { "markdownlint-cli2" },
-			},
-		},
-	},
-	{
-		"AstroNvim/astrocore",
-		---@type AstroCoreOpts
-		opts = {
-			mappings = {
-				n = {
-					["<Leader>ms"] = { ":Markview splitToggle<CR>", desc = "Toggle makrview split" },
-					["<Leader>mo"] = { ":PeekOpen<CR>", desc = "Open markdown webview" },
-					["<Leader>mc"] = { ":PeekClose<CR>", desc = "Close markdown webview" },
-					["<Leader>mh"] = {
-						function()
-							require("diagram").show_diagram_hover()
-						end,
-						desc = "Show diagram hover",
-					},
-				},
 			},
 		},
 	},
