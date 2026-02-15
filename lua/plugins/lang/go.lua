@@ -15,6 +15,13 @@ return {
 		optional = true,
 		opts = function(_, _)
 			vim.lsp.config("gopls", {
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				},
 				settings = {
 					gopls = {
 						analyses = {

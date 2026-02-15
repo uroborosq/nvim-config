@@ -5,11 +5,10 @@ return {
 		specs = {
 			"neovim/nvim-lspconfig",
 			opts = function(_, _)
-				vim.lsp.config("jsonls", {
+				vim.lsp.config("yamlls", {
 					settings = {
-						json = {
-							schemas = require("schemastore").json.schemas(),
-							validate = { enable = true },
+						yaml = {
+							schemas = require("schemastore").yaml.schemas(),
 						},
 					},
 					init_options = {
@@ -23,7 +22,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
 			ensure_installed = {
-				json = "json",
+				yaml = "yaml",
 			},
 		},
 	},
@@ -31,7 +30,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = function(_, opts)
 			opts.ensure_installed = opts.ensure_installed or {}
-			opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "json-lsp" })
+			opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "yaml-language-server" })
 		end,
 	},
 }
