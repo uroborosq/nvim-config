@@ -18,12 +18,16 @@ return {
 		"OXY2DEV/markview.nvim",
 		dependencies = {
 			"Saghen/blink.cmp",
+			"saghen/blink.cmp",
 		},
+		init = function()
+			vim.g.markview_cmp_loaded = true
+		end,
 		keys = {
 			{ "<Leader>ms", ":Markview splitToggle<CR>", desc = "Toggle makrview split" },
 		},
 		lazy = false,
-		opts = {},
+		opts = function() end,
 	},
 	{
 		"stevearc/conform.nvim",

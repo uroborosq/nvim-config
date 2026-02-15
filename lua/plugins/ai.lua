@@ -23,12 +23,12 @@ return {
 					require("mcphub.extensions.avante").mcp_tool(),
 				}
 			end,
-			provider = "qwen3-coder",
+			provider = "GLM",
 			behaviour = {
 				auto_suggestions = false,
 			},
 			providers = {
-				["GLM-4.7-FP8"] = {
+				["GLM"] = {
 					model = "GLM-4.7-FP8",
 					__inherited_from = "openai",
 					endpoint = "https://litellm-proxy.ai.yadro.com",

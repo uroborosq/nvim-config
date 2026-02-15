@@ -14,7 +14,7 @@ return {
 			-- Saving / restoring
 			enabled = true, -- Enables/disables auto creating, saving and restoring
 			auto_save = true, -- Enables/disables auto saving session on exit
-			auto_restore = false, -- Enables/disables auto restoring session on start
+			auto_restore = true, -- Enables/disables auto restoring session on start
 			auto_create = true, -- Enables/disables auto creating new session files. Can be a function that returns true if a new session file should be allowed
 			auto_restore_last_session = false, -- On startup, loads the last saved session if session for cwd does not exist
 			cwd_change_handling = false, -- Automatically save/restore sessions when changing directories
@@ -57,7 +57,7 @@ return {
 
 			---@type SessionLens
 			session_lens = {
-				picker = nil, -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also set one manually. Falls back to vim.ui.select
+				picker = "telescope", -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also set one manually. Falls back to vim.ui.select
 				load_on_setup = true, -- Only used for telescope, registers the telescope extension at startup so you can use :Telescope session-lens
 				picker_opts = nil, -- Table passed to Telescope / Snacks / Fzf-Lua to configure the picker. See below for more information
 				previewer = "summary", -- 'summary'|'active_buffer'|function - How to display session preview. 'summary' shows a summary of the session, 'active_buffer' shows the contents of the active buffer in the session, or a custom function
