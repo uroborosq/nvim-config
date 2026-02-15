@@ -12,15 +12,11 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		optional = true,
-		opts = function(_, opts)
-			if opts.ensure_installed ~= "all" then
-				opts.ensure_installed = opts.ensure_installed or {}
-
-				if not vim.tbl_contains(opts.ensure_installed, "proto") then
-					table.insert(opts.ensure_installed, "proto")
-				end
-			end
-		end,
+		opts = {
+			ensure_installed = {
+				proto = "proto",
+			},
+		},
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",

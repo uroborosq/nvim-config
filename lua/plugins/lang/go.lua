@@ -1,62 +1,83 @@
-vim.lsp.config("gopls", {
-	settings = {
-		gopls = {
-			analyses = {
-				ST1000 = false,
-				ST1021 = false,
-				ST1003 = true,
-				fieldalignment = false,
-				fillreturns = true,
-				nilness = true,
-				nonewvars = true,
-				shadow = false,
-				undeclaredname = true,
-				unreachable = true,
-				unusedparams = true,
-				unusedwrite = true,
-				useany = true,
-				simplifyrange = true,
-			},
-			codelenses = {
-				generate = true, -- show the `go generate` lens.
-				regenerate_cgo = true,
-				test = true,
-				tidy = true,
-				upgrade_dependency = true,
-				vendor = false,
-			},
-			hints = {
-				ignoredError = true,
-				assignVariableTypes = true,
-				compositeLiteralFields = true,
-				compositeLiteralTypes = true,
-				constantValues = true,
-				functionTypeParameters = true,
-				parameterNames = true,
-				rangeVariableTypes = true,
-			},
-			experimentalPostfixCompletions = true,
-			buildFlags = { "-tags", "integration" },
-			symbolMatcher = "Fuzzy",
-			completeUnimported = true,
-			diagnosticsDelay = "500ms",
-			staticcheck = true,
-			usePlaceholders = true,
-			vulncheck = "Imports",
-			semanticTokens = true,
-		},
+vim.filetype.add({
+	extension = {
+		gotmpl = "gotmpl",
+		gohtml = "gotmpl",
+	},
+	-- filename = {},
+	pattern = {
+		[".*%.go%.tmpl"] = "gotmpl",
 	},
 })
+
 return {
 	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = function(_, opts)
-			opts.ensure_installed = opts.ensure_installed or {}
-			if opts.ensure_installed ~= "all" then
-				opts.ensure_installed =
-					vim.list_extend(opts.ensure_installed, { "go", "gomod", "gosum", "gowork", "asm" })
-			end
+		"neovim/nvim-lspconfig",
+		optional = true,
+		opts = function(_, _)
+			vim.lsp.config("gopls", {
+				settings = {
+					gopls = {
+						analyses = {
+							ST1000 = false,
+							ST1021 = false,
+							ST1003 = true,
+							fieldalignment = false,
+							fillreturns = true,
+							nilness = true,
+							nonewvars = true,
+							shadow = false,
+							undeclaredname = true,
+							unreachable = true,
+							unusedparams = true,
+							unusedwrite = true,
+							useany = true,
+							simplifyrange = true,
+						},
+						codelenses = {
+							generate = true, -- show the `go generate` lens.
+							regenerate_cgo = true,
+							test = true,
+							tidy = true,
+							upgrade_dependency = true,
+							vendor = false,
+						},
+						hints = {
+							ignoredError = true,
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
+						experimentalPostfixCompletions = true,
+						buildFlags = { "-tags", "integration" },
+						templateExtensions = { "gotmpl", "gohtml", "tmpl" },
+						symbolMatcher = "Fuzzy",
+						completeUnimported = true,
+						diagnosticsDelay = "500ms",
+						staticcheck = true,
+						usePlaceholders = true,
+						vulncheck = "Imports",
+						semanticTokens = true,
+					},
+				},
+			})
 		end,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = {
+				go = "go",
+				gomod = "gomod",
+				gosum = "gosum",
+				gowork = "gowork",
+				asm = "asm",
+			},
+		},
 	},
 
 	{
@@ -157,5 +178,44 @@ return {
 				go = { "goimports-reviser", stop_after_first = false },
 			},
 		},
+	},
+	{
+		"fredrikaverpil/neotest-golang",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"uga-rosa/utf8.nvim",
+			{
+				"nvim-neotest/neotest",
+				opts = function(_, opts)
+					opts.adapters = opts.adapters or {}
+
+					local config = {
+						runner = "gotestsum",
+						dap_go_enabled = true,
+						sanitize_output = true,
+						-- testify_enabled = true,
+						-- testify_operand = "^(s|suite|x)$",
+						go_test_args = {
+							"-v",
+							"-count=1",
+							-- "-race",
+							"-timeout=15s",
+							"-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
+						},
+					}
+
+					opts.adapters = vim.list_extend(opts.adapters, { require("neotest-golang")(config) })
+
+					return opts
+				end,
+			},
+		},
+		version = "*",
+		build = function()
+			vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
+		end,
 	},
 }

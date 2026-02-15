@@ -33,7 +33,8 @@ return {
 		},
 
 		keymap = {
-			-- ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+			preset = "none",
+
 			["<C-e>"] = { "hide", "fallback" },
 			["<CR>"] = { "accept", "fallback" },
 
@@ -47,12 +48,6 @@ return {
 			["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
 			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
-			preset = "none",
-			--
-			-- ["<Up>"] = { "select_prev", "fallback" },
-			-- ["<Down>"] = { "select_next", "fallback" },
-			-- ["<C-N>"] = {},
-			-- ["<C-P>"] = {},
 			["<C-Space>"] = {
 				function(cmp)
 					cmp.show({ providers = { "snippets" } })
@@ -61,7 +56,7 @@ return {
 		},
 		signature = { enabled = true },
 		sources = {
-			default = { "lsp", "path" },
+			default = { "lazydev", "lsp", "path" },
 			providers = {
 				snippets = {
 					enabled = true,

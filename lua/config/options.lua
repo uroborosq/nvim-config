@@ -5,6 +5,7 @@ vim.opt.shortmess:append("I")
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
+vim.opt.clipboard = "unnamedplus"
 
 vim.diagnostic.config({
 	virtual_text = false,

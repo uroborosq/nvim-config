@@ -1,8 +1,3 @@
-vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
-	callback = function()
-		require("lint").try_lint()
-	end,
-})
 local lint -- cache for the nvim-lint package
 ---@type LazySpec
 return {
@@ -14,6 +9,12 @@ return {
 	},
 	opts = {},
 	config = function(_, opts)
+		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
+			callback = function()
+				require("lint").try_lint()
+			end,
+		})
+
 		lint = require("lint")
 		lint.linters_by_ft = opts.linters_by_ft or {}
 		lint.try_lint()
