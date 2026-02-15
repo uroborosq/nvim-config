@@ -41,7 +41,7 @@ return {
 		priority = 1000,
 	},
 	{ "Mofiqul/vscode.nvim" },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 0 },
 	{ "ribru17/bamboo.nvim" },
 	{
 		"rebelot/kanagawa.nvim",
