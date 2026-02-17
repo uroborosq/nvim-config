@@ -1,29 +1,19 @@
 return {
-  "jedrzejboczar/toggletasks.nvim",
-  lazy = true,
-  dependencies = {
-    { "nvim-lua/plenary.nvim" },
-    { "akinsho/toggleterm.nvim" },
-    { "nvim-telescope/telescope.nvim" },
-    {
-      "AstroNvim/astrocore",
-      opts = {
-        mappings = {
-          n = {
-            ["<LocalLeader>t"] = { desc = "Toggle tasks" },
-            ["<LocalLeader>ts"] = { "<Cmd>Telescope toggletasks spawn<CR>", desc = "toggletasks: spawn" },
-            ["<LocalLeader>tc"] = { "<Cmd>Telescope toggletasks select<CR>", desc = "toggletasks: select" },
-            ["<LocalLeader>te"] = {
-              "<Cmd>Telescope toggletasks edit<CR>",
-              desc = "toggletasks: edit config",
-            },
-          },
-        },
-      },
-    },
-  },
-  opts = {},
-  init = function()
-    require("astrocore").on_load("telescope.nvim", function() require("telescope").load_extension "toggletasks" end)
-  end,
+	"jedrzejboczar/toggletasks.nvim",
+	lazy = true,
+	keys = {
+		-- group/label (no mapping)
+		{ "<localleader>t", desc = "Toggle tasks" },
+
+		-- actual mappings
+		{ "<localleader>ts", "<Cmd>Telescope toggletasks spawn<CR>", mode = "n", desc = "toggletasks: spawn" },
+		{ "<localleader>tc", "<Cmd>Telescope toggletasks select<CR>", mode = "n", desc = "toggletasks: select" },
+		{ "<localleader>te", "<Cmd>Telescope toggletasks edit<CR>", mode = "n", desc = "toggletasks: edit config" },
+	},
+	dependencies = {
+		{ "nvim-lua/plenary.nvim" },
+		{ "akinsho/toggleterm.nvim" },
+		{ "nvim-telescope/telescope.nvim" },
+	},
+	opts = {},
 }

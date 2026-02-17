@@ -1,12 +1,26 @@
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf, lsp_format = "fallback" })
+	end,
+})
+
 return {
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        go = { "goimports-reviser", stop_after_first = false },
-        sql = { "sleek" },
-        nim = { "nimpretty" },
-      },
-    },
-  },
+	"stevearc/conform.nvim",
+	keys = {
+		{
+			"<Leader>lf",
+			function()
+				require("conform").format()
+			end,
+			desc = "Format Puffer",
+		},
+		opts = {
+			format_on_save = {
+				-- These options will be passed to conform.format()
+				timeout_ms = 500,
+				lsp_format = "fallback",
+			},
+		},
+	},
 }

@@ -1,51 +1,75 @@
 return {
-  "Saghen/blink.cmp",
-  -- enabled = false,
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
-  dependencies = {
-    { "saghen/blink.compat" },
-  },
-  opts = {
-    completion = {
-      menu = {
-        draw = {
-          columns = {
-            { "kind_icon", "label", "label_description", gap = 1 },
-            { "kind", gap = 1, "source_name" },
-          },
-        },
-      },
-      list = {
-        selection = {
-          preselect = true,
-          auto_insert = true,
-        },
-      },
-    },
-    fuzzy = {
-      sorts = { "sort_text" },
-      implementation = "rust",
-    },
+	"Saghen/blink.cmp",
+	-- enabled = false,
+	---@module 'blink.cmp'
+	---@type blink.cmp.Config
+	dependencies = {
+		{
+			{ "saghen/blink.compat", version = "1.*" },
+			{ "rafamadriz/friendly-snippets" }, -- optional
+		},
+	},
+	version = "1.*",
+	opts = {
+		completion = {
+			menu = {
+				draw = {
+					columns = {
+						{ "kind_icon", "label", "label_description", gap = 1 },
+						{ "kind", gap = 1, "source_name" },
+					},
+				},
+			},
+			list = {
+				selection = {
+					preselect = true,
+					auto_insert = true,
+				},
+			},
+		},
+		fuzzy = {
+			sorts = { "sort_text" },
+			implementation = "rust",
+		},
 
-    keymap = {
-      ["<C-N>"] = {},
-      ["<C-P>"] = {},
-      ["<C-Space>"] = { function(cmp) cmp.show { providers = { "snippets" } } end },
-    },
-    sources = {
-      default = { "lsp", "path" },
-      providers = {
-        snippets = {
-          enabled = false,
-        },
-        path = {
-          enabled = true,
-        },
-        buffer = {
-          enabled = true,
-        },
-      },
-    },
-  },
+		keymap = {
+			preset = "none",
+
+			["<C-e>"] = { "hide", "fallback" },
+			["<CR>"] = { "accept", "fallback" },
+
+			["<Tab>"] = { "snippet_forward", "fallback" },
+			["<S-Tab>"] = { "snippet_backward", "fallback" },
+
+			["<Up>"] = { "select_prev", "fallback" },
+			["<Down>"] = { "select_next", "fallback" },
+			["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+			["<C-n>"] = { "select_next", "fallback_to_mappings" },
+
+			["<C-b>"] = { "scroll_documentation_up", "fallback" },
+			["<C-f>"] = { "scroll_documentation_down", "fallback" },
+
+			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+			["<C-Space>"] = {
+				function(cmp)
+					cmp.show({ providers = { "snippets" } })
+				end,
+			},
+		},
+		signature = { enabled = true },
+		sources = {
+			default = { "lazydev", "lsp", "path" },
+			providers = {
+				snippets = {
+					enabled = true,
+				},
+				path = {
+					enabled = true,
+				},
+				buffer = {
+					enabled = true,
+				},
+			},
+		},
+	},
 }
