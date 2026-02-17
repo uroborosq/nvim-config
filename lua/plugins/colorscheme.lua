@@ -41,7 +41,17 @@ return {
 		priority = 1000,
 	},
 	{ "Mofiqul/vscode.nvim" },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 0 },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		opts = {
+			auto_integrations = true,
+			integrations = {
+				markview = true,
+			},
+		},
+	},
 	{ "ribru17/bamboo.nvim" },
 	{
 		"rebelot/kanagawa.nvim",
