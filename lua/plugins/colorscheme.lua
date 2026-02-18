@@ -46,9 +46,12 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		opts = {
-			auto_integrations = true,
 			integrations = {
 				markview = true,
+				barbar = true,
+				blink_cmp = {
+					style = "bordered",
+				},
 			},
 		},
 	},
