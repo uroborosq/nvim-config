@@ -50,7 +50,7 @@ return {
 	},
 	{
 		"akinsho/toggleterm.nvim",
-		lazy = false,
+		cmd = { "ToggleTerm", "TermExec" },
 		keys = {
 			{ "<C-'>", ":ToggleTerm<cr>", mode = { "n", "i" } },
 			{ "<C-Esc>", [[<C-\><C-n>]], mode = "t" },

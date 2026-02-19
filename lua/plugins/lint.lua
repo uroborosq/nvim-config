@@ -2,7 +2,7 @@ local lint -- cache for the nvim-lint package
 ---@type LazySpec
 return {
 	"mfussenegger/nvim-lint",
-	lazy = false,
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = { "williamboman/mason.nvim" },
 	specs = {
 		{ "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { diagnostics = false } } },

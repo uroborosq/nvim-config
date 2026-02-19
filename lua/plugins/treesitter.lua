@@ -8,81 +8,62 @@ local function register(ensure_installed)
 			table.insert(filetypes, filetype)
 		end
 
-		-- register and start parsers for filetypes
 		vim.treesitter.language.register(parser, filetypes)
 	end
 end
 
+local function configure_folds(winid)
+	local win = winid or 0
+	if vim.w[win].treesitter_folds_configured then
+		return
+	end
+
+	vim.wo[win].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	vim.wo[win].foldmethod = "expr"
+	vim.wo[win].foldlevel = 99
+	vim.wo[win].foldlevelstart = 99
+	vim.wo[win].foldenable = true
+	vim.w[win].treesitter_folds_configured = true
+end
+
 --- Install and start parsers for nvim-treesitter.
 local function install_and_start()
-	-- Auto-install and start treesitter parser for any buffer with a registered filetype
-	vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	local parser_configs = require("nvim-treesitter.parsers")
+
+	vim.api.nvim_create_autocmd({ "FileType" }, {
 		callback = function(event)
 			local bufnr = event.buf
-			local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+			if vim.b[bufnr].treesitter_started then
+				return
+			end
 
-			-- Skip if no filetype
+			local filetype = vim.bo[bufnr].filetype
 			if filetype == "" then
 				return
 			end
 
-			-- Get parser name based on filetype
-			local parser_name = vim.treesitter.language.get_lang(filetype) -- WARNING: might return filetype (not helpful)
-			if not parser_name then
-				vim.notify(
-					"Filetype " .. vim.inspect(filetype) .. " has no parser registered",
-					vim.log.levels.WARN,
-					{ title = "config/treesitter" }
-				)
+			local parser_name = vim.treesitter.language.get_lang(filetype)
+			if not parser_name or not parser_configs[parser_name] then
 				return
-			end
-
-			vim.notify(
-				vim.inspect("Successfully got parser " .. parser_name .. " for filetype " .. filetype),
-				vim.log.levels.DEBUG,
-				{ title = "core/treesitter" }
-			)
-
-			-- Check if parser_name is available in parser configs
-			local parser_configs = require("nvim-treesitter.parsers")
-			local parser_can_be_used = nil
-			parser_can_be_used = parser_configs[parser_name]
-
-			if not parser_can_be_used then
-				-- vim.notify(
-				-- 	"Parser config does not have parser " .. vim.inspect(parser_name) .. ", skipping",
-				-- 	vim.log.levels.WARN,
-				-- 	{ title = "core/treesitter" }
-				-- )
-				return -- Parser not available, skip silently
 			end
 
 			local parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
-
-			-- If not installed, install parser synchronously
 			if not parser_installed then
-				vim.notify("installing " .. parser_name)
-				require("nvim-treesitter").install({ parser_name }):wait(300000) -- main branch syntax
-			end
-
-			-- Check so tree-sitter can see the newly installed parser
-			parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
-			if not parser_installed then
-				vim.notify(
-					"Failed to get parser for " .. parser_name .. " after installation",
-					vim.log.levels.WARN,
-					{ title = "core/treesitter" }
-				)
+				require("nvim-treesitter").install({ parser_name })
 				return
 			end
 
-			-- Start treesitter for this buffer
 			vim.treesitter.start(bufnr, parser_name)
-			vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-			vim.wo[0][0].foldmethod = "expr"
-			vim.opt.foldlevel = 99
-			vim.opt.foldlevelstart = 99
-			vim.opt.foldenable = true
+			vim.b[bufnr].treesitter_started = true
+			configure_folds(0)
+		end,
+	})
+
+	vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+		callback = function()
+			if vim.b.treesitter_started then
+				configure_folds(0)
+			end
 		end,
 	})
 end
@@ -96,9 +77,6 @@ return {
 		---@class TSConfig
 		opts = {
 			ensure_installed = {},
-			-- install_dir = vim.fn.stdpath("data") .. "/site",
-			-- auto_install = true,
-			-- sync_install = true,
 		},
 		config = function(_, opts)
 			register(opts.ensure_installed)

@@ -28,7 +28,7 @@ return {
 			},
 		},
 		fuzzy = {
-			sorts = { "sort_text" },
+			sorts = { "exact", "sort_text" },
 			implementation = "rust",
 		},
 
@@ -58,7 +58,7 @@ return {
 		},
 		signature = { enabled = true },
 		sources = {
-			default = { "lazydev", "lsp", "path" },
+			default = { "lazydev", "lsp", "path", "buffer" },
 			providers = {
 				snippets = {
 					enabled = true,
