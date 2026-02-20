@@ -20,9 +20,9 @@ local function configure_folds(winid)
 
 	vim.wo[win].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 	vim.wo[win].foldmethod = "expr"
-	vim.wo[win].foldlevel = 99
-	vim.wo[win].foldlevelstart = 99
-	vim.wo[win].foldenable = true
+	vim.opt.foldlevel = 99
+	vim.opt.foldlevelstart = 99
+	vim.opt.foldenable = true
 	vim.w[win].treesitter_folds_configured = true
 end
 
