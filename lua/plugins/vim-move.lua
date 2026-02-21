@@ -1,5 +1,3 @@
 return {
-	{
-		"matze/vim-move",
-	},
+	{ "matze/vim-move" },
 }
