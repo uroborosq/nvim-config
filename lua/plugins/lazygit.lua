@@ -1,4 +1,7 @@
 return {
+	-- {
+	-- 	"folke/which-key",
+	-- },
 	{
 		"folke/snacks.nvim",
 		keys = {
@@ -9,29 +12,30 @@ return {
 				end,
 				desc = "LazyGit",
 			},
+			{
+				"<leader>gC",
+				function()
+					require("snacks").lazygit.log()
+				end,
+				desc = "Git log",
+			},
+			{
+				"<leader>gc",
+				function()
+					require("snacks").lazygit.log_file()
+				end,
+				desc = "Git commits in current file",
+			},
 		},
 		---@type snacks.Config
 		opts = {
 			lazygit = {
-				-- your lazygit configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
+				config = {
+					os = {
+						open = [[nvim --server "$NVIM" --remote-send "q" && nvr --remote-send ":e {{filename}}<CR>"]],
+					},
+				},
 			},
 		},
 	},
-	-- "kdheepak/lazygit.nvim",
-	-- lazy = true,
-	-- cmd = {
-	--     "LazyGit",
-	--     "LazyGitConfig",
-	--     "LazyGitCurrentFile",
-	--     "LazyGitFilter",
-	--     "LazyGitFilterCurrentFile",
-	-- },
-	-- dependencies = {
-	--     "nvim-lua/plenary.nvim",
-	-- },
-	-- keys = {
-	--     { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-	-- }
 }
