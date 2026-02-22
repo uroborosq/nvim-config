@@ -20,6 +20,7 @@ return {
 	},
 	{
 		"folke/snacks.nvim",
+		event = "BufWinEnter",
 		---@type snacks.Config
 		opts = {
 			indent = {
