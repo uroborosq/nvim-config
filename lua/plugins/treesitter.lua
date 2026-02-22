@@ -72,8 +72,8 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
-		dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects" } },
 		branch = branch,
+		main = "nvim-treesitter.config", -- Sets main module to use for opts
 		build = ":TSUpdate",
 		---@class TSConfig
 		opts = {
@@ -84,7 +84,6 @@ return {
 			install_and_start()
 
 			-- vim.notify(vim.inspect(opts))
-
 			require("nvim-treesitter").setup(opts)
 		end,
 	},

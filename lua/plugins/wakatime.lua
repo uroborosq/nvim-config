@@ -1,11 +1,14 @@
 return {
-	{ "wakatime/vim-wakatime" },
+	{
+		"wakatime/vim-wakatime",
+	},
 	{
 		"fiqryq/wakastat.nvim",
-		opts = {
-			format = "%s", -- %s replaced with time
-		},
 		event = "VeryLazy",
 		cmd = { "WakastatRefresh", "WakastatStatus" },
+		opts = {
+			format = "Codierungszeit: %s",
+			args = { "--today", "--today-hide-categories" },
+		},
 	},
 }
