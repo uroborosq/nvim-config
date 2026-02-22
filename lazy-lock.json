@@ -37,6 +37,7 @@
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
   "mcphub.nvim": { "branch": "main", "commit": "7cd5db330f41b7bae02b2d6202218a061c3ebc1f" },
   "minuet-ai.nvim": { "branch": "main", "commit": "3d25c24487876676d29d325c01ce108cbdbd0753" },
+  "multicursor.nvim": { "branch": "1.0", "commit": "630dd29dd696bc977cb81d7dd2fa6bb280f60fc4" },
   "neo-tree.nvim": { "branch": "main", "commit": "ba1ccb6ec201bde095ccb26feed3d4f7cc8d09ee" },
   "neotest": { "branch": "master", "commit": "deadfb1af5ce458742671ad3a013acb9a6b41178" },
   "neotest-golang": { "branch": "main", "commit": "67800bdb6bee0107f478e35400ba937b438f1a4b" },
