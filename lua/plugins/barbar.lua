@@ -8,7 +8,7 @@ return {
 				"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
 			},
 			init = function()
-				vim.g.barbar_auto_setup = false
+				-- vim.g.barbar_auto_setup = false
 			end,
 			event = { "BufWinEnter" },
 			keys = {
@@ -30,7 +30,9 @@ return {
 				{ buffer_prefix .. "C", ":BufferWipeout<cr>" },
 				{ buffer_prefix .. "p", ":BufferPin<cr>" },
 			},
-			opts = {},
+			opts = {
+				animation = false,
+			},
 			version = "*",
 		},
 	},
