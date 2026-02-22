@@ -48,7 +48,7 @@ return {
 		opts = {
 			integrations = {
 				markview = true,
-				barbar = true,
+				barbar = false,
 				blink_cmp = {
 					style = "bordered",
 				},
