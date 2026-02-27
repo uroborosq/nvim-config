@@ -6,6 +6,7 @@ vim.opt.shortmess:append("I")
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.opt.clipboard = "unnamedplus"
+vim.opt.hlsearch = false
 
 vim.diagnostic.config({
 	virtual_text = false,
@@ -36,6 +37,7 @@ vim.keymap.set("n", "dd", '"_dd', { noremap = true })
 vim.keymap.set("n", "D", '"_D', { noremap = true })
 vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true })
 vim.keymap.set({ "n", "v" }, "p", "P", { noremap = true })
+vim.keymap.set({ "n" }, "<esc>", ":noh<cr>")
 
 map("n", "<leader>w", "<cmd>w<cr>", vim.tbl_extend("force", opts, { desc = "Save file" }))
 map("n", "<leader>q", "<cmd>q<cr>", vim.tbl_extend("force", opts, { desc = "Quit" }))

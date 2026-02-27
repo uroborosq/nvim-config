@@ -5,6 +5,7 @@ return {
 	---@type blink.cmp.Config
 	dependencies = {
 		{
+			{ "L3MON4D3/LuaSnip", version = "v2.*" },
 			{ "saghen/blink.compat", version = "1.*" },
 			{ "rafamadriz/friendly-snippets" }, -- optional
 		},
@@ -14,6 +15,7 @@ return {
 		completion = {
 			menu = {
 				draw = {
+					padding = { 1, 1 },
 					columns = {
 						{ "kind_icon", "label", "label_description", gap = 1 },
 						{ "kind", gap = 1, "source_name" },
@@ -25,6 +27,9 @@ return {
 					preselect = true,
 					auto_insert = true,
 				},
+			},
+			documentation = {
+				auto_show = true,
 			},
 		},
 		fuzzy = {
@@ -56,11 +61,17 @@ return {
 				end,
 			},
 		},
-		signature = { enabled = true },
+		signature = {
+			enabled = true,
+			window = {
+				show_documentaion = true,
+			},
+		},
 		sources = {
 			default = { "lazydev", "lsp", "path", "buffer" },
 			providers = {
 				snippets = {
+					preset = "luasnip",
 					enabled = true,
 				},
 				path = {

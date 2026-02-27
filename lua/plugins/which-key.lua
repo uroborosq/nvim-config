@@ -110,22 +110,22 @@ return {
 					desc = "Restart LSP",
 					mode = "n",
 				},
-				-- {
-				-- 	"<leader>la",
-				-- 	function()
-				-- 		vim.lsp.buf.code_action({
-				-- 			filter = function(action)
-				-- 				local gopls_detected = is_gopls(action)
-				-- 				if gopls_detected and ignoring_code_actions[action.kind] then
-				-- 					return false
-				-- 				end
-				-- 				return true
-				-- 			end,
-				-- 		})
-				-- 	end,
-				-- 	desc = "show code actions",
-				-- 	mode = "n",
-				-- },
+				{
+					"<leader>la",
+					function()
+						vim.lsp.buf.code_action({
+							filter = function(action)
+								local gopls_detected = is_gopls(action)
+								if gopls_detected and ignoring_code_actions[action.kind] then
+									return false
+								end
+								return true
+							end,
+						})
+					end,
+					desc = "show code actions",
+					mode = "n",
+				},
 			},
 		},
 	},

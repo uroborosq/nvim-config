@@ -16,6 +16,7 @@ return {
 		"nvim-neo-tree/neo-tree.nvim",
 		dependencies = {
 			{ "folke/which-key.nvim" },
+			{ "s1n7ax/nvim-window-picker", version = "*" },
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 			"nvim-tree/nvim-web-devicons", -- optional, but recommended
