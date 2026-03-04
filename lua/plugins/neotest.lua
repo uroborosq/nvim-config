@@ -103,7 +103,7 @@ return {
 				desc = "Clear coverage signs",
 			},
 			{
-				prefix .. "l",
+				prefix .. "c" .. "l",
 				function()
 					require("coverage").load(true)
 				end,

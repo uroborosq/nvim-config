@@ -12,8 +12,6 @@ return {
 			end,
 			event = { "BufWinEnter" },
 			keys = {
-				{ "]]", ":tabnext<cr>", desc = "das Nachtest Tab" },
-				{ "[[", ":tabprev<cr>", desc = "ver" },
 				{ "<C-W>t", ":tabclose<cr>" },
 				{ "]b", ":BufferNext<cr>" },
 				{ "[b", ":BufferPrevious<cr>" },

@@ -153,7 +153,6 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		lazy = false,
 		opts = function(_, opts)
 			opts = opts or {}
 

@@ -59,11 +59,11 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		opts = function(_, opts)
-			opts.linters_by_ft = {
+		opts = {
+			linters_by_ft = {
 				lua = { "selene" },
-			}
-		end,
+			},
+		},
 	},
 	{
 		"folke/lazydev.nvim",

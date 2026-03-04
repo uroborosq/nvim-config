@@ -12,6 +12,9 @@ return {
 				and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
 			or "make",
 		cond = not (openai_api_key == nil),
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
 		opts = {
 			system_prompt = function()
 				local hub = require("mcphub").get_hub_instance()
