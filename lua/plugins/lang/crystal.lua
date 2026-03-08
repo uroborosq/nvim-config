@@ -7,7 +7,7 @@ vim.filetype.add({
 return {
 	{
 		"vim-crystal/vim-crystal",
-		ft = { "crystal" },
+		ft = { "crystal", "cr" },
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
