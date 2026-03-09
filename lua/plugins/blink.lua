@@ -63,15 +63,15 @@ return {
 		},
 		signature = {
 			enabled = true,
-			window = {
-				show_documentaion = true,
-			},
+			-- window = {
+			-- 	show_documentaion = true,
+			-- },
 		},
 		sources = {
 			default = { "lazydev", "lsp", "path", "buffer" },
 			providers = {
 				snippets = {
-					preset = "luasnip",
+					-- preset = "luasnip",
 					enabled = true,
 				},
 				path = {

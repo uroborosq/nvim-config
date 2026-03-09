@@ -9,7 +9,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = false
 
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	virtual_lines = false,
 	float = {
 		enabled = true,

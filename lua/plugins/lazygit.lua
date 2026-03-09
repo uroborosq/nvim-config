@@ -32,7 +32,7 @@ return {
 			lazygit = {
 				config = {
 					os = {
-						open = [[nvim --server "$NVIM" --remote-send "q" && nvr --remote-send ":e {{filename}}<CR>"]],
+						open = 'nvim --server "$NVIM" --remote-send "<C-L>"  && nvim --server "$NVIM" --remote-send ":e {{filename}}<CR>" && nvim --server "$NVIM" --remote-send "<C-W>wq"',
 					},
 				},
 			},

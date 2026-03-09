@@ -5,6 +5,8 @@ return {
 		lazy = false,
 		keys = {
 			{ prefix .. ".", ":AutoSession restore<cr>" },
+			{ prefix .. "d", ":AutoSession delete<cr>" },
+			{ prefix .. "s", ":AutoSession search<cr>" },
 		},
 		---enables autocomplete for opts
 		---@module "auto-session"
