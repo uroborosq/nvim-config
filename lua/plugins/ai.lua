@@ -1,5 +1,4 @@
 local openai_api_key = os.getenv("YADRO_API_KEY") -- взять из выданного конфига
-local openai_base_endpoint = "https://litellm-proxy.ai.yadro.com"
 
 return {
 	{
@@ -14,6 +13,35 @@ return {
 		cond = not (openai_api_key == nil),
 		dependencies = {
 			"MunifTanjim/nui.nvim",
+			{
+				"nvim-neo-tree/neo-tree.nvim",
+				opts = {
+					filesystem = {
+						commands = {
+							avante_add_files = function(state)
+								local node = state.tree:get_node()
+								local filepath = node:get_id()
+								local relative_path = require("avante.utils").relative_path(filepath)
+								local sidebar = require("avante").get()
+								local open = sidebar:is_open()
+								if not open then
+									require("avante.api").ask()
+									sidebar = require("avante").get()
+								end
+								sidebar.file_selector:add_selected_file(relative_path)
+								if not open then
+									sidebar.file_selector:remove_selected_file("neo-tree filesystem [1]")
+								end
+							end,
+						},
+						window = {
+							mappings = {
+								["oa"] = "avante_add_files",
+							},
+						},
+					},
+				},
+			},
 		},
 		opts = {
 			system_prompt = function()
@@ -30,7 +58,20 @@ return {
 			behaviour = {
 				auto_suggestions = false,
 			},
+			acp_providers = {
+				["claude-code"] = {
+					command = "kilo",
+					args = { "acp" },
+					env = {
+						NODE_NO_WARNINGS = "1",
+					},
+				},
+			},
 			providers = {
+				["claude-code"] = {
+					model = "KiloCode",
+					__inherited_from = "openai",
+				},
 				["GLM"] = {
 					model = "GLM-4.7-FP8",
 					__inherited_from = "openai",

@@ -29,7 +29,14 @@ return {
 			end
 		end,
 	},
-
+	{
+		"neovim/nvim-lspconfig",
+		opts = function(_, _)
+			vim.lsp.config("buf_ls", {
+				filetypes = {},
+			})
+		end,
+	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		optional = true,

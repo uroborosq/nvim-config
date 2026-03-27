@@ -48,6 +48,8 @@ return {
 
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
+			["<C-j>"] = { "select_next", "fallback" },
+
 			["<C-p>"] = { "snippet_backward", "fallback_to_mappings" },
 			["<C-n>"] = { "snippet_forward", "fallback_to_mappings" },
 
