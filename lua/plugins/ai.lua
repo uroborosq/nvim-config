@@ -7,6 +7,7 @@ return {
 	},
 	{
 		"yetone/avante.nvim",
+		version = false,
 		build = vim.fn.has("win32") ~= 0
 				and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
 			or "make",
@@ -54,12 +55,21 @@ return {
 					require("mcphub.extensions.avante").mcp_tool(),
 				}
 			end,
-			provider = "GLM",
+			provider = "kilocode",
 			behaviour = {
 				auto_suggestions = false,
 			},
+			input = {
+				provider = "snacks", -- "native" | "dressing" | "snacks"
+				provider_opts = {
+					-- Snacks input configuration
+					title = "Avante Input",
+					icon = " ",
+					placeholder = "Enter your API key...",
+				},
+			},
 			acp_providers = {
-				["claude-code"] = {
+				["kilocode"] = {
 					command = "kilo",
 					args = { "acp" },
 					env = {
@@ -68,9 +78,14 @@ return {
 				},
 			},
 			providers = {
-				["claude-code"] = {
-					model = "KiloCode",
+				---@type AvanteSupportedProvider
+				["kilocode"] = {
+					model = "glm-4.7",
 					__inherited_from = "openai",
+					context_window = 131072,
+					extra_request_body = {
+						max_tokens = 32768,
+					},
 				},
 				["GLM"] = {
 					model = "GLM-4.7-FP8",
