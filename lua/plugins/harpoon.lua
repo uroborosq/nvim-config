@@ -99,6 +99,14 @@ return {
 				return nil
 			end
 
+			local function display_path(path, root)
+				if root and path:sub(1, #root + 1) == (root .. "/") then
+					return path:sub(#root + 2)
+				end
+
+				return vim.fn.fnamemodify(path, ":.")
+			end
+
 			local function list_for_branch()
 				local key = branch_key()
 				if key then
@@ -145,6 +153,7 @@ return {
 
 			local function open_telescope_for_branch()
 				ensure_top_files_in_list(max_branch_files)
+				local _, root = branch_key()
 				local list = list_for_branch()
 				local entries = {}
 
@@ -153,6 +162,7 @@ return {
 						table.insert(entries, {
 							index = index,
 							value = item.value,
+							display = display_path(item.value, root),
 						})
 					end
 				end
@@ -165,8 +175,8 @@ return {
 							entry_maker = function(entry)
 								return {
 									value = entry,
-									display = string.format("%d  %s", entry.index, entry.value),
-									ordinal = entry.value,
+									display = string.format("%d  %s", entry.index, entry.display),
+									ordinal = entry.display,
 									path = entry.value,
 								}
 							end,
