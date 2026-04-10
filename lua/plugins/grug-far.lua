@@ -46,9 +46,7 @@ return {
 				"<Leader>se",
 				function()
 					local ext = vim.api.nvim_buf_is_valid(0) and vim.fn.expand("%:e") or ""
-					grug_far_open({
-						prefills = { filesFilter = ext ~= "" and ("*." .. ext) or nil },
-					})
+					require("grug-far").open({ prefills = { filesFilter = ext ~= "" and ("*." .. ext) or nil } })
 				end,
 				desc = "Search/Replace filetype",
 				mode = "n",
@@ -59,7 +57,7 @@ return {
 				"<Leader>sf",
 				function()
 					local filter = vim.api.nvim_buf_is_valid(0) and vim.fn.fnameescape(vim.fn.expand("%")) or nil
-					grug_far_open({ prefills = { paths = filter } })
+					require("grug-far").open({ prefills = { paths = filter } })
 				end,
 				desc = "Search/Replace file",
 				mode = "n",
@@ -71,7 +69,7 @@ return {
 				function()
 					local current_word = vim.fn.expand("<cword>")
 					if current_word ~= "" then
-						grug_far_open({
+						require("grug-far").open({
 							startCursorRow = 4,
 							prefills = { search = current_word },
 						})

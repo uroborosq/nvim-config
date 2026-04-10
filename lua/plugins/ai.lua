@@ -55,7 +55,7 @@ return {
 					require("mcphub.extensions.avante").mcp_tool(),
 				}
 			end,
-			provider = "kilocode",
+			provider = "qwen3-coder",
 			behaviour = {
 				auto_suggestions = false,
 			},

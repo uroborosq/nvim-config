@@ -42,10 +42,12 @@
   "neo-tree.nvim": { "branch": "main", "commit": "84c75e7a7e443586f60508d12fc50f90d9aee14e" },
   "neotest": { "branch": "master", "commit": "72bc8f1ec62a590fb47368c81f89610e0f353e28" },
   "neotest-golang": { "branch": "main", "commit": "67800bdb6bee0107f478e35400ba937b438f1a4b" },
+  "neovim-header": { "branch": "master", "commit": "311973c9a5b8482895097cb47d9583991eec9c9e" },
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
   "none-ls.nvim": { "branch": "main", "commit": "c9317c2a8629d4e39e7cf47be74cb67f3ab37cda" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-autopairs": { "branch": "master", "commit": "59bce2eef357189c3305e25bc6dd2d138c1683f5" },
+  "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
   "nvim-coverage": { "branch": "main", "commit": "a939e425e363319d952a6c35fb3f38b34041ded2" },
   "nvim-dap": { "branch": "master", "commit": "2a8799ad91a1495c6bdf753f9b2179b3ff0f5bba" },
   "nvim-dap-go": { "branch": "main", "commit": "b4421153ead5d726603b02743ea40cf26a51ed5f" },
@@ -86,6 +88,7 @@
   "vim-wakatime": { "branch": "master", "commit": "d7973b157a632d1edeff01818f18d67e584eeaff" },
   "vscode.nvim": { "branch": "main", "commit": "aa1102a7e15195c9cca22730b09224a7f7745ba8" },
   "wakastat.nvim": { "branch": "master", "commit": "a993e80daa6912bf4f71bf18eaa011a7a9fc4293" },
+  "wal.vim": { "branch": "master", "commit": "c72ba0d18946f29aab9c95eb6975d321c68b3681" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
   "wildfire.nvim": { "branch": "master", "commit": "918a1873c2b8010baa034f373cf28c53ce4f038f" }
 }

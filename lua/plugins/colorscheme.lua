@@ -33,6 +33,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 return {
+	{
+		"dylanaraps/wal.vim",
+		-- init = function()
+		-- vim.opt.termguicolors = false
+		-- end,
+	},
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{
 		"neanias/everforest-nvim",

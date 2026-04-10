@@ -1,6 +1,9 @@
 return {
 	{
 		"nvimtools/none-ls.nvim",
-		opts = {},
+		opts = {
+			automatic_installation = true,
+			handlers = {},
+		},
 	},
 }
