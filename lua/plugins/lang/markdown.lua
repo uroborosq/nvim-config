@@ -8,8 +8,8 @@ return {
 	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 	-- 	build = "cd app && npm install",
 	-- 	keys = {
-	-- 		{ "<Leader>mo", ":MarkdownPreview<CR>", desc = "Open markdown webview" },
-	-- 		{ "<Leader>mc", ":MarkdownPreviewStop<CR>", desc = "Close markdown webview" },
+	-- 		{ "<Leader>mo", "<cmd>MarkdownPreview<cr>", desc = "Open markdown webview" },
+	-- 		{ "<Leader>mc", "<cmd>MarkdownPreviewStop<cr>", desc = "Close markdown webview" },
 	-- 	},
 	-- 	init = function()
 	-- 		-- vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
@@ -23,8 +23,8 @@ return {
 		event = { "VeryLazy" },
 		build = "deno task --quiet build:fast",
 		keys = {
-			{ "<Leader>mo", ":PeekOpen<CR>", desc = "Open markdown webview" },
-			{ "<Leader>mc", ":PeekClose<CR>", desc = "Close markdown webview" },
+			{ "<Leader>mo", "<cmd>PeekOpen<cr>", desc = "Open markdown webview", silent = true },
+			{ "<Leader>mc", "<cmd>PeekClose<cr>", desc = "Close markdown webview", silent = true },
 		},
 		config = function()
 			require("peek").setup({
@@ -45,7 +45,7 @@ return {
 			vim.g.markview_cmp_loaded = true
 		end,
 		keys = {
-			{ "<Leader>ms", ":Markview splitToggle<CR>", desc = "Toggle makrview split" },
+			{ "<Leader>ms", "<cmd>Markview splitToggle<cr>", desc = "Toggle makrview split", silent = true },
 		},
 		lazy = false,
 		opts = function() end,
