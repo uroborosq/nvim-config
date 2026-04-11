@@ -37,7 +37,7 @@ vim.keymap.set("n", "dd", '"_dd', { noremap = true })
 vim.keymap.set("n", "D", '"_D', { noremap = true })
 vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true })
 vim.keymap.set({ "n", "v" }, "p", "P", { noremap = true })
-vim.keymap.set({ "n" }, "<esc>", ":noh<cr>")
+vim.keymap.set({ "n" }, "<esc>", "<cmd>noh<cr>", { silent = true })
 
 map("n", "<leader>w", "<cmd>w<cr>", vim.tbl_extend("force", opts, { desc = "Save file" }))
 map("n", "<leader>q", "<cmd>q<cr>", vim.tbl_extend("force", opts, { desc = "Quit" }))
@@ -45,15 +45,15 @@ map("n", "<leader>q", "<cmd>q<cr>", vim.tbl_extend("force", opts, { desc = "Quit
 -- пример: удобное закрытие буфера
 map("n", "<leader>c", "<cmd>bdelete<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
 map("n", "<leader>Q", "<cmd>qa<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
-map("n", "|", ":vsplit<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
+map("n", "|", "<cmd>vsplit<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
 map("n", "\\", "<cmd>split<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
 
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "]T", ":tabnext<cr>", { desc = "das Nachtest Tab" })
-vim.keymap.set("n", "[T", ":tabprev<cr>", { desc = "ver" })
+vim.keymap.set("n", "]T", "<cmd>tabnext<cr>", { desc = "das Nachtest Tab", silent = true })
+vim.keymap.set("n", "[T", "<cmd>tabprev<cr>", { desc = "ver", silent = true })
 
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
