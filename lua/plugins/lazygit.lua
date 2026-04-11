@@ -12,20 +12,6 @@ return {
 				end,
 				desc = "LazyGit",
 			},
-			{
-				"<leader>gC",
-				function()
-					require("snacks").lazygit.log()
-				end,
-				desc = "Git log",
-			},
-			{
-				"<leader>gc",
-				function()
-					require("snacks").lazygit.log_file()
-				end,
-				desc = "Git commits in current file",
-			},
 		},
 		---@type snacks.Config
 		opts = {

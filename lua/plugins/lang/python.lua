@@ -1,5 +1,20 @@
 return {
 	{
+		"neovim/nvim-lspconfig",
+		opts = function(_, _)
+			vim.lsp.config("basedpyright", {
+				settings = {
+					python = {
+						analysis = {
+							reportUnannotatedClassAttribute = "none",
+							reportUnknownMemberType = "none",
+						},
+					},
+				},
+			})
+		end,
+	},
+	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = function(_, opts)
 			opts.ensure_installed = opts.ensure_installed or {}

@@ -77,7 +77,8 @@ return {
 		build = ":TSUpdate",
 		---@class TSConfig
 		opts = {
-			ensure_installed = {},
+			ensure_installed = { "regex" },
+			auto_install = true,
 		},
 		config = function(_, opts)
 			register(opts.ensure_installed)

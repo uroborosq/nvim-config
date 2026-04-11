@@ -34,10 +34,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 return {
 	{
-		"dylanaraps/wal.vim",
-		-- init = function()
-		-- vim.opt.termguicolors = false
-		-- end,
+		"arizzoni/wal.nvim",
+		config = function()
+			vim.g.wal_path = os.getenv("HOME") .. "/.cache/wal/colors.json"
+		end,
 	},
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{
