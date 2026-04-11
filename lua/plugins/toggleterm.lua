@@ -20,6 +20,7 @@ return {
 				"<cmd>Telescope toggleterm_manager<cr>",
 				mode = { "n", "t" },
 				desc = "Search Toggleterms",
+				silent = true,
 			},
 		},
 		opts = function(_, opts)
@@ -52,12 +53,12 @@ return {
 		"akinsho/toggleterm.nvim",
 		cmd = { "ToggleTerm", "TermExec" },
 		keys = {
-			{ "<C-'>", ":ToggleTerm<cr>", mode = { "n", "i" } },
+			{ "<C-'>", "<cmd>ToggleTerm<cr>", mode = { "n", "i" }, silent = true },
 			{ "<C-Esc>", [[<C-\><C-n>]], mode = "t" },
-			{ "<C-h>", [[<Cmd>wincmd h<CR>]], mode = "t" },
-			{ "<C-j>", [[<Cmd>wincmd j<CR>]], mode = "t" },
-			{ "<C-k>", [[<Cmd>wincmd k<CR>]], mode = "t" },
-			{ "<C-l>", [[<Cmd>wincmd l<CR>]], mode = "t" },
+			{ "<C-h>", [[<Cmd>wincmd h<CR>]], mode = "t", silent = true },
+			{ "<C-j>", [[<Cmd>wincmd j<CR>]], mode = "t", silent = true },
+			{ "<C-k>", [[<Cmd>wincmd k<CR>]], mode = "t", silent = true },
+			{ "<C-l>", [[<Cmd>wincmd l<CR>]], mode = "t", silent = true },
 			{ "<C-w>", [[<C-\><C-n><C-w>]], mode = "t" },
 		},
 		opts = {

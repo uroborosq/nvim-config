@@ -23,9 +23,9 @@ return {
 		},
 		config = function(_, opts)
 			require("which-key").add({
-				{ "<Leader>e", ":Neotree filesystem float reveal toggle<CR>" },
-				{ "<Leader>o", ":Neotree filesystem float reveal toggle<CR>" },
-				{ "<Leader>E", ":Neotree filesystem left reveal toggle<CR>" },
+				{ "<Leader>e", "<cmd>Neotree filesystem float reveal toggle<cr>", silent = true },
+				{ "<Leader>o", "<cmd>Neotree filesystem float reveal toggle<cr>", silent = true },
+				{ "<Leader>E", "<cmd>Neotree filesystem left reveal toggle<cr>", silent = true },
 			})
 
 			require("neo-tree").setup(opts)
