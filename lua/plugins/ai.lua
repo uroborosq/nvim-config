@@ -55,18 +55,18 @@ return {
 					require("mcphub.extensions.avante").mcp_tool(),
 				}
 			end,
-			provider = "qwen3-coder",
+			provider = "kilocode",
 			behaviour = {
 				auto_suggestions = false,
 			},
 			input = {
-				provider = "snacks", -- "native" | "dressing" | "snacks"
-				provider_opts = {
-					-- Snacks input configuration
-					title = "Avante Input",
-					icon = " ",
-					placeholder = "Enter your API key...",
-				},
+				-- provider = "snacks", -- "native" | "dressing" | "snacks"
+				-- provider_opts = {
+				-- 	-- Snacks input configuration
+				-- 	title = "Avante Input",
+				-- 	icon = " ",
+				-- 	placeholder = "Enter your API key...",
+				-- },
 			},
 			acp_providers = {
 				["kilocode"] = {

@@ -53,6 +53,7 @@ return {
 							end,
 							on_exit = function()
 								vim.notify("golangci-lint --fix done")
+								vim.cmd("<cmd>e<br>")
 							end,
 						})
 					end,
@@ -106,7 +107,7 @@ return {
 				},
 				{
 					"<leader>lu",
-					"<cmd>LspRestart<CR>",
+					"<cmd>lsp restart<CR>",
 					desc = "Restart LSP",
 					silent = true,
 					mode = "n",

@@ -23,9 +23,24 @@ return {
 		},
 		config = function(_, opts)
 			require("which-key").add({
-				{ "<Leader>e", "<cmd>Neotree filesystem float reveal toggle<cr>", silent = true },
-				{ "<Leader>o", "<cmd>Neotree filesystem float reveal toggle<cr>", silent = true },
-				{ "<Leader>E", "<cmd>Neotree filesystem left reveal toggle<cr>", silent = true },
+				{
+					"<Leader>e",
+					"<cmd>Neotree filesystem float reveal toggle<cr>",
+					silent = true,
+					desc = "schwebender Dateimanager anzeigen",
+				},
+				{
+					"<Leader>o",
+					"<cmd>Neotree filesystem float reveal toggle<cr>",
+					silent = true,
+					desc = "schwebender Dateimanager anzeigen",
+				},
+				{
+					"<Leader>E",
+					"<cmd>Neotree filesystem left reveal toggle<cr>",
+					silent = true,
+					desc = "Dateimanager links anzeigen",
+				},
 			})
 
 			require("neo-tree").setup(opts)

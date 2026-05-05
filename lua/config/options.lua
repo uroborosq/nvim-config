@@ -8,6 +8,19 @@ vim.g.maplocalleader = ","
 vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = false
 
+-- undotree
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set({ "n" }, "<leader>U", "<cmd>Undotree<cr>", { noremap = true, silent = true })
+
+local undo_dir = vim.fn.stdpath("data") .. "/undo"
+
+if vim.fn.isdirectory(undo_dir) == 0 then
+	vim.fn.mkdir(undo_dir, "p")
+end
+
+vim.opt.undodir = undo_dir
+vim.opt.undofile = true
+
 vim.diagnostic.config({
 	virtual_text = true,
 	virtual_lines = false,
@@ -56,7 +69,7 @@ vim.keymap.set("n", "]T", "<cmd>tabnext<cr>", { desc = "das Nachtest Tab", silen
 vim.keymap.set("n", "[T", "<cmd>tabprev<cr>", { desc = "ver", silent = true })
 
 vim.opt.tabstop = 4
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 vim.opt.relativenumber = true -- sets vim.opt.relativenumber
 vim.opt.number = true -- sets vim.opt.numbe
 vim.opt.spell = true
