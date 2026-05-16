@@ -68,6 +68,7 @@ return {
 						usePlaceholders = true,
 						vulncheck = "Imports",
 						semanticTokens = true,
+						gofumpt = true,
 					},
 				},
 			})
@@ -180,7 +181,7 @@ return {
 		"stevearc/conform.nvim",
 		opts = {
 			formatters_by_ft = {
-				go = { "goimports-reviser", stop_after_first = false },
+				go = { "gofumpt", "goimports-reviser", stop_after_first = false },
 			},
 		},
 	},

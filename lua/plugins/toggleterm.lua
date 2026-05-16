@@ -5,6 +5,14 @@ local get_shell = function()
 		return nil
 	end
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "toggleterm",
+	callback = function()
+		vim.opt_local.spell = false
+	end,
+})
+
 return {
 	{
 		"ryanmsnyder/toggleterm-manager.nvim",
@@ -15,6 +23,11 @@ return {
 			"folke/which-key.nvim",
 		},
 		keys = {
+			{
+				"<leader>T",
+				"<cmd>ToggleTerm direction=tab<cr>",
+				silent = true,
+			},
 			{
 				"<C-\\>",
 				"<cmd>Telescope toggleterm_manager<cr>",
