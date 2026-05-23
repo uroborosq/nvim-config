@@ -12,6 +12,12 @@ return {
 			end,
 			event = { "BufWinEnter" },
 			keys = {
+				{
+					"<leader>to",
+					"<cmd>tabfirst | tabonly<cr>",
+					desc = "Close all tabs but first",
+					silent = true,
+				},
 				{ "<C-W>t", "<cmd>tabclose<cr>", silent = true },
 				{ "]b", "<cmd>BufferNext<cr>", silent = true },
 				{ "[b", "<cmd>BufferPrevious<cr>", silent = true },

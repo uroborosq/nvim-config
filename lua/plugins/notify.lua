@@ -5,9 +5,14 @@ return {
 			{
 				"<leader>nc",
 				function()
-					require("notify").clear_history()
+					pcall(function()
+						vim.cmd("NoiceDismiss")
+					end)
+					pcall(function()
+						require("notify").dismiss({ silent = true, pending = true })
+					end)
 				end,
-				desc = "Benachrichtigungsverlauf löschen",
+				desc = "Benachrichtigungen schließen",
 				silent = true,
 			},
 		},
