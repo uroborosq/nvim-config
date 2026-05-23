@@ -22,6 +22,42 @@ return {
 
 			require("which-key").add({
 				{ search_prefix, group = "search" },
+				{
+					search_prefix .. "m",
+					function()
+						builtin.find_files({
+							find_command = {
+								"fd",
+								"--type",
+								"f",
+								"-e",
+								"md",
+								"--hidden",
+								"--exclude",
+								".git",
+							},
+						})
+					end,
+					desc = "Golang Dateien suchen",
+				},
+				{
+					search_prefix .. "g",
+					function()
+						builtin.find_files({
+							find_command = {
+								"fd",
+								"--type",
+								"f",
+								"-e",
+								"go",
+								"--hidden",
+								"--exclude",
+								".git",
+							},
+						})
+					end,
+					desc = "Golang Dateien suchen",
+				},
 				{ search_prefix .. "f", builtin.find_files, desc = "Dateien suchen" },
 				{ search_prefix .. "o", builtin.oldfiles, desc = "zuletzt verwendete Dateien" },
 				{ search_prefix .. "k", builtin.keymaps, desc = "Keymaps finden" },
