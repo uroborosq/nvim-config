@@ -55,6 +55,7 @@ return {
 	},
 	{
 		"arizzoni/wal.nvim",
+		cond = vim.fn.has("win32") ~= 0,
 		config = function()
 			vim.g.wal_path = os.getenv("HOME") .. "/.cache/wal/colors.json"
 		end,
