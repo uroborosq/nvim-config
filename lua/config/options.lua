@@ -69,7 +69,7 @@ vim.keymap.set({ "n", "t" }, "]T", "<cmd>tabnext<cr>", { desc = "das Nachtest Ta
 vim.keymap.set({ "n", "t" }, "[T", "<cmd>tabprev<cr>", { desc = "ver", silent = true })
 
 vim.opt.tabstop = 4
-vim.opt.termguicolors = false
+-- vim.opt.termguicolors = true
 vim.opt.relativenumber = true -- sets vim.opt.relativenumber
 vim.opt.number = true -- sets vim.opt.numbe
 vim.opt.spell = true

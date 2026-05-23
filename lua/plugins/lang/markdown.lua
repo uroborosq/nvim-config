@@ -48,7 +48,13 @@ return {
 			{ "<Leader>ms", "<cmd>Markview splitToggle<cr>", desc = "Toggle makrview split", silent = true },
 		},
 		lazy = false,
-		opts = function() end,
+		opts = function(_, opts)
+			local presets = require("markview.presets").horizontal_rules
+
+			opts.markdown = {
+				horizontal_rules = presets.thin,
+			}
+		end,
 	},
 	{
 		"stevearc/conform.nvim",

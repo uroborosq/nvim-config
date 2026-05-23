@@ -9,6 +9,13 @@ vim.filetype.add({
 	},
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "DiffviewFiles",
+	callback = function()
+		vim.b.disable_lint = true
+	end,
+})
+
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -153,6 +160,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
+		init = function() end,
 		opts = function(_, opts)
 			opts = opts or {}
 
