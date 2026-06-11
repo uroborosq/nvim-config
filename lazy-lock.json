@@ -9,6 +9,7 @@
   "avante.nvim": { "branch": "main", "commit": "e7a167e5bf7de92d406e371d500c803603ec642f" },
   "bamboo.nvim": { "branch": "master", "commit": "1309bc88bffcf1bedc3e84e7fa9004de93da774a" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
+  "bb": { "branch": "codex/add-functionality-for-comments-and-replies", "commit": "c3646b4f6f629795dc1b59c5473980584a10d4e1" },
   "better-escape.nvim": { "branch": "master", "commit": "3f4bc0b326606264ff75967f59091b5ddada0554" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "blink.compat": { "branch": "main", "commit": "cd2d3a040b76ad0eeab9a3bba48bc4c2b9d703bf" },
