@@ -1,8 +1,6 @@
 return {
 	{
 		"uroborosq/bb",
-		dir = "~/desktop/owned/bb",
-		lazy = false,
 		keys = {
 			{
 				"<leader>rr",
