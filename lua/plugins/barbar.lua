@@ -13,7 +13,7 @@ return {
 			event = { "BufWinEnter" },
 			keys = {
 				{
-					"<leader>to",
+					"<leader>bo",
 					"<cmd>tabfirst | tabonly<cr>",
 					desc = "Close all tabs but first",
 					silent = true,

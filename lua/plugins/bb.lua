@@ -5,11 +5,11 @@ return {
 		lazy = false,
 		keys = {
 			{
-				"<leader>gp",
+				"<leader>rr",
 				"<cmd>BBPRList<cr>",
 			},
 			{
-				"<leader>gi",
+				"<leader>ri",
 				"<cmd>BBPRInfo<cr>",
 			},
 		},

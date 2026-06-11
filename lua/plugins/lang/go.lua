@@ -22,6 +22,19 @@ return {
 		optional = true,
 		opts = function(_, _)
 			vim.lsp.config("gopls", {
+				root_dir = function(bufnr, on_dir)
+					local fname = vim.api.nvim_buf_get_name(bufnr)
+					-- Skip non-file buffers (diffview://, fugitive:// ...). gopls only
+					-- accepts the file:// scheme and otherwise answers didOpen with a
+					-- "-32700 JSON RPC parse error: DocumentURI scheme is not 'file'".
+					-- Not calling on_dir prevents the client from attaching at all, so
+					-- no didOpen is ever sent for those buffers.
+					if fname:find("://", 1, true) and not vim.startswith(fname, "file://") then
+						return
+					end
+					local root = vim.fs.root(bufnr, { "go.work", "go.mod", ".git" })
+					on_dir(root or vim.fn.fnamemodify(fname, ":h"))
+				end,
 				capabilities = {
 					workspace = {
 						didChangeWatchedFiles = {
@@ -75,7 +88,7 @@ return {
 						usePlaceholders = true,
 						vulncheck = "Imports",
 						semanticTokens = true,
-						gofumpt = true,
+						gofumpt = false,
 					},
 				},
 			})
@@ -189,7 +202,7 @@ return {
 		"stevearc/conform.nvim",
 		opts = {
 			formatters_by_ft = {
-				go = { "gofumpt", "goimports-reviser", stop_after_first = false },
+				go = { "goimports-reviser", stop_after_first = false },
 			},
 		},
 	},

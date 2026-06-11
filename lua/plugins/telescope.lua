@@ -61,7 +61,13 @@ return {
 				{ search_prefix .. "f", builtin.find_files, desc = "Dateien suchen" },
 				{ search_prefix .. "o", builtin.oldfiles, desc = "zuletzt verwendete Dateien" },
 				{ search_prefix .. "k", builtin.keymaps, desc = "Keymaps finden" },
-				{ search_prefix .. "b", builtin.buffers, desc = "Buffers finden" },
+				{
+					search_prefix .. "b",
+					function()
+						require("telescope").extensions.scope.buffers()
+					end,
+					desc = "Buffers finden",
+				},
 				{ search_prefix .. "w", builtin.live_grep, desc = "Worte suchen" },
 				{ search_prefix .. "t", builtin.colorscheme, desc = "Farbschema" },
 				{ search_prefix .. "n", "<cmd>Telescope notify<cr>", desc = "Benachrichtigungen", silent = true },

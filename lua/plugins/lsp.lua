@@ -8,6 +8,13 @@ return {
 					vim.diagnostic.open_float({ source = true })
 				end,
 			},
+			{
+				"<Leader>uh",
+				function()
+					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+				end,
+				desc = "Toggle inlay hints",
+			},
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
