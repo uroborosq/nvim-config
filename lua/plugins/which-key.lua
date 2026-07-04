@@ -53,30 +53,31 @@ return {
 							end,
 							on_exit = function()
 								vim.notify("golangci-lint --fix done")
+								vim.cmd("<cmd>e<br>")
 							end,
 						})
 					end,
 					desc = "golangci-lint --fix current file",
 				},
 
-				{ "<leader>Gc", "<cmd>GoCmt<CR>", desc = "Generate comment" },
-				{ "<leader>Ge", "<cmd>GoIfErr<CR>", desc = "Generate if err" },
-				{ "<leader>Gd", "<cmd>GoMod tidy<CR>", desc = "go mod tidy" },
-				{ "<leader>Gg", "<cmd>GoGenerate %<CR>", desc = "go generate current file" },
-				{ "<leader>GG", "<cmd>GoGenerate<CR>", desc = "go generate all" },
+				{ "<leader>Gc", "<cmd>GoCmt<CR>", desc = "Generate comment", silent = true },
+				{ "<leader>Ge", "<cmd>GoIfErr<CR>", desc = "Generate if err", silent = true },
+				{ "<leader>Gd", "<cmd>GoMod tidy<CR>", desc = "go mod tidy", silent = true },
+				{ "<leader>Gg", "<cmd>GoGenerate %<CR>", desc = "go generate current file", silent = true },
+				{ "<leader>GG", "<cmd>GoGenerate<CR>", desc = "go generate all", silent = true },
 
 				-- без <CR>, чтобы вводить аргументы
 				{ "<leader>Gi", "<cmd>GoImpl ", desc = "implement current interface" },
 				{ "<leader>GI", "<cmd>GoMod init ", desc = "go mod init" },
 
-				{ "<leader>Ga", "<cmd>GoTagAdd json<CR>", desc = "add tags to struct" },
+				{ "<leader>Ga", "<cmd>GoTagAdd json<CR>", desc = "add tags to struct", silent = true },
 
-				{ "<leader>Gt", "<cmd>GoTestAdd<CR>", desc = "gen tests for cur method" },
-				{ "<leader>GT", "<cmd>GoTestsExp<CR>", desc = "gen tests for exported methods" },
+				{ "<leader>Gt", "<cmd>GoTestAdd<CR>", desc = "gen tests for cur method", silent = true },
+				{ "<leader>GT", "<cmd>GoTestsExp<CR>", desc = "gen tests for exported methods", silent = true },
 			},
 			{
 				mode = { "i" },
-				{ "<C-E>", "<esc><cmd>GoIfErr<CR>i", desc = "Generate if err" },
+				{ "<C-E>", "<esc><cmd>GoIfErr<CR>i", desc = "Generate if err", silent = true },
 			},
 			{
 				{ "<leader>l", group = "LSP", mode = "n" },
@@ -106,8 +107,9 @@ return {
 				},
 				{
 					"<leader>lu",
-					"<cmd>LspRestart<CR>",
+					"<cmd>lsp restart<CR>",
 					desc = "Restart LSP",
+					silent = true,
 					mode = "n",
 				},
 				{

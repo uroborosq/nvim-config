@@ -22,14 +22,56 @@ return {
 
 			require("which-key").add({
 				{ search_prefix, group = "search" },
+				{
+					search_prefix .. "m",
+					function()
+						builtin.find_files({
+							find_command = {
+								"fd",
+								"--type",
+								"f",
+								"-e",
+								"md",
+								"--hidden",
+								"--exclude",
+								".git",
+							},
+						})
+					end,
+					desc = "Golang Dateien suchen",
+				},
+				{
+					search_prefix .. "g",
+					function()
+						builtin.find_files({
+							find_command = {
+								"fd",
+								"--type",
+								"f",
+								"-e",
+								"go",
+								"--hidden",
+								"--exclude",
+								".git",
+							},
+						})
+					end,
+					desc = "Golang Dateien suchen",
+				},
 				{ search_prefix .. "f", builtin.find_files, desc = "Dateien suchen" },
 				{ search_prefix .. "o", builtin.oldfiles, desc = "zuletzt verwendete Dateien" },
 				{ search_prefix .. "k", builtin.keymaps, desc = "Keymaps finden" },
-				{ search_prefix .. "b", builtin.buffers, desc = "Buffers finden" },
+				{
+					search_prefix .. "b",
+					function()
+						require("telescope").extensions.scope.buffers()
+					end,
+					desc = "Buffers finden",
+				},
 				{ search_prefix .. "w", builtin.live_grep, desc = "Worte suchen" },
 				{ search_prefix .. "t", builtin.colorscheme, desc = "Farbschema" },
-				{ search_prefix .. "n", ":Telescope notify<cr>", desc = "Benachrichtigungen" },
-				{ lang_prefix .. "s", ":Telescope aerial<cr>", desc = "LSP Symbolen suchen" },
+				{ search_prefix .. "n", "<cmd>Telescope notify<cr>", desc = "Benachrichtigungen", silent = true },
+				{ lang_prefix .. "s", "<cmd>Telescope aerial<cr>", desc = "LSP Symbolen suchen", silent = true },
 				{ lang_prefix .. "R", builtin.lsp_references, desc = "LSP Symbolen suchen" },
 				{ lang_prefix .. "D", builtin.diagnostics, desc = "LSP Probleme sehen" },
 				{ lang_prefix .. "R", builtin.lsp_references, desc = "LSP References suchen" },
@@ -60,6 +102,14 @@ return {
 				pickers = {
 					find_files = {
 						hidden = true,
+						find_command = {
+							"fd",
+							"--type",
+							"f",
+							"--hidden",
+							"--exclude",
+							".git",
+						},
 					},
 				},
 			})

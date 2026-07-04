@@ -47,7 +47,7 @@ local function install_and_start()
 				return
 			end
 
-			local parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
+			local parser_installed = vim.treesitter.get_parser(bufnr, parser_name)
 			if not parser_installed then
 				require("nvim-treesitter").install({ parser_name })
 				return

@@ -8,6 +8,19 @@ vim.g.maplocalleader = ","
 vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = false
 
+-- undotree
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set({ "n" }, "<leader>U", "<cmd>Undotree<cr>", { noremap = true, silent = true })
+
+local undo_dir = vim.fn.stdpath("data") .. "/undo"
+
+if vim.fn.isdirectory(undo_dir) == 0 then
+	vim.fn.mkdir(undo_dir, "p")
+end
+
+vim.opt.undodir = undo_dir
+vim.opt.undofile = true
+
 vim.diagnostic.config({
 	virtual_text = true,
 	virtual_lines = false,
@@ -37,26 +50,34 @@ vim.keymap.set("n", "dd", '"_dd', { noremap = true })
 vim.keymap.set("n", "D", '"_D', { noremap = true })
 vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true })
 vim.keymap.set({ "n", "v" }, "p", "P", { noremap = true })
-vim.keymap.set({ "n" }, "<esc>", ":noh<cr>")
+vim.keymap.set({ "n" }, "<esc>", "<cmd>noh<cr>", { silent = true })
 
 map("n", "<leader>w", "<cmd>w<cr>", vim.tbl_extend("force", opts, { desc = "Save file" }))
 map("n", "<leader>q", "<cmd>q<cr>", vim.tbl_extend("force", opts, { desc = "Quit" }))
 
+map("n", "<leader>R", "<cmd>restart<cr>", vim.tbl_extend("force", opts, { desc = "Neustarten" }))
+
 -- пример: удобное закрытие буфера
 map("n", "<leader>c", "<cmd>bdelete<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
 map("n", "<leader>Q", "<cmd>qa<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
-map("n", "|", ":vsplit<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
+map("n", "|", "<cmd>vsplit<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
 map("n", "\\", "<cmd>split<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
 
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "]T", ":tabnext<cr>", { desc = "das Nachtest Tab" })
-vim.keymap.set("n", "[T", ":tabprev<cr>", { desc = "ver" })
+
+vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height", silent = true })
+vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height", silent = true })
+vim.keymap.set("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width", silent = true })
+vim.keymap.set("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width", silent = true })
+
+vim.keymap.set({ "n", "t" }, "]T", "<cmd>tabnext<cr>", { desc = "das Nachtest Tab", silent = true })
+vim.keymap.set({ "n", "t" }, "[T", "<cmd>tabprev<cr>", { desc = "ver", silent = true })
 
 vim.opt.tabstop = 4
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 vim.opt.relativenumber = true -- sets vim.opt.relativenumber
 vim.opt.number = true -- sets vim.opt.numbe
 vim.opt.spell = true
@@ -64,6 +85,10 @@ vim.opt.spelllang = { "en_us", "ru" }
 vim.opt.spelloptions = "camel"
 -- vim.opt.signcolumn = "auto" -- sets vim.opt.signcolumn to auto
 vim.opt.wrap = false
+vim.keymap.set("n", "<leader>uw", function()
+	vim.opt_local.wrap = not vim.wo.wrap
+	vim.notify("wrap: " .. tostring(vim.wo.wrap))
+end, { silent = true, desc = "Toggle wrap" })
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
@@ -77,3 +102,6 @@ vim.g.autoread = true
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- damit scope.nvim die Buffer-pro-Tab-Verteilung in Sessions speichert
+vim.opt.sessionoptions:append("globals")

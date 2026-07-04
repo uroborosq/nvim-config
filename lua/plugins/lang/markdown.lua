@@ -1,38 +1,33 @@
-function OpenMarkdownPreview(url)
-	vim.cmd("! open -a Firefox -n --args --new-window " .. url)
-end
-
 return {
-	-- {
-	-- 	"iamcco/markdown-preview.nvim",
-	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-	-- 	build = "cd app && npm install",
-	-- 	keys = {
-	-- 		{ "<Leader>mo", ":MarkdownPreview<CR>", desc = "Open markdown webview" },
-	-- 		{ "<Leader>mc", ":MarkdownPreviewStop<CR>", desc = "Close markdown webview" },
-	-- 	},
-	-- 	init = function()
-	-- 		-- vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
-	-- 		vim.g.mkdp_browser = "chromium"
-	-- 		vim.g.mkdp_filetypes = { "markdown" }
-	-- 	end,
-	-- 	ft = { "markdown" },
-	-- },
 	{
-		"toppair/peek.nvim",
-		event = { "VeryLazy" },
-		build = "deno task --quiet build:fast",
-		keys = {
-			{ "<Leader>mo", ":PeekOpen<CR>", desc = "Open markdown webview" },
-			{ "<Leader>mc", ":PeekClose<CR>", desc = "Close markdown webview" },
-		},
-		config = function()
-			require("peek").setup({
-				app = "chromium",
-			})
-			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+		"iamcco/markdown-preview.nvim",
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
+
+			vim.cmd([[
+function OpenMarkdownPreview(url)
+  execute "silent ! chromium --app=" . a:url . " --class=nvim-preview --user-data-dir=/tmp/nvim-preview &"
+endfunction
+]])
+			vim.g.mkdp_filetypes = { "markdown" }
+			vim.g.mkdp_auto_close = 0
+			vim.g.mkdp_preview_options = {
+				maid = {
+					flowchart = {
+						defaultRenderer = "elk",
+					},
+				},
+			}
+			-- vim.g.mkdp_browser = "/usr/bin/chromium"
 		end,
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		keys = {
+			{ "<Leader>mo", "<cmd>MarkdownPreview<cr>", desc = "Open markdown webview", silent = true },
+			{ "<Leader>mc", "<cmd>MarkdownPreviewStop<cr>", desc = "Close markdown webview", silent = true },
+		},
+
+		ft = { "markdown" },
 	},
 	{
 		-- For `plugins/markview.lua` users.
@@ -45,10 +40,16 @@ return {
 			vim.g.markview_cmp_loaded = true
 		end,
 		keys = {
-			{ "<Leader>ms", ":Markview splitToggle<CR>", desc = "Toggle makrview split" },
+			{ "<Leader>ms", "<cmd>Markview splitToggle<cr>", desc = "Toggle makrview split", silent = true },
 		},
 		lazy = false,
-		opts = function() end,
+		opts = function(_, opts)
+			local presets = require("markview.presets").horizontal_rules
+
+			opts.markdown = {
+				horizontal_rules = presets.thin,
+			}
+		end,
 	},
 	{
 		"stevearc/conform.nvim",

@@ -10,7 +10,12 @@ return {
 	opts = {},
 	config = function(_, opts)
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
-			callback = function()
+
+			callback = function(ev)
+				if vim.api.nvim_buf_get_name(ev.buf):match("/%.git/") then
+					return
+				end
+
 				require("lint").try_lint()
 			end,
 		})
