@@ -1,6 +1,7 @@
 return {
 	{
 		"uroborosq/bb",
+		lazy = false,
 		keys = {
 			{
 				"<leader>rr",
@@ -11,7 +12,6 @@ return {
 				"<cmd>BBPRInfo<cr>",
 			},
 		},
-		branch = "codex/add-functionality-for-comments-and-replies",
 		opts = {},
 	},
 }

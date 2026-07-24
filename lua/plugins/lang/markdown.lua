@@ -1,36 +1,12 @@
 return {
 	{
-		"iamcco/markdown-preview.nvim",
-		build = "cd app && yarn install",
-		init = function()
-			vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
-
-			vim.cmd([[
-function OpenMarkdownPreview(url)
-  execute "silent ! chromium --app=" . a:url . " --class=nvim-preview --user-data-dir=/tmp/nvim-preview &"
-endfunction
-]])
-			vim.g.mkdp_filetypes = { "markdown" }
-			vim.g.mkdp_auto_close = 0
-			vim.g.mkdp_preview_options = {
-				maid = {
-					flowchart = {
-						defaultRenderer = "elk",
-					},
-				},
-			}
-			-- vim.g.mkdp_browser = "/usr/bin/chromium"
-		end,
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		keys = {
-			{ "<Leader>mo", "<cmd>MarkdownPreview<cr>", desc = "Open markdown webview", silent = true },
-			{ "<Leader>mc", "<cmd>MarkdownPreviewStop<cr>", desc = "Close markdown webview", silent = true },
-		},
-
+		"uroborosq/uq-markdown",
 		ft = { "markdown" },
+		keys = {
+			{ "<Leader>mo", "<cmd>MdPreviewToggle<cr>", desc = "Toggle markdown webview", silent = true },
+		},
 	},
 	{
-		-- For `plugins/markview.lua` users.
 		"OXY2DEV/markview.nvim",
 		dependencies = {
 			"Saghen/blink.cmp",
