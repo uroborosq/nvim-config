@@ -80,7 +80,7 @@ return {
 				{ "gri", builtin.lsp_implementations, desc = "LSP Implementations suchen" },
 				{ lang_prefix .. "i", builtin.lsp_implementations, desc = "LSP Implementations suchen" },
 				{ lang_prefix .. "G", builtin.lsp_dynamic_workspace_symbols, desc = "LSP Workspace Symbolen suchen" },
-				{ lang_prefix .. "r", vim.lsp.buf.rename, desc = "LSP symbol rename" },
+				-- { lang_prefix .. "r", vim.lsp.buf.rename, desc = "LSP symbol rename" },
 				{ "gd", builtin.lsp_definitions, desc = "zu Definition gehen" },
 				{ lang_prefix .. "I", vim.lsp.buf.typehierarchy, desc = "LSP symbol ierarcchy" },
 			})

@@ -18,6 +18,12 @@ vim.api.nvim_create_autocmd("FileType", {
 
 return {
 	{
+		"uroborosq/uq-go-rename",
+		build = "go build -o uq-go-rename ./cmd/uq-go-rename",
+		ft = "go",
+		opts = {},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		optional = true,
 		opts = function(_, _)
