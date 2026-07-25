@@ -89,6 +89,11 @@ vim.keymap.set("n", "<leader>uw", function()
 	vim.opt_local.wrap = not vim.wo.wrap
 	vim.notify("wrap: " .. tostring(vim.wo.wrap))
 end, { silent = true, desc = "Toggle wrap" })
+vim.keymap.set("n", "<leader>ud", function()
+	local enabled = vim.diagnostic.is_enabled()
+	vim.diagnostic.enable(not enabled)
+	vim.notify("diagnostics: " .. tostring(not enabled))
+end, { silent = true, desc = "Toggle diagnostics" })
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
