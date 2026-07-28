@@ -94,6 +94,10 @@ vim.keymap.set("n", "<leader>ud", function()
 	vim.diagnostic.enable(not enabled)
 	vim.notify("diagnostics: " .. tostring(not enabled))
 end, { silent = true, desc = "Toggle diagnostics" })
+vim.keymap.set("n", "<leader>us", function()
+	vim.opt_local.spell = not vim.wo.spell
+	vim.notify("spell: " .. tostring(vim.wo.spell))
+end, { silent = true, desc = "Toggle spelling" })
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4

@@ -1,5 +1,6 @@
 if vim.g.neovide then
-	local font = "ComicShannsMono Nerd Font,Monofur Nerd Font:#e-subpixelantialias"
+	-- local font = "ComicShannsMono Nerd Font,Monofur Nerd Font:#e-subpixelantialias"
+	local font = "JetBrainsMono Nerd Font:#e-subpixelantialias"
 	local size = 11
 	vim.o.guifont = font .. ":h" .. tostring(size)
 
