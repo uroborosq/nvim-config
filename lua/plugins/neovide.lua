@@ -9,7 +9,10 @@ if vim.g.neovide then
 
 	vim.g.neovide_hide_mouse_when_typing = true
 	vim.g.neovide_window_blurred = true
-	vim.g.neovide_opacity = 0.9
+
+	if os.getenv("XDG_CURRENT_DESKTOP") == "sway" then
+		vim.g.neovide_opacity = 0.9
+	end
 
 	vim.keymap.set("n", "<C-->", function()
 		size = size - 1

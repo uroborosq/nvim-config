@@ -2,13 +2,20 @@ return {
 	{
 		"max397574/better-escape.nvim",
 		opts = {
+			default_mappings = false,
 			mappings = {
-				-- n = {
-				--     ["Shift"]
-				-- },
+				n = {
+					t = {
+						t = "<C-'>",
+					},
+				},
+
 				i = {
-					["о"] = {
-						["о"] = "<esc>",
+					["ш"] = {
+						["ш"] = "<esc>",
+					},
+					i = {
+						i = "<esc>",
 					},
 				},
 				t = {
