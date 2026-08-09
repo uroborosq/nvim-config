@@ -9,6 +9,15 @@ return {
 		},
 	},
 	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				gleam = { "gleam" },
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		cond = has_gleam,
 		opts = function(_, _)
