@@ -10,7 +10,7 @@ return {
 		dependencies = { "folke/snacks.nvim" },
 		opts = {
 			terminal = {
-				split_side = "right",
+				split_side = "left",
 			},
 		},
 		-- `cmd` lets lazy.nvim create command stubs that load the plugin on first use,
