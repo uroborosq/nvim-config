@@ -6,108 +6,47 @@ return {
 		cond = not (openai_api_key == nil),
 	},
 	{
-		"yetone/avante.nvim",
-		version = false,
-		build = vim.fn.has("win32") ~= 0
-				and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-			or "make",
-		cond = not (openai_api_key == nil),
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			{
-				"nvim-neo-tree/neo-tree.nvim",
-				opts = {
-					filesystem = {
-						commands = {
-							avante_add_files = function(state)
-								local node = state.tree:get_node()
-								local filepath = node:get_id()
-								local relative_path = require("avante.utils").relative_path(filepath)
-								local sidebar = require("avante").get()
-								local open = sidebar:is_open()
-								if not open then
-									require("avante.api").ask()
-									sidebar = require("avante").get()
-								end
-								sidebar.file_selector:add_selected_file(relative_path)
-								if not open then
-									sidebar.file_selector:remove_selected_file("neo-tree filesystem [1]")
-								end
-							end,
-						},
-						window = {
-							mappings = {
-								["oa"] = "avante_add_files",
-							},
-						},
-					},
-				},
-			},
+		"coder/claudecode.nvim",
+		dependencies = { "folke/snacks.nvim" },
+		config = true,
+		-- `cmd` lets lazy.nvim create command stubs that load the plugin on first use,
+		-- so `:ClaudeCode` and friends work on a fresh start. Without it, a keys-only
+		-- spec defers loading until a <leader>a* mapping is pressed and the commands
+		-- would not exist yet.
+		cmd = {
+			"ClaudeCode",
+			"ClaudeCodeFocus",
+			"ClaudeCodeSelectModel",
+			"ClaudeCodeAdd",
+			"ClaudeCodeSend",
+			"ClaudeCodeTreeAdd",
+			"ClaudeCodeStatus",
+			"ClaudeCodeStart",
+			"ClaudeCodeStop",
+			"ClaudeCodeOpen",
+			"ClaudeCodeClose",
+			"ClaudeCodeDiffAccept",
+			"ClaudeCodeDiffDeny",
+			"ClaudeCodeCloseAllDiffs",
 		},
-		opts = {
-			system_prompt = function()
-				local hub = require("mcphub").get_hub_instance()
-				return hub and hub:get_active_servers_prompt() or ""
-			end,
-			-- Using function prevents requiring mcphub before it's loaded
-			custom_tools = function()
-				return {
-					require("mcphub.extensions.avante").mcp_tool(),
-				}
-			end,
-			provider = "kilocode",
-			behaviour = {
-				auto_suggestions = false,
+		keys = {
+			{ "<leader>a", nil, desc = "AI/Claude Code" },
+			{ "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+			{ "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+			{ "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+			{ "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+			{ "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+			{ "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+			{ "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+			{
+				"<leader>as",
+				"<cmd>ClaudeCodeTreeAdd<cr>",
+				desc = "Add file",
+				ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw", "snacks_picker_list" },
 			},
-			input = {
-				-- provider = "snacks", -- "native" | "dressing" | "snacks"
-				-- provider_opts = {
-				-- 	-- Snacks input configuration
-				-- 	title = "Avante Input",
-				-- 	icon = " ",
-				-- 	placeholder = "Enter your API key...",
-				-- },
-			},
-			acp_providers = {
-				["kilocode"] = {
-					command = "kilo",
-					args = { "acp" },
-					env = {
-						NODE_NO_WARNINGS = "1",
-					},
-				},
-			},
-			providers = {
-				---@type AvanteSupportedProvider
-				["kilocode"] = {
-					model = "glm-4.7",
-					__inherited_from = "openai",
-					context_window = 131072,
-					extra_request_body = {
-						max_tokens = 32768,
-					},
-				},
-				["GLM"] = {
-					model = "GLM-4.7-FP8",
-					__inherited_from = "openai",
-					endpoint = "https://litellm-proxy.ai.yadro.com",
-					api_key_name = "YADRO_API_KEY",
-					context_window = 131072,
-					extra_request_body = {
-						max_tokens = 32768,
-					},
-				},
-				["qwen3-coder"] = {
-					model = "Qwen3-Coder-30B-A3B-Instruct-FP8",
-					__inherited_from = "openai",
-					endpoint = "https://litellm-proxy.ai.yadro.com",
-					api_key_name = "YADRO_API_KEY",
-					context_window = 262144,
-					extra_request_body = {
-						max_tokens = 65336,
-					},
-				},
-			},
+			-- Diff management
+			{ "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+			{ "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
 		},
 	},
 	{
