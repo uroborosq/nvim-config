@@ -162,22 +162,6 @@ return {
 		end,
 	},
 	{
-		"olexsmir/gopher.nvim",
-		ft = "go",
-		build = function()
-			if not require("lazy.core.config").spec.plugins["mason.nvim"] then
-				vim.print("Installing go dependencies...")
-				vim.cmd.GoInstallDeps()
-			end
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			{ "williamboman/mason.nvim" }, -- by default use Mason for go dependencies
-		},
-		opts = {},
-	},
-	{
 		"mfussenegger/nvim-lint",
 		init = function() end,
 		opts = function(_, opts)
@@ -229,8 +213,6 @@ return {
 						runner = "gotestsum",
 						dap_go_enabled = true,
 						sanitize_output = true,
-						-- testify_enabled = true,
-						-- testify_operand = "^(s|suite|x)$",
 						go_test_args = {
 							"-v",
 							"-count=1",

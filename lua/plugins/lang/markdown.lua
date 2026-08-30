@@ -3,7 +3,7 @@ return {
 		"uroborosq/uq-markdown",
 		ft = { "markdown" },
 		keys = {
-			{ "<Leader>mo", "<cmd>MdPreviewToggle<cr>", desc = "Toggle markdown webview", silent = true },
+			{ "<Leader>mm", "<cmd>MdPreviewToggle<cr>", desc = "Toggle markdown webview", silent = true },
 		},
 	},
 	{
@@ -16,7 +16,19 @@ return {
 			vim.g.markview_cmp_loaded = true
 		end,
 		keys = {
-			{ "<Leader>ms", "<cmd>Markview splitToggle<cr>", desc = "Toggle makrview split", silent = true },
+			{ "<Leader>mt", "<cmd>Markview toggle<cr>", desc = "Toggle markview rendering", silent = true },
+			{
+				"<Leader>mr",
+				function()
+					local actions = require("markview.actions")
+					local buf = vim.api.nvim_get_current_buf()
+
+					actions.detach(buf)
+					actions.attach(buf)
+				end,
+				desc = "Reload markview",
+				silent = true,
+			},
 		},
 		lazy = false,
 		opts = function(_, opts)
