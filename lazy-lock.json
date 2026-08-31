@@ -33,7 +33,7 @@
   "lazydev.nvim": { "branch": "main", "commit": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d" },
   "lualine.nvim": { "branch": "master", "commit": "221ce6b2d999187044529f49da6554a92f740a96" },
   "markview.nvim": { "branch": "main", "commit": "5d9fc2aa6dd1c2fbdc7a68bc79b300e9967b21ff" },
-  "mason-lspconfig.nvim": { "branch": "main", "commit": "40276c4df7e6bdce6801d6c035c6227f9115a855" },
+  "mason-lspconfig.nvim": { "branch": "main", "commit": "1b621470c01bd8190bb32a290d21575d3e6470c5" },
   "mason-null-ls.nvim": { "branch": "main", "commit": "8e7806acaa87fae64f0bfde25bb4b87c18bd19b4" },
   "mason-nvim-dap.nvim": { "branch": "main", "commit": "9a10e096703966335bd5c46c8c875d5b0690dade" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc" },
@@ -41,7 +41,7 @@
   "mcphub.nvim": { "branch": "main", "commit": "7cd5db330f41b7bae02b2d6202218a061c3ebc1f" },
   "minuet-ai.nvim": { "branch": "main", "commit": "3b0a4c5f97b7124d94302c608fbe01c0270d4fbe" },
   "multicursor.nvim": { "branch": "1.0", "commit": "704b99f10a72cc05d370cfeb294ff83412a8ab55" },
-  "neo-tree.nvim": { "branch": "main", "commit": "3352e998cb8343a4b8d82eca50c74aa17bc61f5e" },
+  "neo-tree.nvim": { "branch": "main", "commit": "5e076e5419b95b13c29383e1de29270a50df2d40" },
   "neotest": { "branch": "master", "commit": "27bf921498043f7ecd821d6db68d05de244bbd02" },
   "neotest-golang": { "branch": "main", "commit": "05cd7bf89a146cf1fa2848a9fe277a1e68a3a51d" },
   "neovim-header": { "branch": "master", "commit": "d403a975af578429649840641838977750253ffa" },
@@ -93,6 +93,7 @@
   "vim-wakatime": { "branch": "master", "commit": "8217dfb5a5a3ad3a509365d8a39d7daca12b1745" },
   "vscode.nvim": { "branch": "main", "commit": "aa1102a7e15195c9cca22730b09224a7f7745ba8" },
   "wakastat.nvim": { "branch": "master", "commit": "a993e80daa6912bf4f71bf18eaa011a7a9fc4293" },
+  "wayfinder.nvim": { "branch": "main", "commit": "2ce480d35626ddb533ba594fa7ca865d61184ec6" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
   "wildfire.nvim": { "branch": "master", "commit": "918a1873c2b8010baa034f373cf28c53ce4f038f" }
 }
