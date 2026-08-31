@@ -16,7 +16,7 @@ return {
 			vim.g.markview_cmp_loaded = true
 		end,
 		keys = {
-			{ "<Leader>mt", "<cmd>Markview toggle<cr>", desc = "Toggle markview rendering", silent = true },
+			{ "<Leader>mt", "cmd>Markview toggle<cr>", desc = "Toggle markview rendering", silent = true },
 			{
 				"<Leader>mr",
 				function()
