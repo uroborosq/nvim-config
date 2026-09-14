@@ -1,7 +1,7 @@
 if vim.g.neovide then
 	-- local font = "ComicShannsMono Nerd Font,Monofur Nerd Font:#e-subpixelantialias"
-	local font = "JetBrainsMono Nerd Font:#e-subpixelantialias"
-	local size = 11
+	local font = "Mononoki Nerd Font:#e-subpixelantialias"
+	local size = 12
 	vim.o.guifont = font .. ":h" .. tostring(size)
 
 	vim.g.neovide_cursor_animation_length = 0
@@ -10,9 +10,9 @@ if vim.g.neovide then
 	vim.g.neovide_hide_mouse_when_typing = true
 	vim.g.neovide_window_blurred = true
 
-	if os.getenv("XDG_CURRENT_DESKTOP") == "sway" then
-		vim.g.neovide_opacity = 0.9
-	end
+	-- if os.getenv("XDG_CURRENT_DESKTOP") == "sway" then
+	-- 	vim.g.neovide_opacity = 0.9
+	-- end
 
 	vim.keymap.set("n", "<C-->", function()
 		size = size - 1

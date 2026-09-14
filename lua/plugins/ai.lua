@@ -55,7 +55,7 @@ return {
 	},
 	{
 		"milanglacier/minuet-ai.nvim",
-		cond = not (openai_api_key == nil),
+		cond = not (openai_api_key == nil) and not (vim.fn.getenv("SKIP_PROXY") == "1"),
 		config = function()
 			require("minuet").setup({
 				provider = "openai_fim_compatible",
