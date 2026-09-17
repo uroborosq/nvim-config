@@ -1,5 +1,44 @@
 local openai_api_key = os.getenv("YADRO_API_KEY") -- взять из выданного конфига
 
+-- Opens Claude in a dedicated tab. The terminal itself is managed by claudecode
+-- (float by default): if it does not exist yet it is created and immediately hidden,
+-- then its buffer is shown in a regular window of a new tab. A tab window that
+-- already shows Claude is reused.
+local function claude_in_tab()
+	local terminal = require("claudecode.terminal")
+
+	local bufnr = terminal.get_active_terminal_bufnr()
+	if bufnr then
+		for _, win in ipairs(vim.api.nvim_list_wins()) do
+			local cfg = vim.api.nvim_win_get_config(win)
+			if vim.api.nvim_win_get_buf(win) == bufnr then
+				if cfg.relative == "" then
+					vim.api.nvim_set_current_win(win)
+					vim.cmd.startinsert()
+					return
+				elseif not cfg.hide then
+					terminal.simple_toggle() -- hide the visible float
+				end
+			end
+		end
+	else
+		terminal.open()
+		bufnr = terminal.get_active_terminal_bufnr()
+		if not bufnr then
+			return
+		end
+		terminal.simple_toggle() -- hide the freshly created float, the job keeps running
+	end
+
+	vim.cmd.tabnew()
+	vim.bo.bufhidden = "wipe"
+	vim.api.nvim_win_set_buf(0, bufnr)
+	vim.wo.number = false
+	vim.wo.relativenumber = false
+	vim.wo.signcolumn = "no"
+	vim.cmd.startinsert()
+end
+
 return {
 	{
 		"ravitemer/mcphub.nvim",
@@ -11,6 +50,12 @@ return {
 		opts = {
 			terminal = {
 				split_side = "left",
+				-- snacks_win_opts = {
+				-- 	position = "float",
+				-- 	width = 0.8,
+				-- 	height = 0.8,
+				-- 	border = "rounded",
+				-- },
 			},
 		},
 		-- `cmd` lets lazy.nvim create command stubs that load the plugin on first use,
@@ -35,8 +80,9 @@ return {
 		},
 		keys = {
 			{ "<leader>a", nil, desc = "AI/Claude Code" },
-			{ "<leader>aa", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-			{ "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+			{ "<leader>ao", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+			{ "<leader>aa", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+			{ "<leader>at", claude_in_tab, desc = "Claude in new tab" },
 			{ "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
 			{ "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
 			{ "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },

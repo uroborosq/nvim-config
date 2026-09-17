@@ -98,7 +98,7 @@ return {
 		priority = 1000,
 		opts = {
 			transparent_background_level = transparent and 2 or 0,
-			italics = true,
+			italics = false,
 		},
 		config = function(_, opts)
 			require("everforest").setup(opts)
