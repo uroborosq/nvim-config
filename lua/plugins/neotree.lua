@@ -84,7 +84,7 @@ return {
 					show_hidden_count = true,
 					hide_dotfiles = false,
 					hide_gitignored = false,
-					never_show = { ".git", ".vscode", ".idea" },
+					never_show = { ".vscode", ".idea" },
 				},
 			},
 		},

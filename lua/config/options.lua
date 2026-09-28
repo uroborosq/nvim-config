@@ -92,6 +92,14 @@ end, { silent = true, desc = "Toggle wrap" })
 vim.keymap.set("n", "<leader>ud", function()
 	local enabled = vim.diagnostic.is_enabled()
 	vim.diagnostic.enable(not enabled)
+	local ok, tiny = pcall(require, "tiny-inline-diagnostic")
+	if ok then
+		if enabled then
+			tiny.disable()
+		else
+			tiny.enable()
+		end
+	end
 	vim.notify("diagnostics: " .. tostring(not enabled))
 end, { silent = true, desc = "Toggle diagnostics" })
 vim.keymap.set("n", "<leader>us", function()
