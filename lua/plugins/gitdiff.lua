@@ -6,6 +6,25 @@ return {
 			"folke/which-key.nvim",
 		},
 		config = function()
+			vim.opt.diffopt = {
+				"internal",
+				"filler",
+				"closeoff",
+				"algorithm:histogram",
+				"indent-heuristic",
+				"linematch:60",
+				"inline:char",
+			}
+
+			require("diffview").setup({
+				enhanced_diff_hl = true,
+				hooks = {
+					diff_buf_win_enter = function(_, winid)
+						vim.wo[winid].wrap = true
+					end,
+				},
+			})
+
 			require("which-key").add({
 				{ "<leader>gd", ":DiffviewOpen<CR>", desc = "Git diff view open" },
 				{ "<leader>gD", ":DiffviewClose<CR>", desc = "Git diff view close" },
