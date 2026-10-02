@@ -62,6 +62,52 @@ local selectioncount = {
 	end,
 }
 
+-- Текущая раскладка из sway: значение кэшируется и обновляется по событиям input,
+-- чтобы statusline не вызывал swaymsg при каждой перерисовке
+local layout = { name = "" }
+
+local function layout_update()
+	vim.system({ "swaymsg", "-t", "get_inputs", "-r" }, { text = true }, function(res)
+		local ok, inputs = pcall(vim.json.decode, res.stdout or "")
+		if not ok or type(inputs) ~= "table" then
+			return
+		end
+		for _, input in ipairs(inputs) do
+			if input.type == "keyboard" and input.xkb_active_layout_name then
+				layout.name = input.xkb_active_layout_name:sub(1, 2):upper()
+				break
+			end
+		end
+		vim.schedule(function()
+			require("lualine").refresh()
+		end)
+	end)
+end
+
+local function layout_watch()
+	if not vim.env.SWAYSOCK or vim.fn.executable("swaymsg") == 0 then
+		return
+	end
+	layout_update()
+	-- при переключении sway шлёт событие на каждую клавиатуру, поэтому обновление с задержкой
+	local timer = assert(vim.uv.new_timer())
+	vim.fn.jobstart({ "swaymsg", "-t", "subscribe", "-m", '["input"]' }, {
+		on_stdout = function()
+			timer:stop()
+			timer:start(50, 0, layout_update)
+		end,
+	})
+end
+
+local keyboard_layout = {
+	function()
+		return "󰌌 " .. layout.name
+	end,
+	cond = function()
+		return layout.name ~= ""
+	end,
+}
+
 local project = {
 	function()
 		return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
@@ -80,6 +126,10 @@ return {
 			vim.o.laststatus = 3
 			vim.o.cmdheight = 0
 		end,
+		config = function(_, opts)
+			require("lualine").setup(opts)
+			layout_watch()
+		end,
 		opts = {
 			always_show_tabline = false,
 			sections = {
@@ -95,6 +145,7 @@ return {
 				lualine_c = { wakastat },
 				lualine_x = { selectioncount, "searchcount", "lsp_status" },
 				lualine_y = {
+					keyboard_layout,
 					"encoding",
 					{
 						"fileformat",
