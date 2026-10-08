@@ -16,7 +16,20 @@ return {
 			vim.g.markview_cmp_loaded = true
 		end,
 		keys = {
-			{ "<Leader>mt", "cmd>Markview toggle<cr>", desc = "Toggle markview rendering", silent = true },
+			{ "<Leader>mt", "<cmd>Markview toggle<cr>", desc = "Toggle markview rendering", silent = true },
+			{
+				"<LocalLeader><Space>",
+				function()
+					require("markview.extras.checkboxes").toggler.init()
+					if vim.fn.mode():match("^[vV\22]") then
+						vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "n", false)
+					end
+				end,
+				mode = { "n", "x" },
+				ft = "markdown",
+				desc = "Toggle markdown task",
+				silent = true,
+			},
 			{
 				"<Leader>mr",
 				function()

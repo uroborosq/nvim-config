@@ -81,6 +81,8 @@ return {
 			auto_install = true,
 		},
 		config = function(_, opts)
+			-- custom parsers are added in User TSUpdate autocmds
+			vim.api.nvim_exec_autocmds("User", { pattern = "TSUpdate" })
 			register(opts.ensure_installed)
 			install_and_start()
 

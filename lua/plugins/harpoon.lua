@@ -52,27 +52,56 @@ return {
 				fd:close()
 			end
 
+			-- the usage file is rewritten whole, so batch writes instead of one per BufEnter
+			local save_timer = assert(vim.uv.new_timer())
+			local save_pending = false
+			local function schedule_save_usage()
+				save_pending = true
+				save_timer:stop()
+				save_timer:start(2000, 0, vim.schedule_wrap(function()
+					save_pending = false
+					save_usage()
+				end))
+			end
+			vim.api.nvim_create_autocmd("VimLeavePre", {
+				callback = function()
+					if save_pending then
+						save_timer:stop()
+						save_usage()
+					end
+				end,
+			})
+
 			local function git_root()
 				local path = vim.fn.expand("%:p")
-				if path == "" then
+				if path == "" or path:match("^%a[%w+.-]*://") then
 					path = vim.fn.getcwd()
 				else
 					path = vim.fn.fnamemodify(path, ":h")
 				end
 
-				local root = vim.fn.systemlist({ "git", "-C", path, "rev-parse", "--show-toplevel" })[1]
-				if vim.v.shell_error ~= 0 or not root or root == "" then
+				-- no git process: BufEnter fires several times per diffview file switch
+				local root = vim.fs.root(path, ".git")
+				if not root then
 					return nil
 				end
 
-				return root
+				return vim.uv.fs_realpath(root) or root
 			end
 
+			-- branch per root, refreshed at most every few seconds
+			local branch_cache = {}
 			local function git_branch(root)
+				local now = vim.uv.now()
+				local cached = branch_cache[root]
+				if cached and now - cached.at < 5000 then
+					return cached.branch
+				end
 				local branch = vim.fn.systemlist({ "git", "-C", root, "rev-parse", "--abbrev-ref", "HEAD" })[1]
 				if vim.v.shell_error ~= 0 or not branch or branch == "" then
-					return "detached"
+					branch = "detached"
 				end
+				branch_cache[root] = { branch = branch, at = now }
 				return branch
 			end
 
@@ -198,7 +227,11 @@ return {
 			end
 
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
-				callback = function()
+				callback = function(ev)
+					-- only real files count: skip diffview://, terminals, panels and the like
+					if vim.bo[ev.buf].buftype ~= "" or vim.api.nvim_buf_get_name(ev.buf) == "" then
+						return
+					end
 					local key, root = branch_key()
 					if not key then
 						return
@@ -210,7 +243,7 @@ return {
 
 					usage[key] = usage[key] or {}
 					usage[key][file] = (usage[key][file] or 0) + 1
-					save_usage()
+					schedule_save_usage()
 				end,
 			})
 

@@ -92,6 +92,15 @@ return {
 		},
 	},
 	{
+		"marko-cerovac/material.nvim",
+		priority = 1000,
+	},
+	{
+		"yorik1984/newpaper.nvim",
+		priority = 1000,
+		config = true,
+	},
+	{
 		"neanias/everforest-nvim",
 		version = false,
 		lazy = false,
@@ -140,6 +149,92 @@ return {
 		},
 	},
 	{ "xiantang/darcula-dark.nvim" },
+	-- приглушённые светлые темы
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		opts = {
+			styles = {
+				transparency = transparent,
+			},
+		},
+	},
+	{
+		"zenbones-theme/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+		init = function()
+			for _, flavour in ipairs({ "zenbones", "seoulbones", "forestbones", "rosebones" }) do
+				vim.g[flavour] = { transparent_background = transparent }
+			end
+		end,
+	},
+	{
+		"sainnhe/gruvbox-material",
+		init = function()
+			vim.g.gruvbox_material_background = "soft"
+			vim.g.gruvbox_material_foreground = "material"
+			vim.g.gruvbox_material_better_performance = 1
+			vim.g.gruvbox_material_transparent_background = transparent and 2 or 0
+		end,
+	},
+	{
+		"sainnhe/edge",
+		init = function()
+			vim.g.edge_better_performance = 1
+			vim.g.edge_transparent_background = transparent and 2 or 0
+		end,
+	},
+	{ "savq/melange-nvim" },
+	{
+		"maxmx03/solarized.nvim",
+		opts = {
+			transparent = { enabled = transparent },
+		},
+	},
+	-- яркие светлые темы
+	{
+		"folke/tokyonight.nvim",
+		opts = {
+			transparent = transparent,
+		},
+	},
+	{
+		"projekt0n/github-nvim-theme",
+		main = "github-theme",
+		opts = {
+			options = {
+				transparent = transparent,
+			},
+		},
+	},
+	{
+		"miikanissi/modus-themes.nvim",
+		opts = {
+			transparent = transparent,
+		},
+	},
+	{
+		"olimorris/onedarkpro.nvim",
+		opts = {
+			options = {
+				transparency = transparent,
+			},
+		},
+	},
+	{
+		"Shatur/neovim-ayu",
+		main = "ayu",
+		opts = {
+			overrides = transparent and { Normal = { bg = "None" }, NormalNC = { bg = "None" }, SignColumn = { bg = "None" } }
+				or {},
+		},
+	},
+	{
+		"scottmckendry/cyberdream.nvim",
+		opts = {
+			transparent = transparent,
+		},
+	},
 	{
 		"EdenEast/nightfox.nvim",
 		opts = {
