@@ -3,7 +3,7 @@ return {
 		"uroborosq/uq-markdown",
 		ft = { "markdown" },
 		keys = {
-			{ "<Leader>mm", "<cmd>MdPreviewToggle<cr>", desc = "Toggle markdown webview", silent = true },
+			{ "<Leader>mm", "<cmd>MdPreviewToggle<cr>", desc = "Markdown-Vorschau umschalten", silent = true },
 		},
 	},
 	{
@@ -16,7 +16,7 @@ return {
 			vim.g.markview_cmp_loaded = true
 		end,
 		keys = {
-			{ "<Leader>mt", "<cmd>Markview toggle<cr>", desc = "Toggle markview rendering", silent = true },
+			{ "<Leader>mt", "<cmd>Markview toggle<cr>", desc = "Markview-Darstellung umschalten", silent = true },
 			{
 				"<LocalLeader><Space>",
 				function()
@@ -27,7 +27,7 @@ return {
 				end,
 				mode = { "n", "x" },
 				ft = "markdown",
-				desc = "Toggle markdown task",
+				desc = "Aufgabe abhaken / zurücksetzen",
 				silent = true,
 			},
 			{
@@ -39,7 +39,7 @@ return {
 					actions.detach(buf)
 					actions.attach(buf)
 				end,
-				desc = "Reload markview",
+				desc = "Markview neu laden",
 				silent = true,
 			},
 		},

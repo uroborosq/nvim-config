@@ -17,13 +17,13 @@ if vim.g.neovide then
 	vim.keymap.set("n", "<C-->", function()
 		size = size - 1
 		vim.o.guifont = font .. ":h" .. tostring(size)
-	end)
+	end, { desc = "Schrift verkleinern" })
 
 	-- увеличить
 	vim.keymap.set("n", "<C-=>", function()
 		size = size + 1
 		vim.o.guifont = font .. ":h" .. tostring(size)
-	end)
+	end, { desc = "Schrift vergrößern" })
 
 	vim.opt.linespace = 3
 end

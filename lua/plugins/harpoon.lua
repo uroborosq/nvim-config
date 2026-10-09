@@ -248,62 +248,62 @@ return {
 			})
 
 			require("which-key").add({
-				{ harpoon_prefix, group = "harpoon" },
+				{ harpoon_prefix, group = "Harpoon" },
 				{
 					harpoon_prefix .. "a",
 					function()
 						list_for_branch():add()
 					end,
-					desc = "Harpoon add file (branch)",
+					desc = "Datei hinzufügen (Branch)",
 				},
 				{
 					harpoon_prefix .. "h",
 					function()
 						open_telescope_for_branch()
 					end,
-					desc = "Harpoon telescope menu (branch)",
+					desc = "Harpoon-Liste öffnen (Branch)",
 				},
 				{
 					harpoon_prefix .. "1",
 					function()
 						list_for_branch():select(1)
 					end,
-					desc = "Harpoon goto 1 (branch)",
+					desc = "Zu Datei 1 springen (Branch)",
 				},
 				{
 					harpoon_prefix .. "2",
 					function()
 						list_for_branch():select(2)
 					end,
-					desc = "Harpoon goto 2 (branch)",
+					desc = "Zu Datei 2 springen (Branch)",
 				},
 				{
 					harpoon_prefix .. "3",
 					function()
 						list_for_branch():select(3)
 					end,
-					desc = "Harpoon goto 3 (branch)",
+					desc = "Zu Datei 3 springen (Branch)",
 				},
 				{
 					harpoon_prefix .. "4",
 					function()
 						list_for_branch():select(4)
 					end,
-					desc = "Harpoon goto 4 (branch)",
+					desc = "Zu Datei 4 springen (Branch)",
 				},
 				{
 					"]m",
 					function()
 						list_for_branch():next()
 					end,
-					desc = "Harpoon next (branch)",
+					desc = "Nächste Harpoon-Datei (Branch)",
 				},
 				{
 					"[m",
 					function()
 						list_for_branch():prev()
 					end,
-					desc = "Harpoon previous (branch)",
+					desc = "Vorherige Harpoon-Datei (Branch)",
 				},
 			})
 		end,

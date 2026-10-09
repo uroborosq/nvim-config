@@ -8,13 +8,14 @@ return {
 				function()
 					vim.diagnostic.open_float({ source = true })
 				end,
+				desc = "Diagnose der Zeile anzeigen",
 			},
 			{
 				"<Leader>uh",
 				function()
 					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 				end,
-				desc = "Toggle inlay hints",
+				desc = "Inlay-Hinweise umschalten",
 			},
 		},
 		config = function()

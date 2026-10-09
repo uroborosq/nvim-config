@@ -4,7 +4,7 @@ return {
 		{
 			"<leader>fv",
 			"<Plug>(WayfinderOpen)",
-			desc = "wayfinder",
+			desc = "Wayfinder öffnen",
 			silent = true,
 		},
 	},

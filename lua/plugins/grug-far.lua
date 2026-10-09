@@ -28,7 +28,7 @@ return {
 			-- <Leader>s (group header)
 			{
 				"<Leader>s",
-				desc = "Search/Replace",
+				desc = "Suchen und Ersetzen",
 			},
 
 			-- <Leader>ss
@@ -37,7 +37,7 @@ return {
 				function()
 					grug_far_open()
 				end,
-				desc = "Search/Replace workspace",
+				desc = "Im Workspace suchen und ersetzen",
 				mode = "n",
 			},
 
@@ -48,7 +48,7 @@ return {
 					local ext = vim.api.nvim_buf_is_valid(0) and vim.fn.expand("%:e") or ""
 					require("grug-far").open({ prefills = { filesFilter = ext ~= "" and ("*." .. ext) or nil } })
 				end,
-				desc = "Search/Replace filetype",
+				desc = "Im aktuellen Dateityp suchen und ersetzen",
 				mode = "n",
 			},
 
@@ -59,7 +59,7 @@ return {
 					local filter = vim.api.nvim_buf_is_valid(0) and vim.fn.fnameescape(vim.fn.expand("%")) or nil
 					require("grug-far").open({ prefills = { paths = filter } })
 				end,
-				desc = "Search/Replace file",
+				desc = "In aktueller Datei suchen und ersetzen",
 				mode = "n",
 			},
 
@@ -77,7 +77,7 @@ return {
 						vim.notify("No word under cursor", vim.log.levels.WARN, { title = "Grug-far" })
 					end
 				end,
-				desc = "Replace current word",
+				desc = "Wort unter dem Cursor ersetzen",
 				mode = "n",
 			},
 
@@ -87,7 +87,7 @@ return {
 				function()
 					grug_far_open(nil, true)
 				end,
-				desc = "Replace selection",
+				desc = "Auswahl ersetzen",
 				mode = "x",
 			},
 		},
@@ -128,7 +128,7 @@ return {
 			},
 			window = {
 				mappings = {
-					gS = "grug_far_replace",
+					gS = { "grug_far_replace", desc = "Im Verzeichnis suchen und ersetzen" },
 				},
 			},
 		},

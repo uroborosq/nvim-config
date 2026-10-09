@@ -2,7 +2,7 @@ return {
 	"Wansmer/treesj",
 	cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
 	keys = {
-		{ "<Leader>lt", "<cmd>TSJToggle<cr>", desc = "Toggle", silent = true },
+		{ "<Leader>lt", "<cmd>TSJToggle<cr>", desc = "Knoten teilen / zusammenführen", silent = true },
 	},
 	opts = {
 		use_default_keymaps = false,

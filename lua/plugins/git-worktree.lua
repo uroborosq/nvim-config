@@ -36,14 +36,14 @@ return {
 					function()
 						require("telescope").extensions.git_worktree.git_worktree()
 					end,
-					desc = "Git worktrees (<M-c> erstellen, <M-d> löschen)",
+					desc = "Git-Worktrees (<M-c> erstellen, <M-d> löschen)",
 				},
 				{
 					prefix .. "W",
 					function()
 						require("telescope").extensions.git_worktree.create_git_worktree()
 					end,
-					desc = "Git worktree erstellen",
+					desc = "Git-Worktree erstellen",
 				},
 			})
 		end,

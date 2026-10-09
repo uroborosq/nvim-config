@@ -10,7 +10,7 @@ vim.opt.hlsearch = false
 
 -- undotree
 vim.cmd("packadd nvim.undotree")
-vim.keymap.set({ "n" }, "<leader>U", "<cmd>Undotree<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>U", "<cmd>Undotree<cr>", { noremap = true, silent = true, desc = "Undo-Verlauf umschalten" })
 
 local undo_dir = vim.fn.stdpath("data") .. "/undo"
 
@@ -33,48 +33,44 @@ vim.diagnostic.config({
 	underline = true,
 }) -- Disable Neovim's default virtual text diagnostics
 
-vim.cmd([[
-" system clipboard
-nmap <c-c> "+y
-vmap <c-c> "+y
-nmap <c-v> "+p
-inoremap <c-v> <c-r>+
-cnoremap <c-v> <c-r>+
-" use <c-r> to insert original character without triggering things like auto-pairs
-inoremap <c-r> <c-v>
-]])
+-- system clipboard
+vim.keymap.set({ "n", "v" }, "<c-c>", '"+y', { remap = true, desc = "In Systemzwischenablage kopieren" })
+vim.keymap.set("n", "<c-v>", '"+p', { remap = true, desc = "Aus Systemzwischenablage einfügen" })
+vim.keymap.set({ "i", "c" }, "<c-v>", "<c-r>+", { desc = "Aus Systemzwischenablage einfügen" })
+-- use <c-r> to insert original character without triggering things like auto-pairs
+vim.keymap.set("i", "<c-r>", "<c-v>", { desc = "Zeichen wörtlich einfügen" })
 
-vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true })
-vim.keymap.set({ "n", "v" }, "<Del>", '"_<Del>', { noremap = true })
-vim.keymap.set("n", "dd", '"_dd', { noremap = true })
-vim.keymap.set("n", "D", '"_D', { noremap = true })
-vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true })
-vim.keymap.set({ "n", "v" }, "p", "P", { noremap = true })
-vim.keymap.set({ "n" }, "<esc>", "<cmd>noh<cr>", { silent = true })
+vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true, desc = "Löschen ohne Register" })
+vim.keymap.set({ "n", "v" }, "<Del>", '"_<Del>', { noremap = true, desc = "Zeichen löschen ohne Register" })
+vim.keymap.set("n", "dd", '"_dd', { noremap = true, desc = "Zeile löschen ohne Register" })
+vim.keymap.set("n", "D", '"_D', { noremap = true, desc = "Bis Zeilenende löschen ohne Register" })
+vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true, desc = "Ändern ohne Register" })
+vim.keymap.set({ "n", "v" }, "p", "P", { noremap = true, desc = "Einfügen ohne Register zu überschreiben" })
+vim.keymap.set({ "n" }, "<esc>", "<cmd>noh<cr>", { silent = true, desc = "Suchhervorhebung aufheben" })
 
-map("n", "<leader>w", "<cmd>w<cr>", vim.tbl_extend("force", opts, { desc = "Save file" }))
-map("n", "<leader>q", "<cmd>q<cr>", vim.tbl_extend("force", opts, { desc = "Quit" }))
+map("n", "<leader>w", "<cmd>w<cr>", vim.tbl_extend("force", opts, { desc = "Datei speichern" }))
+map("n", "<leader>q", "<cmd>q<cr>", vim.tbl_extend("force", opts, { desc = "Fenster schließen" }))
 
 map("n", "<leader>R", "<cmd>restart<cr>", vim.tbl_extend("force", opts, { desc = "Neustarten" }))
 
 -- пример: удобное закрытие буфера
-map("n", "<leader>c", "<cmd>bdelete<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
-map("n", "<leader>Q", "<cmd>qa<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
-map("n", "|", "<cmd>vsplit<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
-map("n", "\\", "<cmd>split<cr>", vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
+map("n", "<leader>c", "<cmd>bdelete<cr>", vim.tbl_extend("force", opts, { desc = "Puffer schließen" }))
+map("n", "<leader>Q", "<cmd>qa<cr>", vim.tbl_extend("force", opts, { desc = "Alles beenden" }))
+map("n", "|", "<cmd>vsplit<cr>", vim.tbl_extend("force", opts, { desc = "Vertikal teilen" }))
+map("n", "\\", "<cmd>split<cr>", vim.tbl_extend("force", opts, { desc = "Horizontal teilen" }))
 
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Zum linken Fenster" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Zum rechten Fenster" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Zum unteren Fenster" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Zum oberen Fenster" })
 
-vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height", silent = true })
-vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height", silent = true })
-vim.keymap.set("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width", silent = true })
-vim.keymap.set("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width", silent = true })
+vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Fensterhöhe vergrößern", silent = true })
+vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Fensterhöhe verkleinern", silent = true })
+vim.keymap.set("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Fensterbreite verkleinern", silent = true })
+vim.keymap.set("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Fensterbreite vergrößern", silent = true })
 
-vim.keymap.set({ "n", "t" }, "]T", "<cmd>tabnext<cr>", { desc = "das Nachtest Tab", silent = true })
-vim.keymap.set({ "n", "t" }, "[T", "<cmd>tabprev<cr>", { desc = "ver", silent = true })
+vim.keymap.set({ "n", "t" }, "]T", "<cmd>tabnext<cr>", { desc = "Nächster Tab", silent = true })
+vim.keymap.set({ "n", "t" }, "[T", "<cmd>tabprev<cr>", { desc = "Vorheriger Tab", silent = true })
 
 vim.opt.tabstop = 4
 -- vim.opt.termguicolors = true
@@ -88,7 +84,7 @@ vim.opt.wrap = false
 vim.keymap.set("n", "<leader>uw", function()
 	vim.opt_local.wrap = not vim.wo.wrap
 	vim.notify("wrap: " .. tostring(vim.wo.wrap))
-end, { silent = true, desc = "Toggle wrap" })
+end, { silent = true, desc = "Zeilenumbruch umschalten" })
 vim.keymap.set("n", "<leader>ud", function()
 	local enabled = vim.diagnostic.is_enabled()
 	vim.diagnostic.enable(not enabled)
@@ -101,11 +97,11 @@ vim.keymap.set("n", "<leader>ud", function()
 		end
 	end
 	vim.notify("diagnostics: " .. tostring(not enabled))
-end, { silent = true, desc = "Toggle diagnostics" })
+end, { silent = true, desc = "Diagnosen umschalten" })
 vim.keymap.set("n", "<leader>us", function()
 	vim.opt_local.spell = not vim.wo.spell
 	vim.notify("spell: " .. tostring(vim.wo.spell))
-end, { silent = true, desc = "Toggle spelling" })
+end, { silent = true, desc = "Rechtschreibprüfung umschalten" })
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4

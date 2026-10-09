@@ -7,14 +7,14 @@ return {
 			function()
 				Snacks.scratch()
 			end,
-			desc = "Toggle Draft Buffer",
+			desc = "Notizpuffer umschalten",
 		},
 		{
 			"<leader>D",
 			function()
 				Snacks.scratch.select()
 			end,
-			desc = "Select Draft Buffer",
+			desc = "Notizpuffer auswählen",
 		},
 	},
 

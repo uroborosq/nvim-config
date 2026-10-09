@@ -13,7 +13,7 @@ return {
 			function()
 				require("conform").format()
 			end,
-			desc = "Format Puffer",
+			desc = "Puffer formatieren",
 		},
 		opts = {
 			format_on_save = {

@@ -9,8 +9,8 @@ return {
 	{
 		"nvim-orgmode/orgmode",
 		opts = {
-			org_agenda_files = "~/docs/orgfiles/**/*",
-			org_default_notes_file = "~/docs/orgfiles/refile.org",
+			org_agenda_files = "~/docs/agenda.org",
+			org_default_notes_file = "~/docs/refile.org",
 		},
 	},
 }

@@ -1,11 +1,11 @@
 return {
 	{
 		"wakatime/vim-wakatime",
-		enabled = false,
+		-- enabled = false,
 	},
 	{
 		"fiqryq/wakastat.nvim",
-		enabled = false,
+		-- enabled = true,
 		event = "VeryLazy",
 		cmd = { "WakastatRefresh", "WakastatStatus" },
 		opts = {

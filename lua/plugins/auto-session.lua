@@ -4,9 +4,9 @@ return {
 		"rmagatti/auto-session",
 		lazy = false,
 		keys = {
-			{ prefix .. ".", "<cmd>AutoSession restore<cr>", silent = true },
-			{ prefix .. "d", "<cmd>AutoSession delete<cr>", silent = true },
-			{ prefix .. "s", "<cmd>AutoSession search<cr>", silent = true },
+			{ prefix .. ".", "<cmd>AutoSession restore<cr>", desc = "Sitzung wiederherstellen", silent = true },
+			{ prefix .. "d", "<cmd>AutoSession delete<cr>", desc = "Sitzung löschen", silent = true },
+			{ prefix .. "s", "<cmd>AutoSession search<cr>", desc = "Sitzungen durchsuchen", silent = true },
 		},
 		---enables autocomplete for opts
 		---@module "auto-session"

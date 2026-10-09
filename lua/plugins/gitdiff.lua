@@ -26,8 +26,8 @@ return {
 			})
 
 			require("which-key").add({
-				{ "<leader>gd", ":DiffviewOpen<CR>", desc = "Git diff view open" },
-				{ "<leader>gD", ":DiffviewClose<CR>", desc = "Git diff view close" },
+				{ "<leader>gd", ":DiffviewOpen<CR>", desc = "Diffview öffnen" },
+				{ "<leader>gD", ":DiffviewClose<CR>", desc = "Diffview schließen" },
 				{
 					"<leader>gX",
 					function()
@@ -42,12 +42,12 @@ return {
 							end)
 						end
 					end,
-					desc = "Close ALL Diffview tabs",
+					desc = "Alle Diffview-Tabs schließen",
 				},
-				{ "<leader>gc", ":DiffviewFileHistory %<CR>", desc = "Git file history" },
-				{ "<leader>gb", ":DiffviewOpen ", desc = "Git diff with branch" },
-				{ "<leader>gm", ":DiffviewOpen main<CR>", desc = "Git diff with main" },
-				{ "<leader>gC", ":DiffviewFileHistory<CR>", desc = "Git repo history" },
+				{ "<leader>gc", ":DiffviewFileHistory %<CR>", desc = "Dateiverlauf" },
+				{ "<leader>gb", ":DiffviewOpen ", desc = "Diff mit Branch" },
+				{ "<leader>gm", ":DiffviewOpen main<CR>", desc = "Diff mit main" },
+				{ "<leader>gC", ":DiffviewFileHistory<CR>", desc = "Repository-Verlauf" },
 			})
 		end,
 	},

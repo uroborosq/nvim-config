@@ -5,23 +5,23 @@ return {
 		-- Using lua functions
 		vim.keymap.set("n", "<leader>yt", function()
 			require("meow.yarn").open_tree("type_hierarchy", "supertypes")
-		end, { desc = "Yarn: Type Hierarchy (Super)" })
+		end, { desc = "Typhierarchie (Obertypen)" })
 		vim.keymap.set("n", "<leader>yT", function()
 			require("meow.yarn").open_tree("type_hierarchy", "subtypes")
-		end, { desc = "Yarn: Type Hierarchy (Sub)" })
+		end, { desc = "Typhierarchie (Untertypen)" })
 		vim.keymap.set("n", "<leader>yc", function()
 			require("meow.yarn").open_tree("call_hierarchy", "callers")
-		end, { desc = "Yarn: Call Hierarchy (Callers)" })
+		end, { desc = "Aufrufhierarchie (Aufrufer)" })
 		vim.keymap.set("n", "<leader>yC", function()
 			require("meow.yarn").open_tree("call_hierarchy", "callees")
-		end, { desc = "Yarn: Call Hierarchy (Callees)" })
-		vim.keymap.set("n", "<leader>yl", "<Plug>(MeowYarnLast)", { desc = "Yarn: Re-open last hierarchy" })
+		end, { desc = "Aufrufhierarchie (Aufgerufene)" })
+		vim.keymap.set("n", "<leader>yl", "<Plug>(MeowYarnLast)", { desc = "Letzte Hierarchie erneut öffnen" })
 
 		-- Or using commands
-		vim.keymap.set("n", "<leader>yS", "<Cmd>MeowYarn type super<CR>", { desc = "Yarn: Super Types" })
-		vim.keymap.set("n", "<leader>ys", "<Cmd>MeowYarn type sub<CR>", { desc = "Yarn: Sub Types" })
-		vim.keymap.set("n", "<leader>yC", "<Cmd>MeowYarn call callers<CR>", { desc = "Yarn: Callers" })
-		vim.keymap.set("n", "<leader>yc", "<Cmd>MeowYarn call callees<CR>", { desc = "Yarn: Callees" })
+		vim.keymap.set("n", "<leader>yS", "<Cmd>MeowYarn type super<CR>", { desc = "Obertypen" })
+		vim.keymap.set("n", "<leader>ys", "<Cmd>MeowYarn type sub<CR>", { desc = "Untertypen" })
+		vim.keymap.set("n", "<leader>yC", "<Cmd>MeowYarn call callers<CR>", { desc = "Aufrufer" })
+		vim.keymap.set("n", "<leader>yc", "<Cmd>MeowYarn call callees<CR>", { desc = "Aufgerufene" })
 		-- default
 		require("meow.yarn").setup({
 			window = {

@@ -27,19 +27,19 @@ return {
 					"<Leader>e",
 					"<cmd>Neotree filesystem float reveal toggle<cr>",
 					silent = true,
-					desc = "schwebender Dateimanager anzeigen",
+					desc = "Schwebenden Dateimanager umschalten",
 				},
 				{
 					"<Leader>o",
 					"<cmd>Neotree filesystem float reveal toggle<cr>",
 					silent = true,
-					desc = "schwebender Dateimanager anzeigen",
+					desc = "Schwebenden Dateimanager umschalten",
 				},
 				{
 					"<Leader>E",
 					"<cmd>Neotree filesystem left reveal toggle<cr>",
 					silent = true,
-					desc = "Dateimanager links anzeigen",
+					desc = "Dateimanager links umschalten",
 				},
 			})
 
@@ -74,8 +74,8 @@ return {
 			},
 			window = {
 				mappings = {
-					h = "parent_or_close",
-					l = "child_or_open",
+					h = { "parent_or_close", desc = "Zum Elternknoten / zuklappen" },
+					l = { "child_or_open", desc = "Aufklappen / öffnen" },
 				},
 			},
 			filesystem = {

@@ -21,7 +21,7 @@ return {
 			local action = require("telescope.actions")
 
 			require("which-key").add({
-				{ search_prefix, group = "search" },
+				{ search_prefix, group = "Suchen" },
 				{
 					search_prefix .. "m",
 					function()
@@ -38,7 +38,7 @@ return {
 							},
 						})
 					end,
-					desc = "Golang Dateien suchen",
+					desc = "Markdown-Dateien suchen",
 				},
 				{
 					search_prefix .. "g",
@@ -56,33 +56,32 @@ return {
 							},
 						})
 					end,
-					desc = "Golang Dateien suchen",
+					desc = "Go-Dateien suchen",
 				},
 				{ search_prefix .. "f", builtin.find_files, desc = "Dateien suchen" },
-				{ search_prefix .. "o", builtin.oldfiles, desc = "zuletzt verwendete Dateien" },
-				{ search_prefix .. "k", builtin.keymaps, desc = "Keymaps finden" },
+				{ search_prefix .. "o", builtin.oldfiles, desc = "Zuletzt verwendete Dateien" },
+				{ search_prefix .. "k", builtin.keymaps, desc = "Tastenbelegungen suchen" },
 				{
 					search_prefix .. "b",
 					function()
 						require("telescope").extensions.scope.buffers()
 					end,
-					desc = "Buffers finden",
+					desc = "Puffer suchen",
 				},
-				{ search_prefix .. "w", builtin.live_grep, desc = "Worte suchen" },
-				{ search_prefix .. "t", builtin.colorscheme, desc = "Farbschema" },
-				{ search_prefix .. "n", "<cmd>Telescope notify<cr>", desc = "Benachrichtigungen", silent = true },
-				{ lang_prefix .. "s", "<cmd>Telescope aerial<cr>", desc = "LSP Symbolen suchen", silent = true },
-				{ lang_prefix .. "R", builtin.lsp_references, desc = "LSP Symbolen suchen" },
-				{ lang_prefix .. "D", builtin.diagnostics, desc = "LSP Probleme sehen" },
-				{ lang_prefix .. "R", builtin.lsp_references, desc = "LSP References suchen" },
-				{ search_prefix .. "<cr>", builtin.resume, desc = "Letzte suchen" },
-				{ "gy", builtin.lsp_type_definitions, desc = "LSP definitions suchen" },
-				{ "gri", builtin.lsp_implementations, desc = "LSP Implementations suchen" },
-				{ lang_prefix .. "i", builtin.lsp_implementations, desc = "LSP Implementations suchen" },
-				{ lang_prefix .. "G", builtin.lsp_dynamic_workspace_symbols, desc = "LSP Workspace Symbolen suchen" },
+				{ search_prefix .. "w", builtin.live_grep, desc = "Text suchen (Live-Grep)" },
+				{ search_prefix .. "t", builtin.colorscheme, desc = "Farbschema wählen" },
+				{ search_prefix .. "n", "<cmd>Telescope notify<cr>", desc = "Benachrichtigungen durchsuchen", silent = true },
+				{ lang_prefix .. "s", "<cmd>Telescope aerial<cr>", desc = "Symbole suchen (Aerial)", silent = true },
+				{ lang_prefix .. "D", builtin.diagnostics, desc = "Diagnosen anzeigen" },
+				{ lang_prefix .. "R", builtin.lsp_references, desc = "Referenzen suchen" },
+				{ search_prefix .. "<cr>", builtin.resume, desc = "Letzte Suche fortsetzen" },
+				{ "gy", builtin.lsp_type_definitions, desc = "Zur Typdefinition gehen" },
+				{ "gri", builtin.lsp_implementations, desc = "Implementierungen suchen" },
+				{ lang_prefix .. "i", builtin.lsp_implementations, desc = "Implementierungen suchen" },
+				{ lang_prefix .. "G", builtin.lsp_dynamic_workspace_symbols, desc = "Workspace-Symbole suchen" },
 				-- { lang_prefix .. "r", vim.lsp.buf.rename, desc = "LSP symbol rename" },
-				{ "gd", builtin.lsp_definitions, desc = "zu Definition gehen" },
-				{ lang_prefix .. "I", vim.lsp.buf.typehierarchy, desc = "LSP symbol ierarcchy" },
+				{ "gd", builtin.lsp_definitions, desc = "Zur Definition gehen" },
+				{ lang_prefix .. "I", vim.lsp.buf.typehierarchy, desc = "Typhierarchie anzeigen" },
 			})
 
 			require("telescope").setup({

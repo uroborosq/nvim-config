@@ -59,7 +59,7 @@ vim.keymap.set({ "n" }, "<leader>ub", function()
 	else
 		vim.o.background = "light"
 	end
-end, { silent = true })
+end, { silent = true, desc = "Hell / Dunkel umschalten" })
 
 vim.keymap.set({ "n" }, "<leader>ut", function()
 	if transparent == true then
@@ -79,7 +79,7 @@ vim.keymap.set({ "n" }, "<leader>ut", function()
 	package.loaded[theme] = nil
 
 	vim.cmd("colorscheme " .. theme)
-end, { silent = true })
+end, { silent = true, desc = "Transparenz umschalten" })
 
 load_transparency()
 

@@ -14,56 +14,56 @@ return {
 				function()
 					require("neotest").run.run()
 				end,
-				desc = "Run neartest test",
+				desc = "Nächstgelegenen Test ausführen",
 			},
 			{
 				prefix .. "f",
 				function()
 					require("neotest").run.run(vim.fn.expand("%"))
 				end,
-				desc = "Run all file",
+				desc = "Alle Tests der Datei ausführen",
 			},
 			{
 				prefix .. "d",
 				function()
 					require("neotest").run.run({ strategy = "dap" })
 				end,
-				desc = "Debug nearest test",
+				desc = "Nächstgelegenen Test debuggen",
 			},
 			{
 				prefix .. "h",
 				function()
 					require("neotest").output.open()
 				end,
-				desc = "Hover test output",
+				desc = "Testausgabe anzeigen",
 			},
 			{
 				prefix .. "o",
 				function()
 					require("neotest").output_panel.open()
 				end,
-				desc = "Open output window",
+				desc = "Ausgabefenster öffnen",
 			},
 			{
 				"]t",
 				function()
 					require("neotest").jump.next()
 				end,
-				desc = "Next test",
+				desc = "Nächster Test",
 			},
 			{
 				"[t",
 				function()
 					require("neotest").jump.prev()
 				end,
-				desc = "Previous test",
+				desc = "Vorheriger Test",
 			},
 			{
 				prefix .. "<CR>",
 				function()
 					require("neotest").summary.toggle()
 				end,
-				desc = "Toggle summary window",
+				desc = "Testübersicht umschalten",
 			},
 		},
 		opts = {
@@ -86,28 +86,28 @@ return {
 				function()
 					require("coverage").toggle()
 				end,
-				desc = "Toggle coverage signs",
+				desc = "Abdeckungszeichen umschalten",
 			},
 			{
 				prefix .. "c" .. "s",
 				function()
 					require("coverage").summary()
 				end,
-				desc = "Show coverage summary",
+				desc = "Abdeckungsübersicht anzeigen",
 			},
 			{
 				prefix .. "c" .. "c",
 				function()
 					require("coverage").clear()
 				end,
-				desc = "Clear coverage signs",
+				desc = "Abdeckungszeichen entfernen",
 			},
 			{
 				prefix .. "c" .. "l",
 				function()
 					require("coverage").load(true)
 				end,
-				desc = "Show and load coverage",
+				desc = "Abdeckung laden und anzeigen",
 			},
 		},
 		opts = {

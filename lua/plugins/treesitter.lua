@@ -131,18 +131,18 @@ return {
 				end, { desc = desc })
 			end
 
-			xo("ak", "@block.outer", "around block")
-			xo("ik", "@block.inner", "inside block")
-			xo("ac", "@class.outer", "around class")
-			xo("ic", "@class.inner", "inside class")
-			xo("a?", "@conditional.outer", "around conditional")
-			xo("i?", "@conditional.inner", "inside conditional")
-			xo("af", "@function.outer", "around function")
-			xo("if", "@function.inner", "inside function")
-			xo("ao", "@loop.outer", "around loop")
-			xo("io", "@loop.inner", "inside loop")
-			xo("aa", "@parameter.outer", "around argument")
-			xo("ia", "@parameter.inner", "inside argument")
+			xo("ak", "@block.outer", "Block (außen)")
+			xo("ik", "@block.inner", "Block (innen)")
+			xo("ac", "@class.outer", "Klasse (außen)")
+			xo("ic", "@class.inner", "Klasse (innen)")
+			xo("a?", "@conditional.outer", "Bedingung (außen)")
+			xo("i?", "@conditional.inner", "Bedingung (innen)")
+			xo("af", "@function.outer", "Funktion (außen)")
+			xo("if", "@function.inner", "Funktion (innen)")
+			xo("ao", "@loop.outer", "Schleife (außen)")
+			xo("io", "@loop.inner", "Schleife (innen)")
+			xo("aa", "@parameter.outer", "Argument (außen)")
+			xo("ia", "@parameter.inner", "Argument (innen)")
 
 			-- Move textobjects (n/x/o)
 			local function nxo(lhs, fn, query, desc)
@@ -151,21 +151,21 @@ return {
 				end, { desc = desc })
 			end
 
-			nxo("]k", ts_move.goto_next_start, "@block.outer", "Next block start")
-			nxo("]f", ts_move.goto_next_start, "@function.outer", "Next function start")
-			nxo("]a", ts_move.goto_next_start, "@parameter.inner", "Next argument start")
+			nxo("]k", ts_move.goto_next_start, "@block.outer", "Nächster Blockanfang")
+			nxo("]f", ts_move.goto_next_start, "@function.outer", "Nächster Funktionsanfang")
+			nxo("]a", ts_move.goto_next_start, "@parameter.inner", "Nächster Argumentanfang")
 
-			nxo("]K", ts_move.goto_next_end, "@block.outer", "Next block end")
-			nxo("]F", ts_move.goto_next_end, "@function.outer", "Next function end")
-			nxo("]A", ts_move.goto_next_end, "@parameter.inner", "Next argument end")
+			nxo("]K", ts_move.goto_next_end, "@block.outer", "Nächstes Blockende")
+			nxo("]F", ts_move.goto_next_end, "@function.outer", "Nächstes Funktionsende")
+			nxo("]A", ts_move.goto_next_end, "@parameter.inner", "Nächstes Argumentende")
 
-			nxo("[k", ts_move.goto_previous_start, "@block.outer", "Previous block start")
-			nxo("[f", ts_move.goto_previous_start, "@function.outer", "Previous function start")
-			nxo("[a", ts_move.goto_previous_start, "@parameter.inner", "Previous argument start")
+			nxo("[k", ts_move.goto_previous_start, "@block.outer", "Vorheriger Blockanfang")
+			nxo("[f", ts_move.goto_previous_start, "@function.outer", "Vorheriger Funktionsanfang")
+			nxo("[a", ts_move.goto_previous_start, "@parameter.inner", "Vorheriger Argumentanfang")
 
-			nxo("[K", ts_move.goto_previous_end, "@block.outer", "Previous block end")
-			nxo("[F", ts_move.goto_previous_end, "@function.outer", "Previous function end")
-			nxo("[A", ts_move.goto_previous_end, "@parameter.inner", "Previous argument end")
+			nxo("[K", ts_move.goto_previous_end, "@block.outer", "Vorheriges Blockende")
+			nxo("[F", ts_move.goto_previous_end, "@function.outer", "Vorheriges Funktionsende")
+			nxo("[A", ts_move.goto_previous_end, "@parameter.inner", "Vorheriges Argumentende")
 
 			-- Swap textobjects (n)
 			local function nswap(lhs, fn, query, desc)
@@ -174,13 +174,13 @@ return {
 				end, { desc = desc })
 			end
 
-			nswap(">K", ts_swap.swap_next, "@block.outer", "Swap next block")
-			nswap(">F", ts_swap.swap_next, "@function.outer", "Swap next function")
-			nswap(">A", ts_swap.swap_next, "@parameter.inner", "Swap next argument")
+			nswap(">K", ts_swap.swap_next, "@block.outer", "Block mit nächstem tauschen")
+			nswap(">F", ts_swap.swap_next, "@function.outer", "Funktion mit nächster tauschen")
+			nswap(">A", ts_swap.swap_next, "@parameter.inner", "Argument mit nächstem tauschen")
 
-			nswap("<K", ts_swap.swap_previous, "@block.outer", "Swap previous block")
-			nswap("<F", ts_swap.swap_previous, "@function.outer", "Swap previous function")
-			nswap("<A", ts_swap.swap_previous, "@parameter.inner", "Swap previous argument")
+			nswap("<K", ts_swap.swap_previous, "@block.outer", "Block mit vorherigem tauschen")
+			nswap("<F", ts_swap.swap_previous, "@function.outer", "Funktion mit vorheriger tauschen")
+			nswap("<A", ts_swap.swap_previous, "@parameter.inner", "Argument mit vorherigem tauschen")
 		end,
 	},
 }

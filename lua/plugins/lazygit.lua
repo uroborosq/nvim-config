@@ -53,7 +53,7 @@ return {
 				function()
 					require("snacks").lazygit.open()
 				end,
-				desc = "LazyGit",
+				desc = "LazyGit öffnen",
 			},
 		},
 		---@type snacks.Config

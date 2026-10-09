@@ -18,6 +18,7 @@ return {
 				function()
 					ls.expand()
 				end,
+				desc = "Snippet erweitern",
 				mode = "i",
 			},
 			{
@@ -25,6 +26,7 @@ return {
 				function()
 					ls.jump(1)
 				end,
+				desc = "Nächster Snippet-Platzhalter",
 				mode = "i",
 			},
 			{
@@ -32,6 +34,7 @@ return {
 				function()
 					ls.jump(-1)
 				end,
+				desc = "Vorheriger Snippet-Platzhalter",
 				mode = "i",
 			},
 		})

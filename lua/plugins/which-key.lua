@@ -34,9 +34,48 @@ return {
 	event = "VeryLazy",
 	opts = {
 		spec = {
+			-- Gruppen
+			{
+				mode = { "n", "x" },
+				{ "<leader>a", group = "KI / Claude Code" },
+				{ "<leader>b", group = "Puffer" },
+				{ "<leader>f", group = "Suchen" },
+				{ "<leader>g", group = "Git" },
+				{ "<leader>G", group = "Golang" },
+				{ "<leader>h", group = "Harpoon" },
+				{ "<leader>l", group = "LSP" },
+				{ "<leader>m", group = "Markdown" },
+				{ "<leader>n", group = "Mehrfachcursor / Benachrichtigungen" },
+				{ "<leader>p", group = "Plugins" },
+				{ "<leader>r", group = "Pull-Requests" },
+				{ "<leader>s", group = "Suchen und Ersetzen" },
+				{ "<leader>S", group = "Sitzungen" },
+				{ "<leader>t", group = "Tests" },
+				{ "<leader>tc", group = "Testabdeckung" },
+				{ "<leader>u", group = "Oberfläche umschalten" },
+				{ "<leader>y", group = "Hierarchien (Yarn)" },
+				{ "<localleader>t", group = "Aufgaben" },
+				{ "[", group = "Vorherige" },
+				{ "]", group = "Nächste" },
+				{ "g", group = "Gehe zu" },
+				{ "z", group = "Faltung und Ansicht" },
+				{ "<c-w>", group = "Fenster" },
+			},
+			{
+				mode = { "o", "x" },
+				{ "a", group = "Um (außen)" },
+				{ "i", group = "Innerhalb" },
+			},
+			-- Belegungen, die Plugins selbst anlegen: hier nur die Beschriftung
+			{ "<leader>/", desc = "Kommentar umschalten", mode = { "n", "x" } },
+			{ "<leader>lr", desc = "Umbenennen (Go-Methode über Interfaces, sonst LSP)" },
+			{ "<leader>rC", desc = "Pull-Request erstellen" },
+			{ "<leader>rm", desc = "Pull-Request mergen" },
+			{ "<leader>rq", desc = "Pull-Request schließen" },
+			{ "<leader>rS", desc = "Pull-Request-Statistik" },
+			{ "<leader>tr", desc = "Letzte Aufgabe erneut ausführen" },
 			{
 				mode = { "n" },
-				{ "<leader>G", group = "Golang" },
 				{
 					"<leader>lF",
 					function()
@@ -57,36 +96,35 @@ return {
 							end,
 						})
 					end,
-					desc = "golangci-lint --fix current file",
+					desc = "golangci-lint --fix für aktuelle Datei",
 				},
 
-				{ "<leader>Gc", "<cmd>GoCmt<CR>", desc = "Generate comment", silent = true },
-				{ "<leader>Ge", "<cmd>GoIfErr<CR>", desc = "Generate if err", silent = true },
-				{ "<leader>Gd", "<cmd>GoMod tidy<CR>", desc = "go mod tidy", silent = true },
-				{ "<leader>Gg", "<cmd>GoGenerate %<CR>", desc = "go generate current file", silent = true },
-				{ "<leader>GG", "<cmd>GoGenerate<CR>", desc = "go generate all", silent = true },
+				{ "<leader>Gc", "<cmd>GoCmt<CR>", desc = "Kommentar generieren", silent = true },
+				{ "<leader>Ge", "<cmd>GoIfErr<CR>", desc = "if err generieren", silent = true },
+				{ "<leader>Gd", "<cmd>GoMod tidy<CR>", desc = "go mod tidy ausführen", silent = true },
+				{ "<leader>Gg", "<cmd>GoGenerate %<CR>", desc = "go generate für aktuelle Datei", silent = true },
+				{ "<leader>GG", "<cmd>GoGenerate<CR>", desc = "go generate für alles", silent = true },
 
 				-- без <CR>, чтобы вводить аргументы
-				{ "<leader>Gi", "<cmd>GoImpl ", desc = "implement current interface" },
-				{ "<leader>GI", "<cmd>GoMod init ", desc = "go mod init" },
+				{ "<leader>Gi", "<cmd>GoImpl ", desc = "Interface implementieren" },
+				{ "<leader>GI", "<cmd>GoMod init ", desc = "go mod init ausführen" },
 
-				{ "<leader>Ga", "<cmd>GoTagAdd json<CR>", desc = "add tags to struct", silent = true },
+				{ "<leader>Ga", "<cmd>GoTagAdd json<CR>", desc = "JSON-Tags zum Struct hinzufügen", silent = true },
 
-				{ "<leader>Gt", "<cmd>GoTestAdd<CR>", desc = "gen tests for cur method", silent = true },
-				{ "<leader>GT", "<cmd>GoTestsExp<CR>", desc = "gen tests for exported methods", silent = true },
+				{ "<leader>Gt", "<cmd>GoTestAdd<CR>", desc = "Tests für aktuelle Methode generieren", silent = true },
+				{ "<leader>GT", "<cmd>GoTestsExp<CR>", desc = "Tests für exportierte Methoden generieren", silent = true },
 			},
 			{
 				mode = { "i" },
-				{ "<C-E>", "<esc><cmd>GoIfErr<CR>i", desc = "Generate if err", silent = true },
+				{ "<C-E>", "<esc><cmd>GoIfErr<CR>i", desc = "if err generieren", silent = true },
 			},
 			{
-				{ "<leader>l", group = "LSP", mode = "n" },
 				{
 					"<leader>lc",
 					function()
 						require("telescope.builtin").lsp_incoming_calls()
 					end,
-					desc = "Incoming calls",
+					desc = "Eingehende Aufrufe",
 					mode = "n",
 				},
 				{
@@ -94,7 +132,7 @@ return {
 					function()
 						require("telescope.builtin").lsp_outgoing_calls()
 					end,
-					desc = "Outgoing calls",
+					desc = "Ausgehende Aufrufe",
 					mode = "n",
 				},
 				{
@@ -102,13 +140,13 @@ return {
 					function()
 						vim.lsp.buf.code_action()
 					end,
-					desc = "show all code actions",
+					desc = "Alle Code-Aktionen anzeigen",
 					mode = "n",
 				},
 				{
 					"<leader>lu",
 					"<cmd>lsp restart<CR>",
-					desc = "Restart LSP",
+					desc = "LSP neu starten",
 					silent = true,
 					mode = "n",
 				},
@@ -125,7 +163,7 @@ return {
 							end,
 						})
 					end,
-					desc = "show code actions",
+					desc = "Code-Aktionen anzeigen",
 					mode = "n",
 				},
 			},
@@ -137,7 +175,7 @@ return {
 			function()
 				require("which-key").show({ global = false })
 			end,
-			desc = "Buffer Local Keymaps (which-key)",
+			desc = "Puffer-lokale Tastenbelegungen",
 		},
 	},
 }

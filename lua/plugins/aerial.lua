@@ -2,9 +2,9 @@ return {
 	{
 		"stevearc/aerial.nvim",
 		keys = {
-			{ "<Leader>lS", "<cmd>AerialToggle<cr>", desc = "LSP Symbolen offnen", silent = true },
-			{ "]y", "<cmd>AerialNext<cr>", desc = "das nächste Symbol", silent = true },
-			{ "[y", "<cmd>AerialPrev<cr>", desc = "das vorheriges Symbol", silent = true },
+			{ "<Leader>lS", "<cmd>AerialToggle<cr>", desc = "Symbolübersicht umschalten", silent = true },
+			{ "]y", "<cmd>AerialNext<cr>", desc = "Nächstes Symbol", silent = true },
+			{ "[y", "<cmd>AerialPrev<cr>", desc = "Vorheriges Symbol", silent = true },
 		},
 		opts = {
 			backends = {
