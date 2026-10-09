@@ -6,7 +6,7 @@ local transparent = false
 local theme = ""
 
 local function save_colorscheme(name)
-	if name == "" then
+	if name == "" or name == theme then
 		return
 	end
 
@@ -42,6 +42,9 @@ end
 
 vim.api.nvim_create_autocmd("User", {
 	pattern = "VeryLazy",
+	-- без nested событие ColorScheme не срабатывает, и плагины (barbar, devicons и др.)
+	-- не пересчитывают свои подсветки под загруженную тему
+	nested = true,
 	callback = function()
 		load_colorscheme()
 	end,
