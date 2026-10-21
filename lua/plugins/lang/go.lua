@@ -103,22 +103,9 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
-		init = function()
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "TSUpdate",
-				callback = function()
-					require("nvim-treesitter.parsers").golang = {
-						install_info = {
-							url = "https://github.com/GaijinEntertainment/tree-sitter-golang",
-							queries = "queries",
-						},
-					}
-				end,
-			})
-		end,
 		opts = {
 			ensure_installed = {
-				go = "golang",
+				go = "go",
 				gomod = "gomod",
 				gosum = "gosum",
 				gowork = "gowork",

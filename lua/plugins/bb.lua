@@ -15,8 +15,6 @@ return {
 				desc = "Pull-Request-Details",
 			},
 		},
-		opts = {
-			diff_mode = "commits",
-		},
+		opts = {},
 	},
 }
