@@ -1,4 +1,11 @@
 local prefix = "<leader>S"
+
+-- .lazy.lua, die lazy.nvim beim Start für dieses Verzeichnis lädt (Suche nach oben wie bei lazy)
+local function local_spec(dir)
+	return vim.fs.find(".lazy.lua", { upward = true, path = dir, type = "file", limit = 1 })[1]
+end
+local spec_before_cd
+
 return {
 	{
 		"rmagatti/auto-session",
@@ -19,7 +26,7 @@ return {
 			auto_restore = true, -- Enables/disables auto restoring session on start
 			auto_create = true, -- Enables/disables auto creating new session files. Can be a function that returns true if a new session file should be allowed
 			auto_restore_last_session = false, -- On startup, loads the last saved session if session for cwd does not exist
-			cwd_change_handling = false, -- Automatically save/restore sessions when changing directories
+			cwd_change_handling = true, -- Automatically save/restore sessions when changing directories
 			single_session_mode = false, -- Enable single session mode to keep all work in one session regardless of cwd changes. When enabled, prevents creation of separate sessions for different directories and maintains one unified session. Does not work with cwd_change_handling
 
 			-- Filtering
@@ -43,6 +50,31 @@ return {
 						if vim.bo[buf].buftype == "terminal" then
 							pcall(vim.api.nvim_buf_delete, buf, { force = true })
 						end
+					end
+				end,
+			},
+			-- Beim Wechsel des globalen cwd (z. B. über zoxide) ist die alte Sitzung schon
+			-- gespeichert. Tabs, Fenster und Buffer (auch Terminals) des alten Verzeichnisses
+			-- schließen, damit danach nur die Sitzung des neuen Verzeichnisses geladen wird
+			-- bzw. ohne Sitzung ein leerer Editor bleibt. Vorher alles speichern, sonst gehen
+			-- ungespeicherte Änderungen beim Wipeout verloren.
+			pre_cwd_changed_cmds = {
+				function()
+					spec_before_cd = local_spec(vim.fn.getcwd(-1, -1))
+					vim.cmd("silent! wall")
+					vim.cmd("silent! tabonly")
+					vim.cmd("silent! only")
+					vim.cmd("silent! %bwipeout!")
+				end,
+			},
+			-- lazy.nvim liest .lazy.lua nur beim Start. Gilt vor oder nach dem Wechsel eine
+			-- .lazy.lua, Neovim neu starten, auch bei derselben Datei: sie kann Werte aus dem cwd
+			-- ableiten (z. B. PROJECT_ROOT pro Git-Worktree). :restart! startet im aktuellen cwd,
+			-- dort lädt lazy die .lazy.lua neu und auto-session die Sitzung.
+			post_cwd_changed_cmds = {
+				function()
+					if spec_before_cd or local_spec(vim.fn.getcwd(-1, -1)) then
+						vim.cmd("restart!")
 					end
 				end,
 			},
