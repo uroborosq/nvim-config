@@ -26,6 +26,18 @@ if vim.g.neovide then
 	end, { desc = "Schrift vergrößern" })
 
 	vim.opt.linespace = 3
+
+	-- На sway с дробным масштабом (1.25) первый resize приходит с сеткой,
+	-- посчитанной без учёта масштаба (212x47 вместо 169x38). Повторная установка
+	-- guifont заставляет neovide пересчитать сетку под реальный размер окна.
+	vim.api.nvim_create_autocmd("VimResized", {
+		once = true,
+		callback = function()
+			vim.defer_fn(function()
+				vim.o.guifont = vim.o.guifont
+			end, 100)
+		end,
+	})
 end
 
 return {}
