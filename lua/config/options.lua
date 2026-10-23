@@ -118,3 +118,5 @@ vim.opt.splitbelow = true
 
 -- damit scope.nvim die Buffer-pro-Tab-Verteilung in Sessions speichert
 vim.opt.sessionoptions:append("globals")
+-- Terminals nicht in Sessions speichern: beim Wiederherstellen startet sonst ein neuer, leerer Prozess
+vim.opt.sessionoptions:remove("terminal")

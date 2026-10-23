@@ -30,6 +30,23 @@ return {
 			close_unsupported_windows = true, -- Close windows that aren't backed by normal file before autosaving a session
 			preserve_buffer_on_restore = nil, -- Function that returns true if a buffer should be preserved when restoring a session
 
+			-- Terminals werden nicht gespeichert (sessionoptions ohne "terminal"), ihre Fenster
+			-- aber schon: ein Tab nur mit Terminal käme leer zurück. Daher Terminal-Buffer vor
+			-- dem Speichern schließen. Nur beim Beenden, damit ein manuelles Speichern laufende
+			-- Terminals (z. B. Claude) nicht beendet.
+			pre_save_cmds = {
+				function()
+					if vim.v.exiting == vim.NIL then
+						return
+					end
+					for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+						if vim.bo[buf].buftype == "terminal" then
+							pcall(vim.api.nvim_buf_delete, buf, { force = true })
+						end
+					end
+				end,
+			},
+
 			-- Git / Session naming
 			git_use_branch_name = false, -- Include git branch name in session name, can also be a function that takes an optional path and returns the name of the branch
 			git_auto_restore_on_branch_change = false, -- Should we auto-restore the session when the git branch changes. Requires git_use_branch_name
