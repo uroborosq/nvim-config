@@ -15,6 +15,7 @@ return {
 			"folke/which-key.nvim",
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			"jvgrootveld/telescope-zoxide",
 		},
 		config = function(_, opts)
 			local builtin = require("telescope.builtin")
@@ -70,6 +71,13 @@ return {
 				},
 				{ search_prefix .. "w", builtin.live_grep, desc = "Text suchen (Live-Grep)" },
 				{ search_prefix .. "t", builtin.colorscheme, desc = "Farbschema wählen" },
+				{
+					search_prefix .. "z",
+					function()
+						require("telescope").extensions.zoxide.list()
+					end,
+					desc = "Verzeichnisse suchen (zoxide)",
+				},
 				{ search_prefix .. "n", "<cmd>Telescope notify<cr>", desc = "Benachrichtigungen durchsuchen", silent = true },
 				{ lang_prefix .. "s", "<cmd>Telescope aerial<cr>", desc = "Symbole suchen (Aerial)", silent = true },
 				{ lang_prefix .. "D", builtin.diagnostics, desc = "Diagnosen anzeigen" },
@@ -114,6 +122,7 @@ return {
 			})
 			require("telescope").load_extension("aerial")
 			require("telescope").load_extension("ui-select")
+			require("telescope").load_extension("zoxide")
 		end,
 	},
 }
