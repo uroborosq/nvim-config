@@ -20,7 +20,7 @@ if vim.g.neovide then
 	end, { desc = "Schrift verkleinern" })
 
 	-- увеличить
-	vim.keymap.set("n", "<C-=>", function()
+	vim.keymap.set("n", "<C-+>", function()
 		size = size + 1
 		vim.o.guifont = font .. ":h" .. tostring(size)
 	end, { desc = "Schrift vergrößern" })
