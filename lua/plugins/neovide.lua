@@ -39,6 +39,9 @@ if vim.g.neovide then
 
 	vim.opt.linespace = 3
 
+	-- Unter sway mit gebrochener Skalierung (1.25) kommt das erste Resize mit einem Raster an,
+	-- das ohne Skalierung berechnet wurde (212x47 statt 169x38). Erneutes Setzen von guifont
+	-- zwingt Neovide, das Raster für die tatsächliche Fenstergröße neu zu berechnen.
 	vim.api.nvim_create_autocmd("VimResized", {
 		once = true,
 		callback = function()
