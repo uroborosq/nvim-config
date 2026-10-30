@@ -64,6 +64,16 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Zum rechten Fenster" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Zum unteren Fenster" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Zum oberen Fenster" })
 
+-- langmap greift nicht bei Strg-Kombinationen: im russischen Layout kommt <C-р> statt <C-h> an.
+-- remap leitet auf die lateinische Taste um, damit alle ihre Mappings greifen
+-- (Fensterwechsel, Terminal, Telescope, blink).
+for ru, en in pairs({ ["р"] = "h", ["о"] = "j", ["л"] = "k", ["д"] = "l" }) do
+	vim.keymap.set({ "n", "x", "s", "o", "i", "c", "t" }, "<C-" .. ru .. ">", "<C-" .. en .. ">", {
+		remap = true,
+		desc = "Strg+" .. en .. " (russisches Layout)",
+	})
+end
+
 vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +2<cr>", { desc = "Fensterhöhe vergrößern", silent = true })
 vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -2<cr>", { desc = "Fensterhöhe verkleinern", silent = true })
 vim.keymap.set("n", "<C-S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Fensterbreite verkleinern", silent = true })
