@@ -14,22 +14,31 @@ if vim.g.neovide then
 	-- 	vim.g.neovide_opacity = 0.9
 	-- end
 
-	vim.keymap.set("n", "<C-->", function()
-		size = size - 1
+	local function resize_font(delta)
+		size = size + delta
 		vim.o.guifont = font .. ":h" .. tostring(size)
-	end, { desc = "Schrift verkleinern" })
+	end
 
-	-- увеличить
-	vim.keymap.set("n", "<C-+>", function()
-		size = size + 1
-		vim.o.guifont = font .. ":h" .. tostring(size)
+	-- Alt+- / Alt++ in allen Modi; Alt+= für + ohne Shift
+	local modes = { "n", "i", "v", "t" }
+	vim.keymap.set(modes, "<A-->", function()
+		resize_font(-1)
+	end, { desc = "Schrift verkleinern" })
+	vim.keymap.set(modes, "<A-+>", function()
+		resize_font(1)
 	end, { desc = "Schrift vergrößern" })
+	vim.keymap.set(modes, "<A-=>", function()
+		resize_font(1)
+	end, { desc = "Schrift vergrößern" })
+
+	-- Neovide verarbeitet Ctrl+Shift+V nicht selbst (anders als ein Terminalemulator):
+	-- Zwischenablage per nvim_paste an den Job senden (mit Bracketed Paste)
+	vim.keymap.set("t", "<C-S-v>", function()
+		vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
+	end, { desc = "Aus Systemzwischenablage einfügen" })
 
 	vim.opt.linespace = 3
 
-	-- На sway с дробным масштабом (1.25) первый resize приходит с сеткой,
-	-- посчитанной без учёта масштаба (212x47 вместо 169x38). Повторная установка
-	-- guifont заставляет neovide пересчитать сетку под реальный размер окна.
 	vim.api.nvim_create_autocmd("VimResized", {
 		once = true,
 		callback = function()
