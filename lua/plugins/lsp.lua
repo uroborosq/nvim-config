@@ -13,7 +13,9 @@ return {
 			{
 				"<Leader>uh",
 				function()
-					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+					-- Zustand des aktuellen Puffers: LspAttach aktiviert die Hinweise pro Puffer,
+					-- das globale Flag bleibt dabei ausgeschaltet.
+					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }))
 				end,
 				desc = "Inlay-Hinweise umschalten",
 			},
