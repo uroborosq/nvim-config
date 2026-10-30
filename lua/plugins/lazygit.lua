@@ -41,6 +41,47 @@ local function open(placeholder)
 	return prepare .. " && " .. nvim .. " --remote " .. placeholder
 end
 
+-- Relative Leuchtdichte einer Farbe (WCAG)
+local function luminance(color)
+	local function channel(v)
+		v = v / 255
+		return v <= 0.03928 and v / 12.92 or ((v + 0.055) / 1.055) ^ 2.4
+	end
+	return 0.2126 * channel(bit.rshift(color, 16))
+		+ 0.7152 * channel(bit.band(bit.rshift(color, 8), 0xff))
+		+ 0.0722 * channel(bit.band(color, 0xff))
+end
+
+-- snacks nimmt selectedLineBgColor aus dem Visual-Hintergrund. Je nach Theme stimmt dieser mit
+-- Normal (quiet, unokai) oder NormalFloat (gruvbox-material) überein, daher bekommt das
+-- lazygit-Fenster den Hintergrund mit dem stärkeren Kontrast zur Auswahl (bei Gleichstand Normal).
+local function update_lazygit_bg()
+	local function bg(name)
+		return vim.api.nvim_get_hl(0, { name = name, link = false }).bg
+	end
+	local visual = bg("Visual")
+	local best, best_ratio = "Normal", -1
+	for _, name in ipairs({ "Normal", "NormalFloat" }) do
+		local color = bg(name)
+		local ratio = 0
+		if color and visual then
+			local a, b = luminance(color), luminance(visual)
+			ratio = (math.max(a, b) + 0.05) / (math.min(a, b) + 0.05)
+		end
+		if ratio > best_ratio then
+			best, best_ratio = name, ratio
+		end
+	end
+	vim.api.nvim_set_hl(0, "LazygitNormal", { link = best })
+end
+
+update_lazygit_bg()
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("config_lazygit_bg", { clear = true }),
+	desc = "Hintergrund des lazygit-Fensters an das Theme anpassen",
+	callback = update_lazygit_bg,
+})
+
 return {
 	-- {
 	-- 	"folke/which-key",
@@ -63,6 +104,8 @@ return {
 					width = 0,
 					height = 0,
 					border = "none",
+					-- LazygitNormal: siehe update_lazygit_bg
+					wo = { winhighlight = "Normal:LazygitNormal,NormalNC:LazygitNormal" },
 				},
 				config = {
 					os = {
