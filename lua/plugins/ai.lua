@@ -30,12 +30,7 @@ local function claude_in_tab()
 		terminal.simple_toggle() -- hide the freshly created float, the job keeps running
 	end
 
-	vim.cmd.tabnew()
-	vim.bo.bufhidden = "wipe"
-	vim.api.nvim_win_set_buf(0, bufnr)
-	vim.wo.number = false
-	vim.wo.relativenumber = false
-	vim.wo.signcolumn = "no"
+	require("config.terminal").open_in_tab(bufnr)
 	vim.cmd.startinsert()
 end
 
