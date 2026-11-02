@@ -2,7 +2,7 @@ return {
 	{
 		"uroborosq/bb",
 		lazy = false,
-		dir = "~/desktop/owned/bb",
+		-- dir = "~/desktop/owned/bb",
 		keys = {
 			{
 				"<leader>rr",
