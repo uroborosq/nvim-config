@@ -10,9 +10,9 @@ if vim.g.neovide then
 	vim.g.neovide_hide_mouse_when_typing = true
 	vim.g.neovide_window_blurred = true
 
-	-- if os.getenv("XDG_CURRENT_DESKTOP") == "sway" then
-	-- 	vim.g.neovide_opacity = 0.9
-	-- end
+	if os.getenv("XDG_CURRENT_DESKTOP") == "sway" then
+		vim.g.neovide_opacity = 0.85
+	end
 
 	local function resize_font(delta)
 		size = size + delta
