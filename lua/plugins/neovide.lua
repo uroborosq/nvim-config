@@ -4,8 +4,36 @@ if vim.g.neovide then
 	local size = 12
 	vim.o.guifont = font .. ":h" .. tostring(size)
 
+	-- Animationen (Werte = Neovide-Standard, sofern nicht anders vermerkt)
+	-- Fenster: Dauer der Positionsanimation (Verschieben/Größe ändern), in Sekunden
+	vim.g.neovide_position_animation_length = 0.15
+	-- Scrollen: Dauer der Animation und max. Zeilen, die bei weiten Sprüngen animiert werden
+	vim.g.neovide_scroll_animation_length = 0.05
+	vim.g.neovide_scroll_animation_far_lines = 1
+
+	-- Fortschrittsbalken (LSP-Progress)
+	vim.g.neovide_progress_bar_enabled = true
+	vim.g.neovide_progress_bar_height = 5.0
+	vim.g.neovide_progress_bar_animation_speed = 200.0
+	vim.g.neovide_progress_bar_hide_delay = 0.2
+
+	-- Cursor: Animationsdauer (Standard 0.150 bzw. 0.04 für kurze Sprünge) – hier abgeschaltet
 	vim.g.neovide_cursor_animation_length = 0
 	vim.g.neovide_cursor_short_animation_length = 0.0
+	vim.g.neovide_cursor_trail_size = 1.0
+	vim.g.neovide_cursor_animate_in_insert_mode = true
+	vim.g.neovide_cursor_animate_command_line = true
+	vim.g.neovide_cursor_smooth_blink = false
+
+	-- Cursor-Partikeleffekte: "" (aus), "railgun", "torpedo", "pixiedust", "sonicboom", "ripple", "wireframe"
+	vim.g.neovide_cursor_vfx_mode = ""
+	vim.g.neovide_cursor_vfx_opacity = 200.0
+	vim.g.neovide_cursor_vfx_particle_lifetime = 0.5
+	vim.g.neovide_cursor_vfx_particle_highlight_lifetime = 0.2
+	vim.g.neovide_cursor_vfx_particle_density = 0.7
+	vim.g.neovide_cursor_vfx_particle_speed = 10.0
+	vim.g.neovide_cursor_vfx_particle_phase = 1.5 -- nur railgun
+	vim.g.neovide_cursor_vfx_particle_curl = 1.0 -- nur railgun
 
 	vim.g.neovide_hide_mouse_when_typing = true
 	vim.g.neovide_window_blurred = true
@@ -36,6 +64,20 @@ if vim.g.neovide then
 	vim.keymap.set("t", "<C-S-v>", function()
 		vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
 	end, { desc = "Aus Systemzwischenablage einfügen" })
+
+	-- Deckkraft zwischen voll (1.0) und durchscheinend (0.85) umschalten
+	vim.keymap.set("n", "<C-S-o>", function()
+		if (vim.g.neovide_opacity or 1.0) < 1.0 then
+			vim.g.neovide_opacity = 1.0
+		else
+			vim.g.neovide_opacity = 0.85
+		end
+	end, { desc = "Neovide-Deckkraft umschalten" })
+
+	-- Profiler (FPS und Frame-Zeiten) ein-/ausblenden
+	vim.keymap.set("n", "<leader>up", function()
+		vim.g.neovide_profiler = not vim.g.neovide_profiler
+	end, { desc = "Neovide-Profiler umschalten" })
 
 	vim.opt.linespace = 3
 
