@@ -23,7 +23,7 @@ return {
 			},
 			formatters = {
 				nimpretty = {
-					prepend_args = { "--indent:2" },
+					prepend_args = { "--indent:2", "--maxLineLen:150" },
 				},
 			},
 		},
