@@ -108,6 +108,12 @@ local keyboard_layout = {
 	end,
 }
 
+local typingspeed = {
+	function()
+		return require("typingspeed").status()
+	end,
+}
+
 local project = {
 	function()
 		return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
@@ -143,7 +149,7 @@ return {
 				},
 				lualine_b = { project, "branch", "diagnostics" },
 				lualine_c = { wakastat },
-				lualine_x = { selectioncount, "searchcount", "lsp_status" },
+				lualine_x = { typingspeed, selectioncount, "searchcount", "lsp_status" },
 				lualine_y = {
 					keyboard_layout,
 					"encoding",
